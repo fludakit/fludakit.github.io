@@ -36,7 +36,8 @@ FluDa provides a developer-friendly, fluent programming model for data access th
 
     A lightweight, type-safe, fluent query engine built directly over JDBC.
 
-    [:octicons-arrow-right-24: Documentation](docs/index.md)
+    [:octicons-arrow-right-24: Documentation](docs/index.md){ .md-button .md-button--primary }
+    [:octicons-mark-github-16: GitHub](https://github.com/fludakit/jdbc-client){ .md-button }
 
 -   :material-sync:{ .lg .middle } **SQL Initialization** *(coming soon)*
 
