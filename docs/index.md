@@ -6,7 +6,11 @@ hide:
 
 <div class="hero" markdown>
 
-![FluDa](assets/fluda-cover.png){ align="left" }
+<div markdown style="text-align: center;">
+
+![FluDa](assets/fluda-stacked.svg){ width="320" }
+
+</div>
 
 # FluDa
 
