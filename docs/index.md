@@ -4,7 +4,11 @@ hide:
   - toc
   - title
 ---
-
+<style>
+  .md-typeset h1{ 
+    display: none; 
+  }
+</style>
 <div class="hero" markdown>
 
 <div markdown style="text-align: center;">
