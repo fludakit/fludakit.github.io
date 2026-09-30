@@ -1,0 +1,84 @@
+/* Custom primary color — FluDa deep navy */
+:root {
+  --md-primary-fg-color: #202794;
+  --md-primary-fg-color--light: #3f47b8;
+  --md-primary-fg-color--dark: #0a1258;
+  --md-primary-bg-color: #ffffff;
+  --md-accent-fg-color: #f0b92d;
+  --md-accent-fg-color--transparent: rgba(240, 185, 45, 0.1);
+  --md-accent-bg-color: #ffffff;
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: 2rem 0 1rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.hero img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+}
+
+.hero .md-button {
+  margin: 0.25rem;
+}
+
+/* Grid cards */
+.grid.cards {
+  margin-top: 1.5rem;
+}
+
+.grid.cards > ul > li {
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: box-shadow 0.2s;
+}
+
+.grid.cards > ul > li:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Brand accent for primary buttons */
+.md-button--primary {
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  border-color: var(--md-primary-fg-color);
+}
+
+.md-button--primary:hover {
+  background-color: var(--md-accent-fg-color);
+  color: var(--md-accent-bg-color);
+  border-color: var(--md-accent-fg-color);
+}
+
+/* Table styling */
+.md-typeset table:not([class]) {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+/* Code block styling */
+.md-typeset pre > code {
+  border-radius: 8px;
+}
+
+/* Responsive hero image */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero img {
+    max-width: 90%;
+  }
+}
