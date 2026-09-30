@@ -85,6 +85,11 @@ nav:
       - Installation: docs/sql-init/install.md
       - Quickstart: docs/sql-init/quickstart.md
       - Configuration: docs/sql-init/configuration.md
+    - Transaction:
+      - Introduction: docs/tx/index.md
+      - Installation: docs/tx/install.md
+      - Quickstart: docs/tx/quickstart.md
+      - JDBC Implementation: docs/tx/jdbc.md
   - Blog:
     - blog/index.md
 
