@@ -10,31 +10,29 @@
       
       
       
-        <link rel="canonical" href="https://fludakit.github.io/docs/tx/">
+        <link rel="canonical" href="https://fludakit.github.io/">
       
       
-        <link rel="prev" href="../sql-init/configuration/">
       
-      
-        <link rel="next" href="install/">
+        <link rel="next" href="docs/jdbc-client/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/favicon.ico">
+      <link rel="icon" href="assets/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Introduction - FluDa</title>
+        <title>FluDa</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,9 +51,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#transaction-support" class="md-skip">
+        <a href="#what-is-fluda" class="md-skip">
           Skip to content
         </a>
       
@@ -96,9 +94,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="FluDa" class="md-header__button md-logo" aria-label="FluDa" data-md-component="logo">
+    <a href="." title="FluDa" class="md-header__button md-logo" aria-label="FluDa" data-md-component="logo">
       
-  <img src="../../assets/fluda-badge-light.svg" alt="logo">
+  <img src="assets/fluda-badge-light.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -115,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction
+              Home
             
           </span>
         </div>
@@ -224,7 +222,9 @@
           
             
               
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -233,9 +233,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="FluDa" class="md-nav__button md-logo" aria-label="FluDa" data-md-component="logo">
+    <a href="." title="FluDa" class="md-nav__button md-logo" aria-label="FluDa" data-md-component="logo">
       
-  <img src="../../assets/fluda-badge-light.svg" alt="logo">
+  <img src="assets/fluda-badge-light.svg" alt="logo">
 
     </a>
     FluDa
@@ -259,10 +259,35 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
         
   
   
@@ -278,6 +303,79 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-fluda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is FluDa?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-fluda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why FluDa?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -286,10 +384,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -308,11 +404,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -333,7 +431,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -381,7 +479,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../jdbc-client/" class="md-nav__link ">
+            <a href="docs/jdbc-client/" class="md-nav__link ">
               
   
   
@@ -425,7 +523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../jdbc-client/install/" class="md-nav__link">
+      <a href="docs/jdbc-client/install/" class="md-nav__link">
         
   
   
@@ -453,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../jdbc-client/quickstart/" class="md-nav__link">
+      <a href="docs/jdbc-client/quickstart/" class="md-nav__link">
         
   
   
@@ -538,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../jdbc-client/querying/" class="md-nav__link">
+      <a href="docs/jdbc-client/querying/" class="md-nav__link">
         
   
   
@@ -566,7 +664,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../jdbc-client/updates/" class="md-nav__link">
+      <a href="docs/jdbc-client/updates/" class="md-nav__link">
         
   
   
@@ -602,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../jdbc-client/configuration/" class="md-nav__link">
+      <a href="docs/jdbc-client/configuration/" class="md-nav__link">
         
   
   
@@ -666,7 +764,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../sql-init/" class="md-nav__link ">
+            <a href="docs/sql-init/" class="md-nav__link ">
               
   
   
@@ -710,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sql-init/install/" class="md-nav__link">
+      <a href="docs/sql-init/install/" class="md-nav__link">
         
   
   
@@ -738,7 +836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sql-init/quickstart/" class="md-nav__link">
+      <a href="docs/sql-init/quickstart/" class="md-nav__link">
         
   
   
@@ -766,7 +864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sql-init/configuration/" class="md-nav__link">
+      <a href="docs/sql-init/configuration/" class="md-nav__link">
         
   
   
@@ -799,8 +897,6 @@
                 
   
   
-    
-  
   
   
     
@@ -822,15 +918,17 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
+            <a href="docs/tx/" class="md-nav__link ">
               
   
   
@@ -848,13 +946,13 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -874,7 +972,7 @@
   
   
     <li class="md-nav__item">
-      <a href="install/" class="md-nav__link">
+      <a href="docs/tx/install/" class="md-nav__link">
         
   
   
@@ -902,7 +1000,7 @@
   
   
     <li class="md-nav__item">
-      <a href="quickstart/" class="md-nav__link">
+      <a href="docs/tx/quickstart/" class="md-nav__link">
         
   
   
@@ -930,7 +1028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="jdbc/" class="md-nav__link">
+      <a href="docs/tx/jdbc/" class="md-nav__link">
         
   
   
@@ -1002,7 +1100,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../blog/" class="md-nav__link ">
+            <a href="blog/" class="md-nav__link ">
               
   
   
@@ -1103,7 +1201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2026/" class="md-nav__link">
+      <a href="blog/archive/2026/" class="md-nav__link">
         
   
   
@@ -1196,7 +1294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/announcement/" class="md-nav__link">
+      <a href="blog/category/announcement/" class="md-nav__link">
         
   
   
@@ -1240,7 +1338,9 @@
             
             
               
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -1248,8 +1348,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-  
-    
   
   
     <label class="md-nav__title" for="__toc">
@@ -1259,10 +1357,32 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-it-works" class="md-nav__link">
+  <a href="#what-is-fluda" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How it works
+        What is FluDa?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-fluda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why FluDa?
       
     </span>
   </a>
@@ -1281,10 +1401,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-concepts" class="md-nav__link">
+  <a href="#installation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Key concepts
+        Installation
       
     </span>
   </a>
@@ -1305,54 +1425,125 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+
 
 
   
   
 
 
-<h1 id="transaction-support">Transaction Support<a class="headerlink" href="#transaction-support" title="Permanent link">&para;</a></h1>
-<p>FluDa Transaction Support provides container-agnostic declarative and programmatic transaction boundaries backed directly by a standard <code>DataSource</code> or JPA.</p>
-<h2 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
-<p>Depending on the runtime, applications can participate in database transactions in two ways:</p>
+  <h1>Home</h1>
+
+<style>
+  .md-typeset h1{ 
+    display: none; 
+  }
+</style>
+<div class="hero">
+<div style="text-align: center;">
+<p><img alt="FluDa" src="assets/fluda-stacked.svg" width="320" /></p>
+</div>
+<p class="tagline"><span class="brand">Flu</span>ent <span class="brand">Da</span>ta Toolkit for <strong>Jakarta EE / CDI</strong></p>
+<p>A lightweight, modular data-access suite designed for standard Jakarta EE and CDI environments. Type-safe, fluent JDBC queries — no Spring required.</p>
+<p><a class="md-button md-button--primary" href="docs/quickstart.md">Get Started</a>
+<a class="md-button" href="https://github.com/fludakit">GitHub</a></p>
+</div>
+<h2 id="what-is-fluda">What is FluDa?<a class="headerlink" href="#what-is-fluda" title="Permanent link">&para;</a></h2>
+<p>FluDa provides a developer-friendly, fluent programming model for data access that mirrors modern APIs like Spring's <code>JdbcClient</code> — without the bulk of a full framework. It is organized into three standalone pillars:</p>
+<div class="grid cards">
 <ul>
-<li><strong>Java SE or a Servlet container</strong> — use the <code>fluda-tx</code> modules for <em>resource-local</em> transactions. A CDI interceptor honors <code>jakarta.transaction.Transactional</code> over a plain JDBC <code>DataSource</code>, with no JTA required.</li>
-<li><strong>A full Jakarta EE runtime</strong> (WildFly, GlassFish, Payara, Open Liberty, ...) — the container ships a JTA implementation, so <code>jakarta.transaction.Transactional</code> works out of the box and the <code>fluda-tx</code> modules are unnecessary.</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4M4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4m0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4"/></svg></span> <strong>JDBC Client</strong></p>
+<p>A lightweight, type-safe, fluent query engine built directly over JDBC.</p>
+<p>→ <a class="card-link" href="docs/index.md">Documentation</a> <a class="card-github" href="https://github.com/fludakit/jdbc-client"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg></span> jdbc-client</a></p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18a6 6 0 0 1-6-6c0-1 .25-1.97.7-2.8L5.24 7.74A7.93 7.93 0 0 0 4 12a8 8 0 0 0 8 8v3l4-4-4-4m0-11V1L8 5l4 4V6a6 6 0 0 1 6 6c0 1-.25 1.97-.7 2.8l1.46 1.46A7.93 7.93 0 0 0 20 12a8 8 0 0 0-8-8"/></svg></span> <strong>SQL Initialization</strong></p>
+<p>Automates database schema management and data population on application startup.</p>
+<p>→ <a class="card-link" href="docs/sql-init/">Documentation</a> <a class="card-github" href="https://github.com/fludakit/sql-init"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg></span> sql-init</a></p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 11h-3.18C14.4 9.84 13.3 9 12 9s-2.4.84-2.82 2H6c-.33 0-2-.1-2-2V8c0-1.83 1.54-2 2-2h10.18C16.6 7.16 17.7 8 19 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3c-1.3 0-2.4.84-2.82 2H6C4.39 4 2 5.06 2 8v1c0 2.94 2.39 4 4 4h3.18c.42 1.16 1.52 2 2.82 2s2.4-.84 2.82-2H18c.33 0 2 .1 2 2v1c0 1.83-1.54 2-2 2H7.82C7.4 16.84 6.3 16 5 16a3 3 0 0 0-3 3 3 3 0 0 0 3 3c1.3 0 2.4-.84 2.82-2H18c1.61 0 4-1.07 4-4v-1c0-2.93-2.39-4-4-4m1-7a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1M5 20a1 1 0 0 1-1-1 1 1 0 0 1 1-1 1 1 0 0 1 1 1 1 1 0 0 1-1 1"/></svg></span> <strong>Transaction Support</strong> <em>(coming soon)</em></p>
+<p>Container-agnostic declarative and programmatic transaction boundaries.</p>
+<p>→ <a class="card-link" href="docs/quickstart.md">Quick Start</a> <a class="card-github" href="https://github.com/fludakit/tx"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.01 8.01 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27s-1.36.09-2 .27c-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8"/></svg></span> tx</a></p>
+</li>
 </ul>
+</div>
+<h2 id="quick-example">Quick example<a class="headerlink" href="#quick-example" title="Permanent link">&para;</a></h2>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.github.fludakit.jdbc.JdbcClient</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1">// Create a client from any DataSource</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">JdbcClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JdbcClient</span><span class="p">(</span><span class="n">dataSource</span><span class="p">);</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="c1">// Fluent queries with named parameters</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">Engineer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">engineers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="na">sql</span><span class="p">(</span><span class="s">"SELECT id, name FROM engineers WHERE department = :dept"</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="p">.</span><span class="na">param</span><span class="p">(</span><span class="s">"dept"</span><span class="p">,</span><span class="w"> </span><span class="s">"Engineering"</span><span class="p">)</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="p">.</span><span class="na">query</span><span class="p">(</span><span class="n">Engineer</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="p">.</span><span class="na">list</span><span class="p">();</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1">// Updates with generated keys</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="kt">int</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="na">sql</span><span class="p">(</span><span class="s">"INSERT INTO engineers (name, department) VALUES (:name, :dept)"</span><span class="p">)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="p">.</span><span class="na">param</span><span class="p">(</span><span class="s">"name"</span><span class="p">,</span><span class="w"> </span><span class="s">"Ada Lovelace"</span><span class="p">)</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="p">.</span><span class="na">param</span><span class="p">(</span><span class="s">"dept"</span><span class="p">,</span><span class="w"> </span><span class="s">"Engineering"</span><span class="p">)</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="p">.</span><span class="na">update</span><span class="p">();</span>
+</span></code></pre></div>
+<h2 id="why-fluda">Why FluDa?<a class="headerlink" href="#why-fluda" title="Permanent link">&para;</a></h2>
+<div class="grid cards">
+<ul>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 2s-7.64-.37-13.66 7.88C3.72 16.21 2 22 2 22l1.94-1c1.44-2.5 2.19-3.53 3.6-5 2.53.74 5.17.65 7.46-2-2-.56-3.6-.43-5.96-.19C11.69 12 13.5 11.6 16 12l1-2c-1.8-.34-3-.37-4.78.04C14.19 8.65 15.56 7.87 18 8l1.21-1.93c-1.56-.11-2.5.06-4.29.5 1.61-1.46 3.08-2.12 5.22-2.25 0 0 1.05-1.89 1.86-2.32"/></svg></span> <strong>Lightweight</strong></p>
+<p>Zero framework dependencies for the core module. Just JDBC and a <code>DataSource</code>.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.5 11H19V7a2 2 0 0 0-2-2h-4V3.5A2.5 2.5 0 0 0 10.5 1 2.5 2.5 0 0 0 8 3.5V5H4a2 2 0 0 0-2 2v3.8h1.5c1.5 0 2.7 1.2 2.7 2.7S5 16.2 3.5 16.2H2V20a2 2 0 0 0 2 2h3.8v-1.5c0-1.5 1.2-2.7 2.7-2.7s2.7 1.2 2.7 2.7V22H17a2 2 0 0 0 2-2v-4h1.5a2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5"/></svg></span> <strong>Modular</strong></p>
+<p>Use only what you need — core, config, CDI, or any combination.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 1h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1m0 8h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1m0 8h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1M9 5h1V3H9zm0 8h1v-2H9zm0 8h1v-2H9zM5 3v2h2V3zm0 8v2h2v-2zm0 8v2h2v-2z"/></svg></span> <strong>Jakarta EE Native</strong></p>
+<p>Built for standard Jakarta EE and CDI. Works with GlassFish, WildFly, and any compatible server.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.5 6.08s-6.84 1.71-3.56 5.48c.97 1.11-.25 2.11-.25 2.11s2.45-1.25 1.31-2.85c-1.06-1.47-1.86-2.2 2.5-4.74m-4.47 1.2C16.08 4.08 14 2 14 2c.84 3.3-2.96 4.3-4.33 6.36-.94 1.4.46 2.91 2.33 4.64-.71-1.7-3.22-3.16.03-5.72M9.37 17.47c-3.08.86 1.88 2.63 5.79.96-.38-.15-.75-.33-1.1-.54-1.36.31-2.76.37-4.14.18-1.31-.16-.55-.6-.55-.6m5.32-1.68c-1.75.38-3.56.47-5.34.26-1.31-.13-.45-.77-.45-.77-3.4 1.13 1.88 2.4 6.6 1.02-.29-.11-.57-.3-.81-.51m3.42 3.3s.57.47-.61.83c-2.28.68-9.43.89-11.41.03-.71-.31.63-.74 1.05-.83.23-.06.46-.08.69-.08-.79-.54-5.13 1.1-2.19 1.56 7.97 1.3 14.54-.6 12.47-1.51m-2.74-4.86c.29-.19.6-.35.92-.49 0 0-1.51.26-3.02.4-1.6.16-3.21.18-4.81.06-2.35-.31 1.29-1.2 1.29-1.2-1.1 0-2.18.26-3.16.75-2.05 1 5.1 1.45 8.78.48m.9 2.42c-.02.04-.04.07-.08.1 5.01-1.31 3.17-4.64.77-3.81-.13.06-.24.14-.31.25.14-.05.28-.09.43-.12 1.2-.24 2.92 1.63-.81 3.58m.13 4.61c-3.01.52-6.09.56-9.12.14 0 0 .46.38 2.81.53 3.6.23 9.13-.13 9.26-1.83.03.01-.23.65-2.95 1.16"/></svg></span> <strong>Type-Safe</strong></p>
+<p>Fluent API with compile-time safety. POJO mapping, custom row mappers, and converter registry.</p>
+</li>
+</ul>
+</div>
 <h2 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
 <th>Module</th>
+<th>Artifact</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>fluda-tx-core</code></td>
-<td>Core SPI: <code>PlatformTransactionManager</code>, exceptions, and synchronization infrastructure.</td>
+<td><strong>Core</strong></td>
+<td><code>fluda-jdbc-client-core</code></td>
+<td>Plain <code>JdbcClient</code> API — DataSource only, no CDI</td>
 </tr>
 <tr>
-<td><code>fluda-tx-cdi</code></td>
-<td>CDI extension and <code>@Transactional</code> interceptor.</td>
+<td><strong>Config</strong></td>
+<td><code>fluda-jdbc-client-config</code></td>
+<td>MicroProfile Config integration</td>
 </tr>
 <tr>
-<td><code>fluda-tx-jdbc</code></td>
-<td>Resource-local <code>DataSourceTransactionManager</code> and <code>TransactionAwareDataSourceProxy</code>.</td>
-</tr>
-<tr>
-<td><code>fluda-tx-jpa</code></td>
-<td>JPA-based transaction manager (<em>coming soon</em>).</td>
+<td><strong>CDI</strong></td>
+<td><code>fluda-jdbc-client-cdi</code></td>
+<td>CDI producers for <code>JdbcClient</code> and converters</td>
 </tr>
 </tbody>
 </table>
-<h2 id="key-concepts">Key concepts<a class="headerlink" href="#key-concepts" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong><code>PlatformTransactionManager</code></strong> — the SPI that abstracts transaction begin/commit/rollback. The <code>fluda-tx-jdbc</code> module provides a <code>DataSourceTransactionManager</code> for resource-local JDBC transactions.</li>
-<li><strong><code>TransactionAwareDataSourceProxy</code></strong> — wraps a raw <code>DataSource</code> so that <code>getConnection()</code> returns the transaction-bound connection inside an active transaction, and <code>close()</code> is suppressed.</li>
-<li><strong>CDI interceptor</strong> — auto-registered by <code>fluda-tx-cdi</code>, drives the transaction lifecycle around <code>@Transactional</code> methods.</li>
-</ul>
-<p>See the <a href="install/">installation</a> guide to add dependencies, the <a href="quickstart/">quickstart</a> for a minimal setup, and the <a href="jdbc/">JDBC implementation</a> page for environment-specific details.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;dependency&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.github.fludakit<span class="nt">&lt;/groupId&gt;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>fluda-jdbc-client-core<span class="nt">&lt;/artifactId&gt;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nt">&lt;/dependency&gt;</span>
+</span></code></pre></div>
+<p>See the <a href="docs/install.md">installation guide</a> for all options.</p>
 
 
 
@@ -1375,7 +1566,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 30, 2026 09:14:56 UTC">September 30, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 30, 2026 09:21:22 UTC">September 30, 2026</span>
   </span>
 
     
@@ -1385,7 +1576,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 30, 2026 09:14:56 UTC">September 30, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 30, 2026 02:34:39 UTC">September 30, 2026</span>
   </span>
 
     
@@ -1394,6 +1585,8 @@
   </aside>
 
 
+
+  
 
 
 
@@ -1411,33 +1604,19 @@
   
     
       
+        
+      
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
-          
-          <a href="../sql-init/configuration/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Configuration">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Configuration
-              </div>
-            </div>
-          </a>
-        
         
           
-          <a href="install/" class="md-footer__link md-footer__link--next" aria-label="Next: Installation">
+          <a href="docs/jdbc-client/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Installation
+                Introduction
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1494,10 +1673,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.footer", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.footer", "search.suggest"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>
