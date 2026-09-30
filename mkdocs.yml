@@ -73,6 +73,7 @@ plugins:
 nav:
   - Home: index.md
   - Documentation:
+    - Introduction: introduction.md
     - JDBC Client:
       - Introduction: docs/jdbc-client/index.md
       - Installation: docs/jdbc-client/install.md
