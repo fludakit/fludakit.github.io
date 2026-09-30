@@ -36,19 +36,19 @@ FluDa provides a developer-friendly, fluent programming model for data access th
 
     A lightweight, type-safe, fluent query engine built directly over JDBC.
 
-    → [Documentation](docs/index.md) · [:octicons-mark-github-16:](https://github.com/fludakit/jdbc-client)
+    → [Documentation](docs/index.md){ .card-link } · [:octicons-mark-github-16:](https://github.com/fludakit/jdbc-client){ .card-github }
 
 -   :material-sync:{ .lg .middle } **SQL Initialization** *(coming soon)*
 
     Automates database schema management and data population on application startup.
 
-    → [Repository](https://github.com/fludakit/sql-init) · [:octicons-mark-github-16:](https://github.com/fludakit/sql-init)
+    → [Repository](https://github.com/fludakit/sql-init){ .card-link } · [:octicons-mark-github-16:](https://github.com/fludakit/sql-init){ .card-github }
 
 -   :material-transit-connection-variant:{ .lg .middle } **Transaction Support** *(coming soon)*
 
     Container-agnostic declarative and programmatic transaction boundaries.
 
-    → [Repository](https://github.com/fludakit/tx) · [:octicons-mark-github-16:](https://github.com/fludakit/tx)
+    → [Repository](https://github.com/fludakit/tx){ .card-link } · [:octicons-mark-github-16:](https://github.com/fludakit/tx){ .card-github }
 
 </div>
 
