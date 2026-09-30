@@ -61,6 +61,18 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* GitHub icon float right in card header */
+.card-github {
+  float: right;
+  font-size: 1.2rem;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.card-github:hover {
+  opacity: 1;
+}
+
 /* Brand accent for primary buttons */
 .md-button--primary {
   background-color: var(--md-primary-fg-color);
