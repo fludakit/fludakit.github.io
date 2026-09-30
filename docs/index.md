@@ -12,8 +12,6 @@ hide:
 
 </div>
 
-# FluDa
-
 **Fluent Data Toolkit for Jakarta EE / CDI**
 
 A lightweight, modular data-access suite designed for standard Jakarta EE and CDI environments. Type-safe, fluent JDBC queries — no Spring required.
