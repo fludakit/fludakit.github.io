@@ -15,7 +15,7 @@ A lightweight, type-safe, fluent query engine built directly over JDBC. The core
 - Generated key support
 - CDI integration for dependency injection
 
-[Get started with JDBC Client →](docs/jdbc-client/index.md)
+[Get started with JDBC Client →](jdbc-client/index.md)
 
 ### SQL Initialization
 
@@ -25,7 +25,7 @@ Automates database schema management and data population on application startup.
 - Data population from SQL files
 - CDI integration for automatic execution
 
-[Get started with SQL Init →](docs/sql-init/index.md)
+[Get started with SQL Init →](sql-init/index.md)
 
 ### Transaction Support
 
@@ -36,7 +36,7 @@ Container-agnostic declarative and programmatic transaction boundaries backed di
 - Transaction propagation control
 - Transaction-phase callbacks and events
 
-[Get started with Transaction Support →](docs/tx/index.md)
+[Get started with Transaction Support →](tx/index.md)
 
 ## Why FluDa?
 

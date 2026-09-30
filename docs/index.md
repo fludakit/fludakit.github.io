@@ -21,7 +21,7 @@ hide:
 
 A lightweight, modular data-access suite designed for standard Jakarta EE and CDI environments. Type-safe, fluent JDBC queries — no Spring required.
 
-[Get Started](docs/jdbc-client/quickstart.md){ .md-button .md-button--primary }
+[Get Started](documentation/jdbc-client/quickstart.md){ .md-button .md-button--primary }
 [GitHub](https://github.com/fludakit){ .md-button }
 
 </div>
@@ -36,19 +36,19 @@ FluDa provides a developer-friendly, fluent programming model for data access th
 
     A lightweight, type-safe, fluent query engine built directly over JDBC.
 
-    → [Documentation](docs/jdbc-client/index.md){ .card-link } [:octicons-mark-github-16: jdbc-client](https://github.com/fludakit/jdbc-client){ .card-github }
+    → [Documentation](documentation/jdbc-client/index.md){ .card-link } [:octicons-mark-github-16: jdbc-client](https://github.com/fludakit/jdbc-client){ .card-github }
 
 -   :material-sync:{ .lg .middle } **SQL Initialization**
 
     Automates database schema management and data population on application startup.
 
-    → [Documentation](docs/sql-init/index.md){ .card-link } [:octicons-mark-github-16: sql-init](https://github.com/fludakit/sql-init){ .card-github }
+    → [Documentation](documentation/sql-init/index.md){ .card-link } [:octicons-mark-github-16: sql-init](https://github.com/fludakit/sql-init){ .card-github }
 
 -   :material-transit-connection-variant:{ .lg .middle } **Transaction Support** *(coming soon)*
 
     Container-agnostic declarative and programmatic transaction boundaries.
 
-    → [Quick Start](docs/tx/quickstart.md){ .card-link } [:octicons-mark-github-16: tx](https://github.com/fludakit/tx){ .card-github }
+    → [Quick Start](documentation/tx/quickstart.md){ .card-link } [:octicons-mark-github-16: tx](https://github.com/fludakit/tx){ .card-github }
 
 </div>
 
@@ -113,4 +113,4 @@ int rows = client.sql("INSERT INTO engineers (name, department) VALUES (:name, :
 </dependency>
 ```
 
-See the [installation guide](docs/jdbc-client/install.md) for all options.
+See the [installation guide](documentation/jdbc-client/install.md) for all options.
