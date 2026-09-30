@@ -10,31 +10,27 @@
       
       
       
-        <link rel="canonical" href="https://fludakit.github.io/docs/configuration/">
+        <link rel="canonical" href="https://fludakit.github.io/docs/jdbc-client/quickstart/">
       
       
-        <link rel="prev" href="../updates/">
-      
-      
-        <link rel="next" href="../sql-init/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/favicon.ico">
+      <link rel="icon" href="../../../assets/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Configuration - FluDa</title>
+        <title>Quickstart - FluDa</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -53,9 +49,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -80,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuration" class="md-skip">
+        <a href="#quickstart" class="md-skip">
           Skip to content
         </a>
       
@@ -96,9 +92,9 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="FluDa" class="md-header__button md-logo" aria-label="FluDa" data-md-component="logo">
+    <a href="../../.." title="FluDa" class="md-header__button md-logo" aria-label="FluDa" data-md-component="logo">
       
-  <img src="../../assets/fluda-badge-light.svg" alt="logo">
+  <img src="../../../assets/fluda-badge-light.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -115,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configuration
+              Quickstart
             
           </span>
         </div>
@@ -233,9 +229,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="FluDa" class="md-nav__button md-logo" aria-label="FluDa" data-md-component="logo">
+    <a href="../../.." title="FluDa" class="md-nav__button md-logo" aria-label="FluDa" data-md-component="logo">
       
-  <img src="../../assets/fluda-badge-light.svg" alt="logo">
+  <img src="../../../assets/fluda-badge-light.svg" alt="logo">
 
     </a>
     FluDa
@@ -262,7 +258,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../../index.md" class="md-nav__link">
         
   
   
@@ -286,10 +282,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -308,11 +302,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -333,7 +329,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -348,41 +344,38 @@
                 
   
   
-    
-  
   
   
     
     
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
         
           
         
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_1" >
         
           
-          <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
-              
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
@@ -396,16 +389,10 @@
   
   
 
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_1">
             <span class="md-nav__icon md-icon"></span>
             
@@ -417,6 +404,32 @@
           <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/jdbc-client/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -425,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/" class="md-nav__link">
+      <a href="../../docs/jdbc-client/install.md" class="md-nav__link">
         
   
   
@@ -453,7 +466,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quickstart/" class="md-nav__link">
+      <a href="../../docs/jdbc-client/quickstart.md" class="md-nav__link">
         
   
   
@@ -538,7 +551,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../querying/" class="md-nav__link">
+      <a href="../../docs/jdbc-client/querying.md" class="md-nav__link">
         
   
   
@@ -566,7 +579,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../updates/" class="md-nav__link">
+      <a href="../../docs/jdbc-client/updates.md" class="md-nav__link">
         
   
   
@@ -599,37 +612,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuration
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../docs/jdbc-client/configuration.md" class="md-nav__link">
         
   
   
@@ -645,59 +631,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#programmatic-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Programmatic configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#declarative-configuration-in-jakarta-eecdi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Declarative configuration in Jakarta EE/CDI
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#overriding-configuration-for-a-query" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overriding configuration for a query
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -746,7 +679,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../sql-init/" class="md-nav__link ">
+            <a href="../../sql-init/" class="md-nav__link ">
               
   
   
@@ -790,7 +723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sql-init/install/" class="md-nav__link">
+      <a href="../../sql-init/install/" class="md-nav__link">
         
   
   
@@ -818,7 +751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sql-init/quickstart/" class="md-nav__link">
+      <a href="../../sql-init/quickstart/" class="md-nav__link">
         
   
   
@@ -846,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../sql-init/configuration/" class="md-nav__link">
+      <a href="../../sql-init/configuration/" class="md-nav__link">
         
   
   
@@ -943,7 +876,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docs/tx/index.md" class="md-nav__link">
+      <a href="../../docs/tx/index.md" class="md-nav__link">
         
   
   
@@ -971,7 +904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docs/tx/install.md" class="md-nav__link">
+      <a href="../../docs/tx/install.md" class="md-nav__link">
         
   
   
@@ -999,7 +932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docs/tx/quickstart.md" class="md-nav__link">
+      <a href="../../docs/tx/quickstart.md" class="md-nav__link">
         
   
   
@@ -1027,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docs/tx/jdbc.md" class="md-nav__link">
+      <a href="../../docs/tx/jdbc.md" class="md-nav__link">
         
   
   
@@ -1099,7 +1032,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../blog/" class="md-nav__link ">
+            <a href="../../../blog/" class="md-nav__link ">
               
   
   
@@ -1200,7 +1133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2026/" class="md-nav__link">
+      <a href="../../../blog/archive/2026/" class="md-nav__link">
         
   
   
@@ -1293,7 +1226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/announcement/" class="md-nav__link">
+      <a href="../../../blog/category/announcement/" class="md-nav__link">
         
   
   
@@ -1356,10 +1289,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#programmatic-configuration" class="md-nav__link">
+  <a href="#creating-jdbcclient" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Programmatic configuration
+        Creating JdbcClient
       
     </span>
   </a>
@@ -1367,21 +1300,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#declarative-configuration-in-jakarta-eecdi" class="md-nav__link">
+  <a href="#executing-queries" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Declarative configuration in Jakarta EE/CDI
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#overriding-configuration-for-a-query" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overriding configuration for a query
+        Executing queries
       
     </span>
   </a>
@@ -1408,106 +1330,67 @@
   
 
 
-<h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h1>
-<p>Configuration defines the default behavior for SQL placeholder rewriting, query timeouts, and fetch-size hints. These
-defaults keep database access consistent throughout an application while still allowing individual statements to
-override behavior when needed.</p>
-<h2 id="programmatic-configuration">Programmatic configuration<a class="headerlink" href="#programmatic-configuration" title="Permanent link">&para;</a></h2>
-<p>The <code>core</code> module provides a <code>JdbcConfig</code> class for setting the default SQL placeholder, query timeout, and fetch size.</p>
-<p>A <code>JdbcConfig</code> instance can be created programmatically:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">JdbcConfig</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JdbcConfig</span><span class="p">(...);</span>
+<h1 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">&para;</a></h1>
+<p>The fastest path to using the library is to construct a <code>JdbcClient</code> from a <code>DataSource</code> and start composing fluent SQL
+with strongly typed results.</p>
+<h2 id="creating-jdbcclient">Creating <code>JdbcClient</code><a class="headerlink" href="#creating-jdbcclient" title="Permanent link">&para;</a></h2>
+<p>After <code>fluda-jdbc-client-core</code> has been added to the project dependencies, a <code>JdbcClient</code> can be created directly from a
+<code>DataSource</code>:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.github.fludakit.jdbc.JdbcClient</span><span class="p">;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">javax.sql.DataSource</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">DataSource</span><span class="w"> </span><span class="n">dataSource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w"> </span><span class="c1">// obtain a DataSource from the application or runtime</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">JdbcClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JdbcClient</span><span class="p">(</span><span class="n">dataSource</span><span class="p">);</span>
 </span></code></pre></div>
-<p>Then apply it when constructing a <code>JdbcClient</code>:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">JdbcClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JdbcClient</span><span class="p">(</span><span class="n">dataSource</span><span class="p">,</span><span class="w"> </span><span class="n">converters</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">);</span>
+<p>The builder API also supports explicit configuration:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">JdbcClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JdbcClient</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="n">dataSource</span><span class="p">)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">        </span><span class="p">.</span><span class="na">placeholder</span><span class="p">(</span><span class="s">"?"</span><span class="p">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="p">.</span><span class="na">queryTimeout</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="p">.</span><span class="na">fetchSize</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="p">.</span><span class="na">converters</span><span class="p">(</span><span class="n">registry</span><span class="p">)</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </span></code></pre></div>
-<p>The builder API flattens these settings into fine-grained methods:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">JdbcClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JdbcClient</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="n">dataSource</span><span class="p">)</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">        </span><span class="p">.</span><span class="na">placeholder</span><span class="p">(</span><span class="s">"$"</span><span class="p">)</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">        </span><span class="p">.</span><span class="na">queryTimeout</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="p">.</span><span class="na">fetchSize</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<p>See <a href="../configuration/">configuration</a> for the full list of available defaults and options.</p>
+<p>In a Jakarta EE/CDI environment, CDI can create and inject the client. Add <code>fluda-jdbc-client-cdi</code> and <code>fluda-jdbc-client-config</code>,
+then expose a <code>DataSource</code> as a bean:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nd">@ApplicationScoped</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TestDataSourceProducer</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nd">@Resource</span><span class="p">(</span><span class="n">lookup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"java:comp/MyDS"</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">DataSource</span><span class="w"> </span><span class="n">dataSource</span><span class="p">;</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nd">@Produces</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nd">@ApplicationScoped</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">DataSource</span><span class="w"> </span><span class="nf">expose</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dataSource</span><span class="p">;</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">}</span>
 </span></code></pre></div>
-<h2 id="declarative-configuration-in-jakarta-eecdi">Declarative configuration in Jakarta EE/CDI<a class="headerlink" href="#declarative-configuration-in-jakarta-eecdi" title="Permanent link">&para;</a></h2>
-<p>In a Jakarta EE/CDI environment, the optional <code>fluda-jdbc-client-config</code> module can populate this configuration from
-MicroProfile Config properties.</p>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th style="text-align: right;">Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>jdbcclient.placeholder</code></td>
-<td style="text-align: right;"><code>?</code></td>
-<td>Placeholder used when rewriting named parameters such as <code>:name</code>.</td>
-</tr>
-<tr>
-<td><code>jdbcclient.query-timeout</code></td>
-<td style="text-align: right;"><code>0</code></td>
-<td>Default query timeout in seconds. <code>0</code> means no timeout.</td>
-</tr>
-<tr>
-<td><code>jdbcclient.fetch-size</code></td>
-<td style="text-align: right;"><code>0</code></td>
-<td>Default fetch-size hint. <code>0</code> uses the driver default.</td>
-</tr>
-</tbody>
-</table>
-<p>Named parameters are rewritten according to the configured placeholder:</p>
-<table>
-<thead>
-<tr>
-<th>Placeholder</th>
-<th>Rewritten SQL</th>
-<th>Typical database</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>?</code></td>
-<td><code>?</code></td>
-<td>MySQL and standard JDBC</td>
-</tr>
-<tr>
-<td><code>$</code></td>
-<td><code>$1</code>, <code>$2</code>, ...</td>
-<td>H2/PostgreSQL</td>
-</tr>
-<tr>
-<td><code>:</code></td>
-<td><code>:1</code>, <code>:2</code>, ...</td>
-<td>Oracle</td>
-</tr>
-<tr>
-<td><code>@</code></td>
-<td><code>@name</code></td>
-<td>SQL Server</td>
-</tr>
-</tbody>
-</table>
-<p>When <code>jdbcclient.placeholder=$</code>, the following SQL:</p>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">engineers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">:</span><span class="n">id</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">active</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">:</span><span class="n">active</span>
+<p>The <code>JdbcClient</code> is then available for injection:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@Inject</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">JdbcClient</span><span class="w"> </span><span class="n">client</span><span class="p">;</span>
 </span></code></pre></div>
-<p>is rewritten before it is sent to the driver as:</p>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">engineers</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="mi">1</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">active</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="mi">2</span>
+<h2 id="executing-queries">Executing queries<a class="headerlink" href="#executing-queries" title="Permanent link">&para;</a></h2>
+<p>Once the client is available, the fluent SQL API can be used for both reading and writing data. The library supports
+both named and positional parameters in a single SQL statement.</p>
+<p>Use named parameters with <code>param(...)</code>:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">DevSummary</span><span class="o">&gt;</span><span class="w"> </span><span class="n">devs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">        </span><span class="p">.</span><span class="na">sql</span><span class="p">(</span><span class="s">"SELECT id, dev_name FROM engineers WHERE id = :id"</span><span class="p">)</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="p">.</span><span class="na">param</span><span class="p">(</span><span class="s">"id"</span><span class="p">,</span><span class="w"> </span><span class="mi">1L</span><span class="p">)</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">        </span><span class="p">.</span><span class="na">query</span><span class="p">(</span><span class="n">DevSummary</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">        </span><span class="p">.</span><span class="na">list</span><span class="p">();</span>
 </span></code></pre></div>
-<h2 id="overriding-configuration-for-a-query">Overriding configuration for a query<a class="headerlink" href="#overriding-configuration-for-a-query" title="Permanent link">&para;</a></h2>
-<p>The <code>queryTimeout(...)</code> and <code>fetchSize(...)</code> methods on an individual SQL specification override the client defaults for
-that statement.</p>
+<p>The client also accepts positional parameters:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">DevSummary</span><span class="o">&gt;</span><span class="w"> </span><span class="n">devs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">        </span><span class="p">.</span><span class="na">sql</span><span class="p">(</span><span class="s">"SELECT id, dev_name FROM engineers"</span><span class="p">)</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">        </span><span class="p">.</span><span class="na">fetchSize</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">        </span><span class="p">.</span><span class="na">queryTimeout</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="p">.</span><span class="na">query</span><span class="p">(</span><span class="n">DevSummary</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
-</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="p">.</span><span class="na">list</span><span class="p">();</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">        </span><span class="p">.</span><span class="na">sql</span><span class="p">(</span><span class="s">"SELECT id, dev_name FROM engineers WHERE id = ?"</span><span class="p">)</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">        </span><span class="p">.</span><span class="na">param</span><span class="p">(</span><span class="mi">1L</span><span class="p">)</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">        </span><span class="p">.</span><span class="na">query</span><span class="p">(</span><span class="n">DevSummary</span><span class="p">.</span><span class="na">class</span><span class="p">)</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">        </span><span class="p">.</span><span class="na">list</span><span class="p">();</span>
 </span></code></pre></div>
-<p>In practice, these defaults are useful for keeping database behavior consistent across an application while still
-allowing particular queries to opt into stricter or more permissive settings when needed. The same pattern applies
-whether the client is configured programmatically or through MicroProfile Config in a Jakarta EE environment.</p>
-<p>For query execution and mapping behavior, continue with <a href="../querying/">querying and result mapping</a>.</p>
+<p>A single SQL specification cannot combine named and positional parameters.</p>
+<p>See <a href="../querying/">querying and mapping</a> for more examples of result mapping, row mappers, and streaming.</p>
 
 
 
@@ -1530,7 +1413,7 @@ whether the client is configured programmatically or through MicroProfile Config
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 30, 2026 04:12:00 UTC">September 30, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 30, 2026 09:16:45 UTC">September 30, 2026</span>
   </span>
 
     
@@ -1540,7 +1423,7 @@ whether the client is configured programmatically or through MicroProfile Config
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 30, 2026 04:12:00 UTC">September 30, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 30, 2026 09:16:45 UTC">September 30, 2026</span>
   </span>
 
     
@@ -1564,44 +1447,6 @@ whether the client is configured programmatically or through MicroProfile Config
       
         <footer class="md-footer">
   
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
-        
-          
-          <a href="../updates/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Updates and generated keys">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                Updates and generated keys
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../sql-init/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Introduction
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
     
   
   <div class="md-footer-meta md-typeset">
@@ -1649,10 +1494,10 @@ whether the client is configured programmatically or through MicroProfile Config
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.footer", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["content.code.copy", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.footer", "search.suggest"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

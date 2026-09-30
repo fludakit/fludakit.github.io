@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://fludakit.github.io/</loc>
-         <lastmod>2026-09-30</lastmod>
-    </url>
-    <url>
          <loc>https://fludakit.github.io/blog/</loc>
          <lastmod>2026-09-30</lastmod>
     </url>
@@ -13,27 +9,27 @@
          <lastmod>2026-09-30</lastmod>
     </url>
     <url>
-         <loc>https://fludakit.github.io/docs/</loc>
+         <loc>https://fludakit.github.io/docs/jdbc-client/</loc>
          <lastmod>2026-09-30</lastmod>
     </url>
     <url>
-         <loc>https://fludakit.github.io/docs/configuration/</loc>
+         <loc>https://fludakit.github.io/docs/jdbc-client/configuration/</loc>
          <lastmod>2026-09-30</lastmod>
     </url>
     <url>
-         <loc>https://fludakit.github.io/docs/install/</loc>
+         <loc>https://fludakit.github.io/docs/jdbc-client/install/</loc>
          <lastmod>2026-09-30</lastmod>
     </url>
     <url>
-         <loc>https://fludakit.github.io/docs/querying/</loc>
+         <loc>https://fludakit.github.io/docs/jdbc-client/querying/</loc>
          <lastmod>2026-09-30</lastmod>
     </url>
     <url>
-         <loc>https://fludakit.github.io/docs/quickstart/</loc>
+         <loc>https://fludakit.github.io/docs/jdbc-client/quickstart/</loc>
          <lastmod>2026-09-30</lastmod>
     </url>
     <url>
-         <loc>https://fludakit.github.io/docs/updates/</loc>
+         <loc>https://fludakit.github.io/docs/jdbc-client/updates/</loc>
          <lastmod>2026-09-30</lastmod>
     </url>
     <url>
