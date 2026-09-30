@@ -37,24 +37,3 @@ Container-agnostic declarative and programmatic transaction boundaries backed di
 - Transaction-phase callbacks and events
 
 [Get started with Transaction Support →](tx/index.md)
-
-## Why FluDa?
-
-- **Lightweight** — Zero framework dependencies for core modules. Just JDBC and a `DataSource`.
-- **Modular** — Use only what you need. Each module works independently or together.
-- **Jakarta EE Native** — Built for standard Jakarta EE and CDI. Works with GlassFish, WildFly, and any compatible server.
-- **Type-Safe** — Fluent API with compile-time safety. POJO mapping, custom row mappers, and converter registry.
-
-## Installation
-
-Add the modules you need to your `pom.xml`:
-
-```xml
-<dependency>
-    <groupId>io.github.fludakit</groupId>
-    <artifactId>fluda-jdbc-client-core</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-```
-
-See each module's installation guide for specific dependencies and setup instructions.
