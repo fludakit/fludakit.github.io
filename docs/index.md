@@ -32,12 +32,11 @@ FluDa provides a developer-friendly, fluent programming model for data access th
 
 <div class="grid cards" markdown>
 
--   :material-database:{ .lg .middle } **JDBC Client**
+-   :material-database:{ .lg .middle } **JDBC Client** [:octicons-mark-github-16:](https://github.com/fludakit/jdbc-client){ .card-github }
 
     A lightweight, type-safe, fluent query engine built directly over JDBC.
 
-    [:octicons-arrow-right-24: Documentation](docs/index.md){ .md-button .md-button--primary }
-    [:octicons-mark-github-16: GitHub](https://github.com/fludakit/jdbc-client){ .md-button }
+    → [Documentation](docs/index.md)
 
 -   :material-sync:{ .lg .middle } **SQL Initialization** *(coming soon)*
 
