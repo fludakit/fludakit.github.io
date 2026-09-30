@@ -12,7 +12,7 @@ hide:
 
 </div>
 
-<p class="tagline">Fluent Data Toolkit for <span class="brand">Flu</span>ent <span class="brand">Da</span>ta Access — <strong>Jakarta EE / CDI</strong></p>
+<p class="tagline"><span class="brand">Flu</span>ent <span class="brand">Da</span>ta Toolkit for <strong>Jakarta EE / CDI</strong></p>
 
 A lightweight, modular data-access suite designed for standard Jakarta EE and CDI environments. Type-safe, fluent JDBC queries — no Spring required.
 
