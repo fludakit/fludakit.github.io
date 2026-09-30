@@ -73,13 +73,13 @@ nav:
   - Home: index.md
   - Documentation:
     - JDBC Client:
-      - Introduction: docs/index.md
-      - Installation: docs/install.md
-      - Quickstart: docs/quickstart.md
+      - Introduction: docs/docs/jdbc-client/index.md
+      - Installation: docs/docs/jdbc-client/install.md
+      - Quickstart: docs/docs/jdbc-client/quickstart.md
       - Dive deeper:
-        - Querying and Result mapping: docs/querying.md
-        - Updates and generated keys: docs/updates.md
-      - Configuration: docs/configuration.md
+        - Querying and Result mapping: docs/docs/jdbc-client/querying.md
+        - Updates and generated keys: docs/docs/jdbc-client/updates.md
+      - Configuration: docs/docs/jdbc-client/configuration.md
     - SQL Init:
       - Introduction: docs/sql-init/index.md
       - Installation: docs/sql-init/install.md
