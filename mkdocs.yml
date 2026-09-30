@@ -26,7 +26,7 @@ theme:
         name: Switch to light mode
   features:
     - content.code.copy
-    - navigation.tabs
+    - navigation.sections
     - navigation.expand
     - navigation.indexes
     - navigation.footer
@@ -71,19 +71,20 @@ plugins:
 
 nav:
   - Home: index.md
-  - JDBC Client:
-    - Introduction: docs/index.md
-    - Installation: docs/install.md
-    - Quickstart: docs/quickstart.md
-    - Dive deeper:
-      - Querying and Result mapping: docs/querying.md
-      - Updates and generated keys: docs/updates.md
-    - Configuration: docs/configuration.md
-  - SQL Init:
-    - Introduction: docs/sql-init/index.md
-    - Installation: docs/sql-init/install.md
-    - Quickstart: docs/sql-init/quickstart.md
-    - Configuration: docs/sql-init/configuration.md
+  - Documentation:
+    - JDBC Client:
+      - Introduction: docs/index.md
+      - Installation: docs/install.md
+      - Quickstart: docs/quickstart.md
+      - Dive deeper:
+        - Querying and Result mapping: docs/querying.md
+        - Updates and generated keys: docs/updates.md
+      - Configuration: docs/configuration.md
+    - SQL Init:
+      - Introduction: docs/sql-init/index.md
+      - Installation: docs/sql-init/install.md
+      - Quickstart: docs/sql-init/quickstart.md
+      - Configuration: docs/sql-init/configuration.md
   - Blog:
     - blog/index.md
 
