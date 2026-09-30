@@ -38,11 +38,11 @@ FluDa provides a developer-friendly, fluent programming model for data access th
 
     → [Documentation](docs/index.md){ .card-link } [:octicons-mark-github-16: jdbc-client](https://github.com/fludakit/jdbc-client){ .card-github }
 
--   :material-sync:{ .lg .middle } **SQL Initialization** *(coming soon)*
+-   :material-sync:{ .lg .middle } **SQL Initialization**
 
     Automates database schema management and data population on application startup.
 
-    → [Quick Start](docs/quickstart.md){ .card-link } [:octicons-mark-github-16: sql-init](https://github.com/fludakit/sql-init){ .card-github }
+    → [Documentation](docs/sql-init/index.md){ .card-link } [:octicons-mark-github-16: sql-init](https://github.com/fludakit/sql-init){ .card-github }
 
 -   :material-transit-connection-variant:{ .lg .middle } **Transaction Support** *(coming soon)*
 
