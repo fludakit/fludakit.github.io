@@ -26,7 +26,7 @@ FluDa fills this gap with three standalone pillars:
 
 ## Get started
 
-The JDBC Client is available now. Check out the [quickstart guide](../../docs/quickstart.md) to get up and running in minutes.
+The JDBC Client is available now. Check out the [quickstart guide](../../docs/jdbc-client/quickstart.md) to get up and running in minutes.
 
 ```xml
 <dependency>
