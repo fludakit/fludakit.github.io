@@ -61,15 +61,20 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* GitHub icon float right in card header */
-.card-github {
-  float: right;
-  font-size: 1.2rem;
-  opacity: 0.6;
+/* GitHub icon float right in card footer */
+.grid.cards > ul > li > p:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.grid.cards > ul > li > p:last-child a:last-child {
+  opacity: 0.5;
   transition: opacity 0.2s;
 }
 
-.card-github:hover {
+.grid.cards > ul > li > p:last-child a:last-child:hover {
   opacity: 1;
 }
 
