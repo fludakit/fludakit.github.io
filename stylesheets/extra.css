@@ -32,6 +32,20 @@
   margin: 0.25rem;
 }
 
+/* Tagline */
+.tagline {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  margin: 1.5rem 0;
+  color: var(--md-default-fg-color);
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--md-accent-fg-color);
+}
+
 /* Grid cards */
 .grid.cards {
   margin-top: 1.5rem;
