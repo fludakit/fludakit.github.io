@@ -44,7 +44,7 @@ FluDa provides a developer-friendly, fluent programming model for data access th
 
     → [Documentation](documentation/sql-init/index.md){ .card-link } [:octicons-mark-github-16: sql-init](https://github.com/fludakit/sql-init){ .card-github }
 
--   :material-transit-connection-variant:{ .lg .middle } **Transaction Support** *(coming soon)*
+-   :material-transit-connection-variant:{ .lg .middle } **Transaction Support**
 
     Container-agnostic declarative and programmatic transaction boundaries.
 
@@ -106,6 +106,17 @@ int rows = client.sql("INSERT INTO engineers (name, department) VALUES (:name, :
 ## Installation
 
 ```xml
+<repositories>
+    <repository>
+        <id>github-fludakit</id>
+        <url>https://maven.pkg.github.com/fludakit/*</url>
+        <releases><enabled>false</enabled></releases>
+        <snapshots><enabled>true</enabled></snapshots>
+    </repository>
+</repositories>
+```
+
+```xml
 <dependency>
     <groupId>io.github.fludakit</groupId>
     <artifactId>fluda-jdbc-client-core</artifactId>
@@ -113,4 +124,4 @@ int rows = client.sql("INSERT INTO engineers (name, department) VALUES (:name, :
 </dependency>
 ```
 
-See the [installation guide](documentation/jdbc-client/install.md) for all options.
+See the [installation guide](documentation/jdbc-client/install.md) for all options and authentication setup.
