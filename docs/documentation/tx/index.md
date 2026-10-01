@@ -16,7 +16,7 @@ Depending on the runtime, applications can participate in database transactions 
 | `fluda-tx-core` | Core SPI: `PlatformTransactionManager`, exceptions, and synchronization infrastructure. |
 | `fluda-tx-cdi` | CDI extension and `@Transactional` interceptor. |
 | `fluda-tx-jdbc` | Resource-local `DataSourceTransactionManager` and `TransactionAwareDataSourceProxy`. |
-| `fluda-tx-jpa` | JPA-based transaction manager (*coming soon*). |
+| `fluda-tx-jpa` | JPA-based transaction manager with `EntityManager` integration. |
 
 ## Key concepts
 
@@ -24,4 +24,4 @@ Depending on the runtime, applications can participate in database transactions 
 - **`TransactionAwareDataSourceProxy`** — wraps a raw `DataSource` so that `getConnection()` returns the transaction-bound connection inside an active transaction, and `close()` is suppressed.
 - **CDI interceptor** — auto-registered by `fluda-tx-cdi`, drives the transaction lifecycle around `@Transactional` methods.
 
-See the [installation](install.md) guide to add dependencies, the [quickstart](quickstart.md) for a minimal setup, and the [JDBC implementation](jdbc.md) page for environment-specific details.
+See the [installation](install.md) guide to add dependencies, the [quickstart](quickstart.md) for a minimal setup, the [JDBC implementation](jdbc.md) page for DataSource-based transactions, and the [JPA implementation](jpa.md) page for EntityManager-based transactions.

@@ -92,6 +92,7 @@ nav:
       - Installation: documentation/tx/install.md
       - Quickstart: documentation/tx/quickstart.md
       - JDBC Implementation: documentation/tx/jdbc.md
+      - JPA Implementation: documentation/tx/jpa.md
   - Blog:
     - blog/index.md
 
