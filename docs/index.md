@@ -97,11 +97,11 @@ int rows = client.sql("INSERT INTO engineers (name, department) VALUES (:name, :
 
 ## Modules
 
-| Module | Artifact | Description |
-|--------|----------|-------------|
-| **Core** | `fluda-jdbc-client-core` | Plain `JdbcClient` API — DataSource only, no CDI |
-| **Config** | `fluda-jdbc-client-config` | MicroProfile Config integration |
-| **CDI** | `fluda-jdbc-client-cdi` | CDI producers for `JdbcClient` and converters |
+| Pillar | Artifacts | Description |
+|--------|-----------|-------------|
+| **JDBC Client** | `core`, `config`, `cdi` | Fluent query engine over JDBC |
+| **SQL Init** | `core`, `config`, `cdi` | Automated schema migration on startup |
+| **Transaction Support** | `core`, `cdi`, `jdbc`, `jpa` | Declarative & programmatic transactions |
 
 ## Installation
 
