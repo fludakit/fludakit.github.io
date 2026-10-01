@@ -10,33 +10,6 @@ configuration integrations are for Jakarta EE-compatible runtimes.
   WildFly 41.
 - The `core` module is usable in plain Java SE applications because it depends only on `javax.sql.DataSource`.
 
-## Maven repository
-
-FluDa publishes SNAPSHOT artifacts to GitHub Packages. Add the following repository to your `pom.xml`:
-
-```xml
-<repositories>
-    <repository>
-        <id>github-fludakit</id>
-        <url>https://maven.pkg.github.com/fludakit/*</url>
-        <releases><enabled>false</enabled></releases>
-        <snapshots><enabled>true</enabled></snapshots>
-    </repository>
-</repositories>
-```
-
-Authenticate by adding a server entry in `~/.m2/settings.xml` with a [Personal Access Token](https://github.com/settings/tokens) that has `read:packages` scope:
-
-```xml
-<servers>
-    <server>
-        <id>github-fludakit</id>
-        <username>YOUR_GITHUB_USERNAME</username>
-        <password>YOUR_PERSONAL_ACCESS_TOKEN</password>
-    </server>
-</servers>
-```
-
 ## Using the core `JdbcClient`
 
 Use the following dependency when only the core fluent `JdbcClient` API is required:

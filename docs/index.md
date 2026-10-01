@@ -106,17 +106,6 @@ int rows = client.sql("INSERT INTO engineers (name, department) VALUES (:name, :
 ## Installation
 
 ```xml
-<repositories>
-    <repository>
-        <id>github-fludakit</id>
-        <url>https://maven.pkg.github.com/fludakit/*</url>
-        <releases><enabled>false</enabled></releases>
-        <snapshots><enabled>true</enabled></snapshots>
-    </repository>
-</repositories>
-```
-
-```xml
 <dependency>
     <groupId>io.github.fludakit</groupId>
     <artifactId>fluda-jdbc-client-core</artifactId>
@@ -124,4 +113,4 @@ int rows = client.sql("INSERT INTO engineers (name, department) VALUES (:name, :
 </dependency>
 ```
 
-See the [installation guide](documentation/jdbc-client/install.md) for all options and authentication setup.
+See the [installation guide](documentation/jdbc-client/install.md) for all options.
