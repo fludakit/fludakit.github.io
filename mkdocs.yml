@@ -89,6 +89,7 @@ nav:
       - Getting Started: documentation/tx/getting-started.md
       - JDBC Implementation: documentation/tx/jdbc.md
       - JPA Implementation: documentation/tx/jpa.md
+      - Advanced Topics: documentation/tx/advanced.md
     - Mail:
       - Introduction: documentation/mail/index.md
       - Getting Started: documentation/mail/getting-started.md

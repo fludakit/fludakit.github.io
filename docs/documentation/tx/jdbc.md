@@ -158,7 +158,3 @@ public class OrderNotifier {
 ```
 
 Supported phases are `BEFORE_COMPLETION`, `AFTER_SUCCESS`, `AFTER_FAILURE`, and `AFTER_COMPLETION`. `IN_PROGRESS` observers fire immediately.
-
-## Multiple DataSources
-
-A single transaction can touch more than one `DataSource`. The primary manager drives the transaction; additional `TransactionAwareDataSourceProxy` instances join best-effort. This is **not XA**: each `Connection` commits independently, so work across `DataSource`s is not atomic.

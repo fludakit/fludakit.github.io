@@ -79,30 +79,6 @@ public class UserService {
 
 The proxy defers EntityManager lookup until first method invocation, so injection works at bean creation time before any transaction is active.
 
-## Mixing JPA and JDBC
-
-Because the same physical `Connection` backs both the `EntityManager` and the `TransactionAwareDataSourceProxy`, JPA and JDBC operations share a single transaction:
-
-```java
-@ApplicationScoped
-public class OrderService {
-
-    @Inject
-    EntityManager em;
-
-    @Inject
-    JdbcClient client;
-
-    @Transactional
-    public void createOrder(Order order) {
-        em.persist(order);                                    // JPA
-        client.sql("INSERT INTO audit_log (msg) VALUES (:m)") // JDBC
-              .param("m", "Order created: " + order.getId())
-              .update();
-    }
-}
-```
-
 ## ConnectionExtractor
 
 The JPA spec does not standardize `em.unwrap(Connection.class)`. `ConnectionExtractor` is a pluggable strategy for extracting the JDBC `Connection` from an `EntityManager`.
