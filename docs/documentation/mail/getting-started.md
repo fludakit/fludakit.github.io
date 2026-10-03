@@ -184,4 +184,80 @@ The following properties are supported by the `config` module:
 | `fluda.mail.protocol`       | Mail protocol (`smtp` or `pop3`)     | `smtp`      |
 | `fluda.mail.from`           | Default from address                 | (empty)     |
 
+## In a Jakarta EE environment
+
+Jakarta EE application servers (GlassFish, WildFly, Payara, etc.) provide built-in JavaMail session management via JNDI. Instead of configuring SMTP properties in `microprofile-config.properties`, you can use the container-managed mail session.
+
+### Using the default mail session
+
+Most Jakarta EE servers provide a default mail session at `java:comp/DefaultMail`. You can inject it directly and expose it as a CDI bean:
+
+```java
+import jakarta.annotation.Resource;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.inject.Produces;
+import jakarta.mail.Session;
+
+@ApplicationScoped
+public class MailSessionProducer {
+
+    @Resource(lookup = "java:comp/DefaultMail")
+    private Session defaultSession;
+
+    @Produces
+    @ApplicationScoped
+    public Session mailSession() {
+        return defaultSession;
+    }
+}
+```
+
+When a `Session` bean is available in the CDI container, the `MailSenderProducer` in `fluda-mail-cdi` automatically uses it instead of creating a session from `MailConfig` properties.
+
+### Defining a custom mail session
+
+You can also define a custom mail session using `@MailDefinition` (Jakarta EE 11+):
+
+```java
+import jakarta.mail.MailDefinition;
+import jakarta.annotation.Resource;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.inject.Produces;
+import jakarta.mail.Session;
+
+@ApplicationScoped
+@MailDefinition(
+    host = "smtp.example.com",
+    port = 587,
+    from = "noreply@example.com",
+    enableStartTls = true,
+    auth = true,
+    username = "your-username",
+    password = "your-password"
+)
+public class MailSessionProducer {
+
+    @Resource(lookup = "java:comp/DefaultMail")
+    private Session mailSession;
+
+    @Produces
+    @ApplicationScoped
+    public Session session() {
+        return mailSession;
+    }
+}
+```
+
+The `@MailDefinition` annotation configures the mail session at the class level, and the container creates the corresponding JNDI resource. You then inject it via `@Resource` and expose it as a CDI bean.
+
+### How it works
+
+The `MailSenderProducer` in `fluda-mail-cdi` resolves the `Session` in the following order:
+
+1. If a `MailConfig` bean is available (from the `config` module), it creates a session from those properties.
+2. Otherwise, if a `Session` bean exists in the CDI container (produced by your code as shown above), it uses that session.
+3. As a fallback, it creates a default session with `localhost:25` and no authentication.
+
+By exposing a JNDI-managed `Session` as a CDI bean, you leverage the container's mail configuration and avoid duplicating SMTP settings in your application.
+
 See [advanced topics](advanced.md) for custom `MailSender` implementations and replacing the default `JakartaMailSender` with third-party providers.
