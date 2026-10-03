@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://fludakit.github.io/documentation/sql-init/configuration/">
+        <link rel="canonical" href="https://fludakit.github.io/documentation/sql-init/advanced/">
       
       
         <link rel="prev" href="../getting-started/">
@@ -27,7 +27,7 @@
     
     
       
-        <title>Configuration - FluDa</title>
+        <title>Advanced Topics - FluDa</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sql-init-configuration" class="md-skip">
+        <a href="#advanced-topics" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configuration
+              Advanced Topics
             
           </span>
         </div>
@@ -846,7 +846,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
+    Advanced Topics
   
 
     
@@ -864,7 +864,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
+    Advanced Topics
   
 
     
@@ -890,18 +890,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#programmatic-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Programmatic configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Programmatic configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#script-locations" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -911,8 +899,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#statement-separator" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -922,8 +910,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#database-type" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -933,33 +921,17 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#declarative-configuration-in-cdi" class="md-nav__link">
+  <a href="#custom-version-strategy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Declarative configuration in CDI
+        Custom version strategy
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-strategy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version strategy
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Version strategy">
+    <nav class="md-nav" aria-label="Custom version strategy">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -974,10 +946,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#custom-version-strategy" class="md-nav__link">
+  <a href="#implementing-a-custom-strategy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom version strategy
+        Implementing a custom strategy
       
     </span>
   </a>
@@ -1661,18 +1633,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#programmatic-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Programmatic configuration
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Programmatic configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#script-locations" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1682,8 +1642,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#statement-separator" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1693,8 +1653,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#database-type" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1704,33 +1664,17 @@
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#declarative-configuration-in-cdi" class="md-nav__link">
+  <a href="#custom-version-strategy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Declarative configuration in CDI
+        Custom version strategy
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-strategy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version strategy
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Version strategy">
+    <nav class="md-nav" aria-label="Custom version strategy">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1745,10 +1689,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#custom-version-strategy" class="md-nav__link">
+  <a href="#implementing-a-custom-strategy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom version strategy
+        Implementing a custom strategy
       
     </span>
   </a>
@@ -1819,49 +1763,9 @@
   
 
 
-<h1 id="sql-init-configuration">SQL Init Configuration<a class="headerlink" href="#sql-init-configuration" title="Permanent link">&para;</a></h1>
-<p>Configuration controls where migration scripts are loaded from, the statement separator, and the
-database type used for the history table DDL.</p>
-<h2 id="programmatic-configuration">Programmatic configuration<a class="headerlink" href="#programmatic-configuration" title="Permanent link">&para;</a></h2>
-<p>The <code>core</code> module provides an immutable <code>SqlInitConfig</code> with a builder:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">SqlInitConfig</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SqlInitConfig</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">        </span><span class="p">.</span><span class="na">scriptLocations</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"classpath:db/migration"</span><span class="p">))</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="p">.</span><span class="na">separator</span><span class="p">(</span><span class="s">";"</span><span class="p">)</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">        </span><span class="p">.</span><span class="na">dbType</span><span class="p">(</span><span class="s">"h2"</span><span class="p">)</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
-</span></code></pre></div>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>scriptLocations</code></td>
-<td><code>classpath:db/migration</code></td>
-<td>One or more resource locations to scan for <code>V&lt;version&gt;__&lt;description&gt;.sql</code> files.</td>
-</tr>
-<tr>
-<td><code>separator</code></td>
-<td><code>;</code></td>
-<td>The statement separator passed to the SQL script parser.</td>
-</tr>
-<tr>
-<td><code>dbType</code></td>
-<td><code>null</code> (auto-detect)</td>
-<td>The database type for the <code>db_migrations</code> DDL. When <code>null</code>, detected from the JDBC metadata.</td>
-</tr>
-<tr>
-<td><code>versionStrategy</code></td>
-<td><code>IntegerVersionStrategy</code></td>
-<td>The strategy for parsing and ordering migration versions.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="script-locations">Script locations<a class="headerlink" href="#script-locations" title="Permanent link">&para;</a></h3>
+<h1 id="advanced-topics">Advanced Topics<a class="headerlink" href="#advanced-topics" title="Permanent link">&para;</a></h1>
+<p>This page covers advanced configuration options for FluDa SQL Init, including custom version strategies and custom resource resolvers.</p>
+<h2 id="script-locations">Script locations<a class="headerlink" href="#script-locations" title="Permanent link">&para;</a></h2>
 <p>Locations use a protocol prefix:</p>
 <table>
 <thead>
@@ -1895,22 +1799,18 @@ database type used for the history table DDL.</p>
 </tbody>
 </table>
 <p>Ant-style patterns are supported: <code>classpath:db/**/*.sql</code>.</p>
-<p>When multiple locations are configured, scripts are merged by filename — the first location wins on
-name collisions.</p>
-<h3 id="statement-separator">Statement separator<a class="headerlink" href="#statement-separator" title="Permanent link">&para;</a></h3>
-<p>The default separator is <code>;</code>. Scripts can override it inline with the <code>DELIMITER</code> directive, which is
-how MySQL and MariaDB scripts wrap stored-procedure bodies:</p>
-<div class="language-sql highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">DELIMITER</span><span class="w"> </span><span class="o">//</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">reset_counts</span><span class="p">()</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">BEGIN</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">counters</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">END</span><span class="o">//</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">DELIMITER</span><span class="w"> </span><span class="p">;</span>
+<p>When multiple locations are configured, scripts are merged by filename — the first location wins on name collisions.</p>
+<h2 id="statement-separator">Statement separator<a class="headerlink" href="#statement-separator" title="Permanent link">&para;</a></h2>
+<p>The default separator is <code>;</code>. Scripts can override it inline with the <code>DELIMITER</code> directive, which is how MySQL and MariaDB scripts wrap stored-procedure bodies:</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">DELIMITER</span><span class="w"> </span><span class="o">//</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">reset_counts</span><span class="p">()</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">BEGIN</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">counters</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">END</span><span class="o">//</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">DELIMITER</span><span class="w"> </span><span class="p">;</span>
 </span></code></pre></div>
-<h3 id="database-type">Database type<a class="headerlink" href="#database-type" title="Permanent link">&para;</a></h3>
-<p>When <code>dbType</code> is <code>null</code> (the default), the migrator auto-detects the database from the JDBC connection
-metadata. Set it explicitly when auto-detection is ambiguous or when running against an unsupported
-database with compatible SQL:</p>
+<h2 id="database-type">Database type<a class="headerlink" href="#database-type" title="Permanent link">&para;</a></h2>
+<p>When <code>dbType</code> is <code>null</code> (the default), the migrator auto-detects the database from the JDBC connection metadata. Set it explicitly when auto-detection is ambiguous or when running against an unsupported database with compatible SQL:</p>
 <table>
 <thead>
 <tr>
@@ -1941,41 +1841,7 @@ database with compatible SQL:</p>
 </tr>
 </tbody>
 </table>
-<h2 id="declarative-configuration-in-cdi">Declarative configuration in CDI<a class="headerlink" href="#declarative-configuration-in-cdi" title="Permanent link">&para;</a></h2>
-<p>In a Jakarta EE / CDI environment, the optional <code>fluda-sql-init-config</code> module populates <code>SqlInitConfig</code>
-from MicroProfile Config properties.</p>
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>jdbcclient.init.script-locations</code></td>
-<td><code>classpath:db/migration</code></td>
-<td>Comma-separated list of script locations.</td>
-</tr>
-<tr>
-<td><code>jdbcclient.init.separator</code></td>
-<td><code>;</code></td>
-<td>The statement separator.</td>
-</tr>
-<tr>
-<td><code>jdbcclient.init.db-type</code></td>
-<td><em>(empty — auto-detect)</em></td>
-<td>The database type name. Empty means auto-detect from the JDBC connection.</td>
-</tr>
-</tbody>
-</table>
-<p>Example <code>microprofile-config.properties</code>:</p>
-<div class="language-properties highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">jdbcclient.init.script-locations</span><span class="o">=</span><span class="s">classpath:db/migration,classpath:db/extra</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="na">jdbcclient.init.separator</span><span class="o">=</span><span class="s">;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="na">jdbcclient.init.db-type</span><span class="o">=</span><span class="s">postgresql</span>
-</span></code></pre></div>
-<h2 id="version-strategy">Version strategy<a class="headerlink" href="#version-strategy" title="Permanent link">&para;</a></h2>
+<h2 id="custom-version-strategy">Custom version strategy<a class="headerlink" href="#custom-version-strategy" title="Permanent link">&para;</a></h2>
 <p>The version strategy controls how migration versions are parsed from filenames and how they are ordered. The default is <code>IntegerVersionStrategy</code> which expects simple numeric versions (<code>V1</code>, <code>V2</code>, <code>V3</code>).</p>
 <h3 id="built-in-strategies">Built-in strategies<a class="headerlink" href="#built-in-strategies" title="Permanent link">&para;</a></h3>
 <table>
@@ -2005,84 +1871,84 @@ from MicroProfile Config properties.</p>
 </tbody>
 </table>
 <p>Use a custom strategy via the builder:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">SqlInitConfig</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SqlInitConfig</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">        </span><span class="p">.</span><span class="na">scriptLocations</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"classpath:db/migration"</span><span class="p">))</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">        </span><span class="p">.</span><span class="na">versionStrategy</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">SemanticVersionStrategy</span><span class="p">())</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">SqlInitConfig</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SqlInitConfig</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">        </span><span class="p">.</span><span class="na">scriptLocations</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"classpath:db/migration"</span><span class="p">))</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">        </span><span class="p">.</span><span class="na">versionStrategy</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">SemanticVersionStrategy</span><span class="p">())</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </span></code></pre></div>
-<h3 id="custom-version-strategy">Custom version strategy<a class="headerlink" href="#custom-version-strategy" title="Permanent link">&para;</a></h3>
+<h3 id="implementing-a-custom-strategy">Implementing a custom strategy<a class="headerlink" href="#implementing-a-custom-strategy" title="Permanent link">&para;</a></h3>
 <p>Implement <code>VersionStrategy</code> for specialized versioning schemes. For example, date-based versions (<code>V20240101</code>, <code>V20241231</code>):</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DateVersionStrategy</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">VersionStrategy</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">DateTimeFormatter</span><span class="w"> </span><span class="n">FORMAT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">BASIC_ISO_DATE</span><span class="p">;</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="nd">@Override</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">version</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">        </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">version</span><span class="p">,</span><span class="w"> </span><span class="n">FORMAT</span><span class="p">);</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">date</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">FORMAT</span><span class="p">);</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="nd">@Override</span>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compare</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">v2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">v1</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">v2</span><span class="p">);</span>
-</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="p">}</span>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DateVersionStrategy</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">VersionStrategy</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">DateTimeFormatter</span><span class="w"> </span><span class="n">FORMAT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">BASIC_ISO_DATE</span><span class="p">;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">version</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">version</span><span class="p">,</span><span class="w"> </span><span class="n">FORMAT</span><span class="p">);</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">date</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">FORMAT</span><span class="p">);</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">compare</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">v2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">v1</span><span class="p">.</span><span class="na">compareTo</span><span class="p">(</span><span class="n">v2</span><span class="p">);</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
 </span></code></pre></div>
 <h2 id="custom-resource-resolvers">Custom resource resolvers<a class="headerlink" href="#custom-resource-resolvers" title="Permanent link">&para;</a></h2>
 <p>The built-in resolvers handle <code>classpath:</code>, <code>file:</code>, and <code>filesystem:</code> locations. To load migrations from other sources (e.g. AWS S3, HTTP, a database), implement <code>ResourceResolver</code> and register it with a <code>ResourceResolverRegistry</code>:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">ResourceResolverRegistry</span><span class="w"> </span><span class="n">registry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ResourceResolverRegistry</span><span class="p">();</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">registry</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="s">"s3"</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">S3ResourceResolver</span><span class="p">(</span><span class="n">s3Client</span><span class="p">));</span>
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">DbMigrator</span><span class="w"> </span><span class="n">migrator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DbMigrator</span><span class="p">(</span><span class="n">dataSource</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">registry</span><span class="p">);</span>
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="n">migrator</span><span class="p">.</span><span class="na">migrate</span><span class="p">();</span>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">ResourceResolverRegistry</span><span class="w"> </span><span class="n">registry</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ResourceResolverRegistry</span><span class="p">();</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">registry</span><span class="p">.</span><span class="na">register</span><span class="p">(</span><span class="s">"s3"</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">S3ResourceResolver</span><span class="p">(</span><span class="n">s3Client</span><span class="p">));</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">DbMigrator</span><span class="w"> </span><span class="n">migrator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DbMigrator</span><span class="p">(</span><span class="n">dataSource</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">,</span><span class="w"> </span><span class="n">registry</span><span class="p">);</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">migrator</span><span class="p">.</span><span class="na">migrate</span><span class="p">();</span>
 </span></code></pre></div>
 <p>The location prefix in <code>scriptLocations</code> must match the registered protocol:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">SqlInitConfig</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SqlInitConfig</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">        </span><span class="p">.</span><span class="na">scriptLocations</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"s3://my-bucket/migrations/"</span><span class="p">))</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">SqlInitConfig</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SqlInitConfig</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">        </span><span class="p">.</span><span class="na">scriptLocations</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"s3://my-bucket/migrations/"</span><span class="p">))</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </span></code></pre></div>
 <h3 id="implementing-a-resourceresolver">Implementing a ResourceResolver<a class="headerlink" href="#implementing-a-resourceresolver" title="Permanent link">&para;</a></h3>
 <p>A <code>ResourceResolver</code> handles a single protocol and provides two methods:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">ResourceResolver</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="nf">protocol</span><span class="p">();</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="n">Resource</span><span class="w"> </span><span class="nf">getResource</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">location</span><span class="p">);</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Resource</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getResources</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">locationPattern</span><span class="p">);</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="p">}</span>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">ResourceResolver</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="nf">protocol</span><span class="p">();</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="n">Resource</span><span class="w"> </span><span class="nf">getResource</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">location</span><span class="p">);</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Resource</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getResources</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">locationPattern</span><span class="p">);</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>Each <code>Resource</code> provides an <code>InputStream</code>, filename, content length, URL, and existence check.</p>
 <h3 id="s3-example">S3 example<a class="headerlink" href="#s3-example" title="Permanent link">&para;</a></h3>
 <p>The following resolver loads SQL scripts from AWS S3 using the <code>s3://</code> protocol:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">S3ResourceResolver</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ResourceResolver</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">S3Client</span><span class="w"> </span><span class="n">s3Client</span><span class="p">;</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">S3ResourceResolver</span><span class="p">(</span><span class="n">S3Client</span><span class="w"> </span><span class="n">s3Client</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">s3Client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s3Client</span><span class="p">;</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="nd">@Override</span>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">protocol</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"s3"</span><span class="p">;</span>
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>
-</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="nd">@Override</span>
-</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Resource</span><span class="w"> </span><span class="nf">getResource</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">location</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">        </span><span class="c1">// parse s3://bucket/key → bucket + key</span>
-</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">S3Resource</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">);</span>
-</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a>
-</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">    </span><span class="nd">@Override</span>
-</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Resource</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getResources</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">locationPattern</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="w">        </span><span class="c1">// list objects under s3://bucket/prefix, filter .sql files</span>
-</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="w">        </span><span class="n">ListObjectsV2Response</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s3Client</span><span class="p">.</span><span class="na">listObjectsV2</span><span class="p">(</span>
-</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a><span class="w">            </span><span class="n">ListObjectsV2Request</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
-</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="w">                </span><span class="p">.</span><span class="na">bucket</span><span class="p">(</span><span class="n">bucket</span><span class="p">).</span><span class="na">prefix</span><span class="p">(</span><span class="n">prefix</span><span class="p">).</span><span class="na">build</span><span class="p">());</span>
-</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="w">        </span><span class="c1">// map each S3Object to an S3Resource</span>
-</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="p">}</span>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">S3ResourceResolver</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ResourceResolver</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">S3Client</span><span class="w"> </span><span class="n">s3Client</span><span class="p">;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">S3ResourceResolver</span><span class="p">(</span><span class="n">S3Client</span><span class="w"> </span><span class="n">s3Client</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">s3Client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s3Client</span><span class="p">;</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">protocol</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">"s3"</span><span class="p">;</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Resource</span><span class="w"> </span><span class="nf">getResource</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">location</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">        </span><span class="c1">// parse s3://bucket/key → bucket + key</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">S3Resource</span><span class="p">(</span><span class="n">bucket</span><span class="p">,</span><span class="w"> </span><span class="n">key</span><span class="p">);</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Resource</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getResources</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">locationPattern</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="w">        </span><span class="c1">// list objects under s3://bucket/prefix, filter .sql files</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="w">        </span><span class="n">ListObjectsV2Response</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s3Client</span><span class="p">.</span><span class="na">listObjectsV2</span><span class="p">(</span>
+</span><span id="__span-6-24"><a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="w">            </span><span class="n">ListObjectsV2Request</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+</span><span id="__span-6-25"><a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="w">                </span><span class="p">.</span><span class="na">bucket</span><span class="p">(</span><span class="n">bucket</span><span class="p">).</span><span class="na">prefix</span><span class="p">(</span><span class="n">prefix</span><span class="p">).</span><span class="na">build</span><span class="p">());</span>
+</span><span id="__span-6-26"><a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="w">        </span><span class="c1">// map each S3Object to an S3Resource</span>
+</span><span id="__span-6-27"><a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-28"><a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>The <code>S3Resource</code> inner class implements <code>Resource</code> by delegating to <code>GetObjectRequest</code> for content and <code>HeadObjectRequest</code> for metadata.</p>
 
@@ -2107,7 +1973,7 @@ from MicroProfile Config properties.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 1, 2026 10:11:56 UTC">October 1, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 3, 2026 13:07:53 UTC">October 3, 2026</span>
   </span>
 
     
@@ -2117,7 +1983,7 @@ from MicroProfile Config properties.</p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 30, 2026 09:43:05 UTC">September 30, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 3, 2026 13:07:53 UTC">October 3, 2026</span>
   </span>
 
     
