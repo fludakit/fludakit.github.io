@@ -492,18 +492,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#core-pillars" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core Pillars
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Core Pillars">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#jdbc-client" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -513,8 +501,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#sql-initialization" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -524,8 +512,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#transaction-support" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -535,8 +523,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#mail" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -544,11 +532,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1583,18 +1566,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#core-pillars" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core Pillars
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Core Pillars">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#jdbc-client" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1604,8 +1575,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#sql-initialization" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1615,8 +1586,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#transaction-support" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1626,8 +1597,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#mail" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1635,11 +1606,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1665,9 +1631,8 @@
 
 <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
 <p>FluDa (<strong>Flu</strong>ent <strong>Da</strong>ta Toolkit for Jakarta EE/CDI) is a lightweight, modular data-access suite designed for standard Jakarta EE and CDI environments. It provides a developer-friendly, fluent programming model that mirrors modern data APIs like Spring's <code>JdbcClient</code> — without requiring Spring or introducing bulky dependencies.</p>
-<h2 id="core-pillars">Core Pillars<a class="headerlink" href="#core-pillars" title="Permanent link">&para;</a></h2>
 <p>FluDa is organized into four standalone modules:</p>
-<h3 id="jdbc-client">JDBC Client<a class="headerlink" href="#jdbc-client" title="Permanent link">&para;</a></h3>
+<h2 id="jdbc-client">JDBC Client<a class="headerlink" href="#jdbc-client" title="Permanent link">&para;</a></h2>
 <p>A lightweight, type-safe, fluent query engine built directly over JDBC. The core module has zero framework dependencies — just JDBC and a <code>DataSource</code>.</p>
 <ul>
 <li>Fluent API with named and positional parameters</li>
@@ -1676,7 +1641,7 @@
 <li>CDI integration for dependency injection</li>
 </ul>
 <p><a href="../jdbc-client/getting-started/">Get started with JDBC Client →</a></p>
-<h3 id="sql-initialization">SQL Initialization<a class="headerlink" href="#sql-initialization" title="Permanent link">&para;</a></h3>
+<h2 id="sql-initialization">SQL Initialization<a class="headerlink" href="#sql-initialization" title="Permanent link">&para;</a></h2>
 <p>Automates database schema management and data population on application startup. Perfect for development and testing scenarios where you need to set up database state automatically.</p>
 <ul>
 <li>Schema creation from SQL scripts</li>
@@ -1684,7 +1649,7 @@
 <li>CDI integration for automatic execution</li>
 </ul>
 <p><a href="../sql-init/getting-started/">Get started with SQL Init →</a></p>
-<h3 id="transaction-support">Transaction Support<a class="headerlink" href="#transaction-support" title="Permanent link">&para;</a></h3>
+<h2 id="transaction-support">Transaction Support<a class="headerlink" href="#transaction-support" title="Permanent link">&para;</a></h2>
 <p>Container-agnostic declarative and programmatic transaction boundaries backed directly by a standard <code>DataSource</code> or JPA. Works in Java SE, Servlet containers, and Jakarta EE environments.</p>
 <ul>
 <li><code>@Transactional</code> interceptor for CDI beans</li>
@@ -1693,7 +1658,7 @@
 <li>Transaction-phase callbacks and events</li>
 </ul>
 <p><a href="../tx/getting-started/">Get started with Transaction Support →</a></p>
-<h3 id="mail">Mail<a class="headerlink" href="#mail" title="Permanent link">&para;</a></h3>
+<h2 id="mail">Mail<a class="headerlink" href="#mail" title="Permanent link">&para;</a></h2>
 <p>A simple mail abstraction with built-in Jakarta Mail (SMTP) support and pluggable providers for third-party services like SendGrid.</p>
 <ul>
 <li><code>MailSender</code> interface with <code>JakartaMailSender</code> implementation</li>
@@ -1725,7 +1690,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 3, 2026 14:20:36 UTC">October 3, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 3, 2026 14:22:33 UTC">October 3, 2026</span>
   </span>
 
     
