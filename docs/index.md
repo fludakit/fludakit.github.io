@@ -21,14 +21,14 @@ hide:
 
 A lightweight, modular data-access suite designed for standard Jakarta EE and CDI environments. Type-safe, fluent JDBC queries — no Spring required.
 
-[Get Started](documentation/jdbc-client/quickstart.md){ .md-button .md-button--primary }
+[Get Started](documentation/jdbc-client/getting-started.md){ .md-button .md-button--primary }
 [GitHub](https://github.com/fludakit){ .md-button }
 
 </div>
 
 ## What is FluDa?
 
-FluDa provides a developer-friendly, fluent programming model for data access that mirrors modern APIs like Spring's `JdbcClient` — without the bulk of a full framework. It is organized into three standalone pillars:
+FluDa provides a developer-friendly, fluent programming model for data access that mirrors modern APIs like Spring's `JdbcClient` — without the bulk of a full framework. It is organized into four standalone pillars:
 
 <div class="grid cards" markdown>
 
@@ -48,7 +48,13 @@ FluDa provides a developer-friendly, fluent programming model for data access th
 
     Container-agnostic declarative and programmatic transaction boundaries.
 
-    → [Quick Start](documentation/tx/quickstart.md){ .card-link } [:octicons-mark-github-16: tx](https://github.com/fludakit/tx){ .card-github }
+    → [Getting Started](documentation/tx/getting-started.md){ .card-link } [:octicons-mark-github-16: tx](https://github.com/fludakit/tx){ .card-github }
+
+-   :material-email-outline:{ .lg .middle } **Mail**
+
+    Simple mail abstraction with Jakarta Mail and pluggable providers.
+
+    → [Getting Started](documentation/mail/getting-started.md){ .card-link } [:octicons-mark-github-16: mail](https://github.com/fludakit/mail){ .card-github }
 
 </div>
 
@@ -102,6 +108,7 @@ int rows = client.sql("INSERT INTO engineers (name, department) VALUES (:name, :
 | **JDBC Client** | `core`, `config`, `cdi` | Fluent query engine over JDBC |
 | **SQL Init** | `core`, `config`, `cdi` | Automated schema migration on startup |
 | **Transaction Support** | `core`, `cdi`, `jdbc`, `jpa` | Declarative & programmatic transactions |
+| **Mail** | `core`, `config`, `cdi` | Mail abstraction with Jakarta Mail and pluggable providers |
 
 ## Installation
 
@@ -113,4 +120,4 @@ int rows = client.sql("INSERT INTO engineers (name, department) VALUES (:name, :
 </dependency>
 ```
 
-See the [installation guide](documentation/jdbc-client/install.md) for all options.
+See the [getting started guide](documentation/jdbc-client/getting-started.md) for all options.
