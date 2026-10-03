@@ -93,6 +93,10 @@ nav:
       - Quickstart: documentation/tx/quickstart.md
       - JDBC Implementation: documentation/tx/jdbc.md
       - JPA Implementation: documentation/tx/jpa.md
+    - Mail:
+      - Introduction: documentation/mail/index.md
+      - Getting Started: documentation/mail/getting-started.md
+      - Advanced Topics: documentation/mail/advanced.md
   - Blog:
     - blog/index.md
 

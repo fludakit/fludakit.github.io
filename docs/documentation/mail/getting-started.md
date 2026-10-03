@@ -1,0 +1,187 @@
+# Getting Started
+
+This guide covers adding FluDa Mail to your project and sending your first email, whether in a plain Java SE application or a Jakarta EE/CDI environment.
+
+## Requirements
+
+- JDK 21 or later.
+- A Jakarta EE 11 / CDI-compatible runtime is required for the `cdi` and `config` modules, such as GlassFish 8 or WildFly 41.
+- The `core` module is usable in plain Java SE applications because it depends only on the JDK and Jakarta Mail API.
+
+## Adding dependencies
+
+Choose the dependency that matches your runtime. The core module is intended for Java SE applications, while the CDI and configuration integrations are for Jakarta EE-compatible runtimes.
+
+### Using the core `MailSender`
+
+Use the following dependency when only the core fluent `MailSender` API is required:
+
+```xml
+<dependency>
+    <groupId>io.github.fludakit</groupId>
+    <artifactId>fluda-mail-core</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
+
+The core module provides `JakartaMailSender` for SMTP. You must supply a `jakarta.mail.Session` configured for your mail server.
+
+### Integrating with MicroProfile Config
+
+To configure the library from MicroProfile Config properties, add the optional configuration module:
+
+```xml
+<dependency>
+    <groupId>io.github.fludakit</groupId>
+    <artifactId>fluda-mail-config</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
+
+This module reads `fluda.mail.*` properties and produces a `MailConfig` bean.
+
+### Integrating with CDI
+
+For a CDI-managed `MailSender` and `MailBuilder`, add the CDI artifact:
+
+```xml
+<dependency>
+    <groupId>io.github.fludakit</groupId>
+    <artifactId>fluda-mail-cdi</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
+
+This artifact depends on the core module and is intended for a Jakarta EE 11 runtime.
+
+All modules are published with the same version. Replace the snapshot version shown above with the release version used by your application.
+
+## Sending your first email
+
+### In a Java SE application
+
+In a plain Java SE application, construct a `JakartaMailSender` from a `jakarta.mail.Session`:
+
+```java
+import io.github.fludakit.mail.JakartaMailSender;
+import io.github.fludakit.mail.MailMessage;
+import io.github.fludakit.mail.MailSender;
+
+import jakarta.mail.Session;
+import java.util.Properties;
+
+// Configure your SMTP session
+Properties props = new Properties();
+props.put("mail.smtp.host", "smtp.example.com");
+props.put("mail.smtp.port", "587");
+props.put("mail.smtp.auth", "true");
+props.put("mail.smtp.starttls.enable", "true");
+
+Session session = Session.getInstance(props);
+MailSender sender = new JakartaMailSender(session);
+
+// Build and send a message
+MailMessage message = new MailMessage();
+message.setFrom("sender@example.com");
+message.addTo("recipient@example.com");
+message.setSubject("Hello from FluDa Mail");
+message.setHtmlBody("<p>This is a test email sent with FluDa Mail.</p>");
+
+sender.send(message);
+```
+
+### Using the fluent `MailBuilder`
+
+The `MailBuilder` provides a more fluent API for constructing and sending messages:
+
+```java
+import io.github.fludakit.mail.MailBuilder;
+import io.github.fludakit.mail.JakartaMailSender;
+
+import jakarta.mail.Session;
+import java.util.Properties;
+
+Session session = Session.getInstance(new Properties());
+MailSender sender = new JakartaMailSender(session);
+
+new MailBuilder(sender)
+    .from("sender@example.com")
+    .to("recipient@example.com")
+    .subject("Hello from FluDa Mail")
+    .htmlBody("<p>This is a test email sent with FluDa Mail.</p>")
+    .send();
+```
+
+The builder also supports attachments:
+
+```java
+new MailBuilder(sender)
+    .from("sender@example.com")
+    .to("recipient@example.com")
+    .subject("Report attached")
+    .htmlBody("<p>Please find the report attached.</p>")
+    .attachment("report.pdf", "application/pdf", () -> new FileInputStream("report.pdf"))
+    .send();
+```
+
+### In a CDI environment
+
+In a Jakarta EE/CDI environment, add the `fluda-mail-cdi` and `fluda-mail-config` dependencies. The CDI module automatically produces a `MailSender` and `MailBuilder` bean.
+
+Configure your SMTP settings in `META-INF/microprofile-config.properties`:
+
+```properties
+fluda.mail.host=smtp.example.com
+fluda.mail.port=587
+fluda.mail.auth-enabled=true
+fluda.mail.starttls=true
+fluda.mail.username=your-username
+fluda.mail.password=your-password
+fluda.mail.from=noreply@example.com
+```
+
+Then inject `MailSender` or `MailBuilder` directly:
+
+```java
+import io.github.fludakit.mail.MailBuilder;
+import io.github.fludakit.mail.MailSender;
+import jakarta.inject.Inject;
+
+@ApplicationScoped
+public class NotificationService {
+
+    @Inject
+    MailSender sender;
+
+    @Inject
+    MailBuilder mailBuilder;
+
+    public void sendNotification(String to, String subject, String body) {
+        mailBuilder
+            .from("noreply@example.com")
+            .to(to)
+            .subject(subject)
+            .htmlBody(body)
+            .send();
+    }
+}
+```
+
+The `MailBuilder` is produced as `@Dependent`, so each injection point receives a fresh instance. The `MailSender` is `@ApplicationScoped` and backed by `JakartaMailSender` using the configuration from MicroProfile Config.
+
+## Configuration properties
+
+The following properties are supported by the `config` module:
+
+| Property                    | Description                          | Default     |
+|-----------------------------|--------------------------------------|-------------|
+| `fluda.mail.host`           | SMTP server hostname                 | `localhost` |
+| `fluda.mail.port`           | SMTP server port                     | `25`        |
+| `fluda.mail.username`       | SMTP username                        | (empty)     |
+| `fluda.mail.password`       | SMTP password                        | (empty)     |
+| `fluda.mail.auth-enabled`   | Enable SMTP authentication           | `false`     |
+| `fluda.mail.starttls`       | Enable STARTTLS                      | `false`     |
+| `fluda.mail.protocol`       | Mail protocol (`smtp` or `pop3`)     | `smtp`      |
+| `fluda.mail.from`           | Default from address                 | (empty)     |
+
+See [advanced topics](advanced.md) for custom `MailSender` implementations and replacing the default `JakartaMailSender` with third-party providers.
