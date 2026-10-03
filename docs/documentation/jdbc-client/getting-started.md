@@ -58,6 +58,39 @@ This module depends on the CDI module and is intended for a CDI environment with
 
 All modules are published with the same version. Replace the snapshot version shown above with the release version used by your application.
 
+#### Configuration properties
+
+When using the `config` module, the following properties can be set in `META-INF/microprofile-config.properties`:
+
+| Property                   | Default | Description                                                       |
+|----------------------------|--------:|-------------------------------------------------------------------|
+| `jdbcclient.placeholder`   |     `?` | Placeholder used when rewriting named parameters such as `:name`. |
+| `jdbcclient.query-timeout` |     `0` | Default query timeout in seconds. `0` means no timeout.           |
+| `jdbcclient.fetch-size`    |     `0` | Default fetch-size hint. `0` uses the driver default.             |
+
+##### Placeholder rewriting
+
+Named parameters are rewritten according to the configured placeholder:
+
+| Placeholder | Rewritten SQL   | Typical database        |
+|-------------|-----------------|-------------------------|
+| `?`         | `?`             | MySQL and standard JDBC |
+| `$`         | `$1`, `$2`, ... | H2/PostgreSQL           |
+| `:`         | `:1`, `:2`, ... | Oracle                  |
+| `@`         | `@name`         | SQL Server              |
+
+When `jdbcclient.placeholder=$`, the following SQL:
+
+```sql
+SELECT id FROM engineers WHERE id = :id AND active = :active
+```
+
+is rewritten before it is sent to the driver as:
+
+```sql
+SELECT id FROM engineers WHERE id = $1 AND active = $2
+```
+
 ## Creating a `JdbcClient`
 
 ### In a Java SE application
@@ -84,8 +117,6 @@ JdbcClient client = JdbcClient.builder(dataSource)
         .converters(registry)
         .build();
 ```
-
-See [configuration](configuration.md) for the full list of available defaults and options.
 
 ### In a CDI environment
 
@@ -150,6 +181,21 @@ List<DevSummary> devs = client
 ```
 
 A single SQL specification cannot combine named and positional parameters.
+
+### Overriding configuration for a query
+
+The `queryTimeout(...)` and `fetchSize(...)` methods on an individual SQL specification override the client defaults for that statement.
+
+```java
+List<DevSummary> devs = client
+        .sql("SELECT id, dev_name FROM engineers")
+        .fetchSize(100)
+        .queryTimeout(30)
+        .query(DevSummary.class)
+        .list();
+```
+
+In practice, these defaults are useful for keeping database behavior consistent across an application while still allowing particular queries to opt into stricter or more permissive settings when needed.
 
 ## Next steps
 

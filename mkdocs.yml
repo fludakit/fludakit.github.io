@@ -80,7 +80,6 @@ nav:
       - Dive deeper:
         - Querying and Result mapping: documentation/jdbc-client/querying.md
         - Updates and generated keys: documentation/jdbc-client/updates.md
-      - Configuration: documentation/jdbc-client/configuration.md
     - SQL Init:
       - Introduction: documentation/sql-init/index.md
       - Getting Started: documentation/sql-init/getting-started.md
