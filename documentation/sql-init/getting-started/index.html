@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://fludakit.github.io/documentation/sql-init/install/">
+        <link rel="canonical" href="https://fludakit.github.io/documentation/sql-init/getting-started/">
       
       
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../quickstart/">
+        <link rel="next" href="../configuration/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Installation - FluDa</title>
+        <title>Getting Started - FluDa</title>
       
     
     
@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sql-init-installation" class="md-skip">
+        <a href="#getting-started" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installation
+              Getting Started
             
           </span>
         </div>
@@ -472,8 +472,6 @@
       
         
       
-        
-      
     
     
     
@@ -540,42 +538,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jdbc-client/install/" class="md-nav__link">
+      <a href="../../jdbc-client/getting-started/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Installation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jdbc-client/quickstart/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quickstart
+    Getting Started
   
 
     
@@ -617,10 +587,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_4" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2_3" >
         
           
-          <label class="md-nav__link" for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
             
   
   
@@ -638,8 +608,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_4">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -768,8 +738,6 @@
       
         
       
-        
-      
     
     
     
@@ -850,7 +818,7 @@
   <span class="md-ellipsis">
     
   
-    Installation
+    Getting Started
   
 
     
@@ -868,7 +836,7 @@
   <span class="md-ellipsis">
     
   
-    Installation
+    Getting Started
   
 
     
@@ -905,6 +873,18 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#adding-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding dependencies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#using-the-core-migrator" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -914,8 +894,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#automatic-startup-in-cdi" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -925,12 +905,95 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#microprofile-config-integration" class="md-nav__link">
     <span class="md-ellipsis">
       
         MicroProfile Config integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-migration-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating migration scripts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-migrations-programmatically" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running migrations programmatically
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running migrations programmatically">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-startup-in-cdi_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automatic startup in CDI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automatic startup in CDI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#selecting-a-specific-datasource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Selecting a specific DataSource
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next steps
       
     </span>
   </a>
@@ -941,34 +1004,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../quickstart/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quickstart
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -1021,8 +1056,6 @@
       
         
           
-        
-      
         
       
         
@@ -1097,42 +1130,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tx/install/" class="md-nav__link">
+      <a href="../../tx/getting-started/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Installation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../tx/quickstart/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quickstart
+    Getting Started
   
 
     
@@ -1667,6 +1672,18 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#adding-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding dependencies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#using-the-core-migrator" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1676,8 +1693,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#automatic-startup-in-cdi" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1687,12 +1704,95 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#microprofile-config-integration" class="md-nav__link">
     <span class="md-ellipsis">
       
         MicroProfile Config integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-migration-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating migration scripts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-migrations-programmatically" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running migrations programmatically
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running migrations programmatically">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-startup-in-cdi_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automatic startup in CDI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Automatic startup in CDI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#selecting-a-specific-datasource" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Selecting a specific DataSource
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next steps
       
     </span>
   </a>
@@ -1719,16 +1819,17 @@
   
 
 
-<h1 id="sql-init-installation">SQL Init Installation<a class="headerlink" href="#sql-init-installation" title="Permanent link">&para;</a></h1>
-<p>Choose the dependency that matches your runtime. The <code>core</code> module is sufficient for programmatic use;
-the <code>cdi</code> module adds automatic startup migration in a Jakarta EE / CDI environment.</p>
+<h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h1>
+<p>This guide covers adding FluDa SQL Init to your project and running your first database migration, whether programmatically in a Java SE application or automatically in a Jakarta EE/CDI environment.</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
 <ul>
 <li>JDK 21 or later.</li>
-<li>A Jakarta EE 11 / CDI-compatible runtime is required for the <code>cdi</code> and <code>config</code> modules.</li>
+<li>A CDI-compatible runtime is required for the <code>cdi</code> and <code>config</code> modules, such as GlassFish 8, WildFly 41, or Weld SE.</li>
 <li>The <code>core</code> module is usable in plain Java SE applications because it depends only on <code>javax.sql.DataSource</code>.</li>
 </ul>
-<h2 id="using-the-core-migrator">Using the core migrator<a class="headerlink" href="#using-the-core-migrator" title="Permanent link">&para;</a></h2>
+<h2 id="adding-dependencies">Adding dependencies<a class="headerlink" href="#adding-dependencies" title="Permanent link">&para;</a></h2>
+<p>Choose the dependency that matches your runtime. The <code>core</code> module is sufficient for programmatic use; the <code>cdi</code> module adds automatic startup migration in a Jakarta EE/CDI environment.</p>
+<h3 id="using-the-core-migrator">Using the core migrator<a class="headerlink" href="#using-the-core-migrator" title="Permanent link">&para;</a></h3>
 <p>For programmatic control over migration execution:</p>
 <div class="language-xml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;dependency&gt;</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.github.fludakit<span class="nt">&lt;/groupId&gt;</span>
@@ -1736,7 +1837,7 @@ the <code>cdi</code> module adds automatic startup migration in a Jakarta EE / C
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">&lt;/dependency&gt;</span>
 </span></code></pre></div>
-<h2 id="automatic-startup-in-cdi">Automatic startup in CDI<a class="headerlink" href="#automatic-startup-in-cdi" title="Permanent link">&para;</a></h2>
+<h3 id="automatic-startup-in-cdi">Automatic startup in CDI<a class="headerlink" href="#automatic-startup-in-cdi" title="Permanent link">&para;</a></h3>
 <p>To apply migrations automatically when the application starts, add the CDI module:</p>
 <div class="language-xml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;dependency&gt;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.github.fludakit<span class="nt">&lt;/groupId&gt;</span>
@@ -1744,18 +1845,94 @@ the <code>cdi</code> module adds automatic startup migration in a Jakarta EE / C
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nt">&lt;/dependency&gt;</span>
 </span></code></pre></div>
-<p>This pulls in <code>core</code> transitively. The CDI module observes the container's <code>Startup</code> event and runs all
-pending migrations before the application begins serving requests.</p>
-<h2 id="microprofile-config-integration">MicroProfile Config integration<a class="headerlink" href="#microprofile-config-integration" title="Permanent link">&para;</a></h2>
-<p>To configure script locations, separator, or database type from application properties, add the optional
-config module:</p>
+<p>This pulls in <code>core</code> transitively. The CDI module observes the container's <code>Startup</code> event and runs all pending migrations before the application begins serving requests.</p>
+<h3 id="microprofile-config-integration">MicroProfile Config integration<a class="headerlink" href="#microprofile-config-integration" title="Permanent link">&para;</a></h3>
+<p>The <code>fluda-sql-init-config</code> module is an optional addon to the CDI module that provides property-based configuration. It reads configuration properties from MicroProfile Config and produces a <code>SqlInitConfig</code> bean.</p>
+<p>Add this dependency when you want to configure script locations, separator, or database type from application properties:</p>
 <div class="language-xml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;dependency&gt;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.github.fludakit<span class="nt">&lt;/groupId&gt;</span>
 </span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>fluda-sql-init-config<span class="nt">&lt;/artifactId&gt;</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nt">&lt;/dependency&gt;</span>
 </span></code></pre></div>
-<p>See <a href="../configuration/">configuration</a> for the available properties.</p>
+<p>This module depends on the CDI module and is intended for a CDI environment with MicroProfile Config support.</p>
+<p>All modules are published with the same version. Replace the snapshot version shown above with the release version used by your application.</p>
+<h2 id="creating-migration-scripts">Creating migration scripts<a class="headerlink" href="#creating-migration-scripts" title="Permanent link">&para;</a></h2>
+<p>Place versioned SQL scripts in <code>src/main/resources/db/migration/</code>. Each file must follow the naming convention <code>V&lt;version&gt;__&lt;description&gt;.sql</code>:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>src/main/resources/
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>└── db/
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    └── migration/
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>        ├── V1__create_engineers.sql
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>        └── V2__seed_engineers.sql
+</span></code></pre></div>
+<p>Example scripts:</p>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">-- V1__create_engineers.sql</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">engineers</span><span class="w"> </span><span class="p">(</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="k">GENERATED</span><span class="w"> </span><span class="n">ALWAYS</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">IDENTITY</span><span class="p">,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">);</span>
+</span></code></pre></div>
+<div class="language-sql highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">-- V2__seed_engineers.sql</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">engineers</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">'Ada Lovelace'</span><span class="p">);</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">engineers</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="s1">'Alan Turing'</span><span class="p">);</span>
+</span></code></pre></div>
+<p>The version number determines execution order. Versions must be consecutive starting from 1, with no gaps.</p>
+<h2 id="running-migrations-programmatically">Running migrations programmatically<a class="headerlink" href="#running-migrations-programmatically" title="Permanent link">&para;</a></h2>
+<p>With only <code>fluda-sql-init-core</code> on the classpath, create a <code>DbMigrator</code> and call <code>migrate()</code>:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.github.fludakit.sqlinit.DbMigrator</span><span class="p">;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">javax.sql.DataSource</span><span class="p">;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="n">DataSource</span><span class="w"> </span><span class="n">dataSource</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w"> </span><span class="c1">// obtain a DataSource</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="k">new</span><span class="w"> </span><span class="n">DbMigrator</span><span class="p">(</span><span class="n">dataSource</span><span class="p">).</span><span class="na">migrate</span><span class="p">();</span>
+</span></code></pre></div>
+<p>This resolves scripts from the default location (<code>classpath:db/migration</code>), detects the database type from the connection, creates the <code>db_migrations</code> history table if needed, and applies all pending migrations.</p>
+<h3 id="custom-configuration">Custom configuration<a class="headerlink" href="#custom-configuration" title="Permanent link">&para;</a></h3>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.github.fludakit.sqlinit.DbMigrator</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.github.fludakit.sqlinit.SqlInitConfig</span><span class="p">;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">SqlInitConfig</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SqlInitConfig</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="p">.</span><span class="na">scriptLocations</span><span class="p">(</span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="s">"classpath:db/migration"</span><span class="p">,</span><span class="w"> </span><span class="s">"classpath:db/extra"</span><span class="p">))</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span><span class="p">.</span><span class="na">separator</span><span class="p">(</span><span class="s">";"</span><span class="p">)</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="p">.</span><span class="na">dbType</span><span class="p">(</span><span class="s">"postgresql"</span><span class="p">)</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="k">new</span><span class="w"> </span><span class="n">DbMigrator</span><span class="p">(</span><span class="n">dataSource</span><span class="p">,</span><span class="w"> </span><span class="n">config</span><span class="p">).</span><span class="na">migrate</span><span class="p">();</span>
+</span></code></pre></div>
+<p>See <a href="../configuration/">configuration</a> for all options.</p>
+<h2 id="automatic-startup-in-cdi_1">Automatic startup in CDI<a class="headerlink" href="#automatic-startup-in-cdi_1" title="Permanent link">&para;</a></h2>
+<p>Add <code>fluda-sql-init-cdi</code> and ensure a <code>DataSource</code> bean is available. The <code>SqlInitBootstrapper</code> observes the <code>Startup</code> event and runs migrations automatically — no code required.</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">javax.sql.DataSource</span><span class="p">;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.annotation.Resource</span><span class="p">;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.enterprise.context.ApplicationScoped</span><span class="p">;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.enterprise.inject.Produces</span><span class="p">;</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nd">@ApplicationScoped</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DataSourceProducer</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="nd">@Resource</span><span class="p">(</span><span class="n">lookup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"java:comp/MyDS"</span><span class="p">)</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">DataSource</span><span class="w"> </span><span class="n">dataSource</span><span class="p">;</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="nd">@Produces</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="nd">@ApplicationScoped</span>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">DataSource</span><span class="w"> </span><span class="nf">expose</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dataSource</span><span class="p">;</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="selecting-a-specific-datasource">Selecting a specific DataSource<a class="headerlink" href="#selecting-a-specific-datasource" title="Permanent link">&para;</a></h3>
+<p>When the application has multiple <code>DataSource</code> beans, use the <code>@SqlInit</code> qualifier to mark the one that migrations should run against:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@Produces</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nd">@ApplicationScoped</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nd">@SqlInit</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="kd">public</span><span class="w"> </span><span class="n">DataSource</span><span class="w"> </span><span class="nf">migrationDataSource</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">dataSource</span><span class="p">;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>When no <code>@SqlInit</code>-qualified <code>DataSource</code> exists, the default unqualified bean is used.</p>
+<h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p>See <a href="../configuration/">configuration</a> for the available configuration properties and advanced options.</p>
 
 
 
@@ -1778,7 +1955,7 @@ config module:</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 1, 2026 10:01:42 UTC">October 1, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 3, 2026 12:56:04 UTC">October 3, 2026</span>
   </span>
 
     
@@ -1788,7 +1965,7 @@ config module:</p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 30, 2026 09:43:05 UTC">September 30, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 3, 2026 12:56:04 UTC">October 3, 2026</span>
   </span>
 
     
@@ -1834,13 +2011,13 @@ config module:</p>
         
         
           
-          <a href="../quickstart/" class="md-footer__link md-footer__link--next" aria-label="Next: Quickstart">
+          <a href="../configuration/" class="md-footer__link md-footer__link--next" aria-label="Next: Configuration">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Quickstart
+                Configuration
               </div>
             </div>
             <div class="md-footer__button md-icon">

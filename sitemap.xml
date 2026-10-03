@@ -25,15 +25,11 @@
          <lastmod>2026-10-03</lastmod>
     </url>
     <url>
-         <loc>https://fludakit.github.io/documentation/jdbc-client/install/</loc>
+         <loc>https://fludakit.github.io/documentation/jdbc-client/getting-started/</loc>
          <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/documentation/jdbc-client/querying/</loc>
-         <lastmod>2026-10-03</lastmod>
-    </url>
-    <url>
-         <loc>https://fludakit.github.io/documentation/jdbc-client/quickstart/</loc>
          <lastmod>2026-10-03</lastmod>
     </url>
     <url>
@@ -61,11 +57,7 @@
          <lastmod>2026-10-03</lastmod>
     </url>
     <url>
-         <loc>https://fludakit.github.io/documentation/sql-init/install/</loc>
-         <lastmod>2026-10-03</lastmod>
-    </url>
-    <url>
-         <loc>https://fludakit.github.io/documentation/sql-init/quickstart/</loc>
+         <loc>https://fludakit.github.io/documentation/sql-init/getting-started/</loc>
          <lastmod>2026-10-03</lastmod>
     </url>
     <url>
@@ -73,7 +65,7 @@
          <lastmod>2026-10-03</lastmod>
     </url>
     <url>
-         <loc>https://fludakit.github.io/documentation/tx/install/</loc>
+         <loc>https://fludakit.github.io/documentation/tx/getting-started/</loc>
          <lastmod>2026-10-03</lastmod>
     </url>
     <url>
@@ -82,10 +74,6 @@
     </url>
     <url>
          <loc>https://fludakit.github.io/documentation/tx/jpa/</loc>
-         <lastmod>2026-10-03</lastmod>
-    </url>
-    <url>
-         <loc>https://fludakit.github.io/documentation/tx/quickstart/</loc>
          <lastmod>2026-10-03</lastmod>
     </url>
     <url>
