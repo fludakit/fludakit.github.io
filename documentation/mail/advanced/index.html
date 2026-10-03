@@ -1376,6 +1376,56 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Template support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template-resolution-in-cdi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Template resolution in CDI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#built-in-processors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Built-in processors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-templateprocessor-quarkus-qute-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom TemplateProcessor: Quarkus Qute integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1787,6 +1837,56 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Template support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template-resolution-in-cdi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Template resolution in CDI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#built-in-processors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Built-in processors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-templateprocessor-quarkus-qute-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Custom TemplateProcessor: Quarkus Qute integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1948,11 +2048,23 @@
 </span></code></pre></div>
 <p>No code changes are needed at the injection site. The <code>MailBuilder</code> produced by the CDI module depends on <code>MailSender</code> by type, so it automatically picks up whichever bean the container resolves — whether that is the default <code>JakartaMailSender</code> or your custom <code>SendGridMailSender</code>.</p>
 <h2 id="template-support">Template support<a class="headerlink" href="#template-support" title="Permanent link">&para;</a></h2>
-<p>The <code>MailBuilder</code> optionally integrates with a <code>TemplateProcessor</code> for rendering email templates. The <code>core</code> module ships with two built-in processors:</p>
+<p>The <code>MailBuilder</code> optionally integrates with a <code>TemplateProcessor</code> for rendering email templates.</p>
+<h3 id="template-resolution-in-cdi">Template resolution in CDI<a class="headerlink" href="#template-resolution-in-cdi" title="Permanent link">&para;</a></h3>
+<p>In a CDI environment, the <code>MailBuilderProducer</code> resolves the <code>TemplateProcessor</code> in the following order:</p>
+<ol>
+<li>If a <code>TemplateProcessor</code> bean is available in the CDI container, it uses that bean.</li>
+<li>Otherwise, it falls back to <code>TemplateProcessor.DEFAULT</code>, which:</li>
+<li>Checks if FreeMarker is on the classpath (via <code>Class.forName("freemarker.template.Configuration")</code>). If found, uses the built-in <code>FreeMarkerTemplateProcessor</code>.</li>
+<li>Otherwise, falls back to <code>SimpleTemplateProcessor</code>, a lightweight implementation that performs <code>:name</code> placeholder substitution.</li>
+</ol>
+<p>This means you can use templates out of the box without any additional configuration — just add FreeMarker to your classpath if you want <code>.ftl</code> template support, or use the simple placeholder-based processor by default.</p>
+<h3 id="built-in-processors">Built-in processors<a class="headerlink" href="#built-in-processors" title="Permanent link">&para;</a></h3>
+<p>The <code>core</code> module ships with two built-in processors:</p>
 <ul>
 <li><strong><code>FreeMarkerTemplateProcessor</code></strong> — used automatically when FreeMarker is on the classpath. Loads <code>.ftl</code> templates from the classpath under <code>templates/</code>.</li>
 <li><strong><code>SimpleTemplateProcessor</code></strong> — a lightweight fallback that loads <code>.subject</code> and <code>.body</code> templates from the classpath and performs <code>:name</code> placeholder substitution.</li>
 </ul>
+<h3 id="using-templates">Using templates<a class="headerlink" href="#using-templates" title="Permanent link">&para;</a></h3>
 <p>To use templates, inject a <code>TemplateProcessor</code> bean or rely on the default:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">new</span><span class="w"> </span><span class="n">MailBuilder</span><span class="p">(</span><span class="n">sender</span><span class="p">,</span><span class="w"> </span><span class="n">templateProcessor</span><span class="p">)</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="s">"noreply@example.com"</span><span class="p">)</span>
@@ -1962,6 +2074,46 @@
 </span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="p">.</span><span class="na">send</span><span class="p">();</span>
 </span></code></pre></div>
 <p>The builder looks for <code>templates/welcome.subject</code> (or <code>welcome_fr.subject</code> for the French locale) and <code>templates/welcome.body</code> (or <code>welcome_fr.body</code>), rendering them with the provided context map.</p>
+<h3 id="custom-templateprocessor-quarkus-qute-integration">Custom <code>TemplateProcessor</code>: Quarkus Qute integration<a class="headerlink" href="#custom-templateprocessor-quarkus-qute-integration" title="Permanent link">&para;</a></h3>
+<p>If you prefer to use Quarkus Qute as your template engine, you can implement a custom <code>TemplateProcessor</code> and expose it as a CDI bean. The <code>MailBuilderProducer</code> will automatically pick it up.</p>
+<p>First, add the Qute dependency:</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">&lt;dependency&gt;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.quarkus<span class="nt">&lt;/groupId&gt;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>quarkus-qute<span class="nt">&lt;/artifactId&gt;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nt">&lt;version&gt;</span>3.15.1<span class="nt">&lt;/version&gt;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nt">&lt;/dependency&gt;</span>
+</span></code></pre></div>
+<p>Then implement <code>TemplateProcessor</code>:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.github.fludakit.mail.template.TemplateProcessor</span><span class="p">;</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.quarkus.qute.Engine</span><span class="p">;</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.quarkus.qute.Template</span><span class="p">;</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.enterprise.context.ApplicationScoped</span><span class="p">;</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.inject.Inject</span><span class="p">;</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Locale</span><span class="p">;</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Map</span><span class="p">;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="nd">@ApplicationScoped</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">QuteTemplateProcessor</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">TemplateProcessor</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="nd">@Inject</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="n">Engine</span><span class="w"> </span><span class="n">engine</span><span class="p">;</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="nd">@Override</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">render</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">templateName</span><span class="p">,</span><span class="w"> </span><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">Locale</span><span class="w"> </span><span class="n">locale</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">        </span><span class="c1">// Qute uses template files from resources/templates/ by default</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">        </span><span class="c1">// You can implement locale-aware resolution here</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">templatePath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">templateName</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">".html"</span><span class="p">;</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">        </span><span class="n">Template</span><span class="w"> </span><span class="n">template</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">engine</span><span class="p">.</span><span class="na">getTemplate</span><span class="p">(</span><span class="n">templatePath</span><span class="p">);</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">template</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">"Template not found: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">templatePath</span><span class="p">);</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">template</span><span class="p">.</span><span class="na">data</span><span class="p">(</span><span class="n">context</span><span class="p">).</span><span class="na">render</span><span class="p">();</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Once this bean is available in the CDI container, the <code>MailBuilderProducer</code> will inject it automatically, and all <code>MailBuilder</code> instances will use your Qute-based processor for template rendering.</p>
 
 
 
@@ -1984,7 +2136,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 3, 2026 12:07:51 UTC">October 3, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 3, 2026 12:45:20 UTC">October 3, 2026</span>
   </span>
 
     
