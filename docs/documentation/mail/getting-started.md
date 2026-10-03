@@ -26,20 +26,6 @@ Use the following dependency when only the core fluent `MailSender` API is requi
 
 The core module provides `JakartaMailSender` for SMTP. You must supply a `jakarta.mail.Session` configured for your mail server.
 
-### Integrating with MicroProfile Config
-
-To configure the library from MicroProfile Config properties, add the optional configuration module:
-
-```xml
-<dependency>
-    <groupId>io.github.fludakit</groupId>
-    <artifactId>fluda-mail-config</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-```
-
-This module reads `fluda.mail.*` properties and produces a `MailConfig` bean.
-
 ### Integrating with CDI
 
 For a CDI-managed `MailSender` and `MailBuilder`, add the CDI artifact:
@@ -52,7 +38,23 @@ For a CDI-managed `MailSender` and `MailBuilder`, add the CDI artifact:
 </dependency>
 ```
 
-This artifact depends on the core module and is intended for a Jakarta EE 11 runtime.
+This artifact depends on the core module and is intended for a Jakarta EE 11 runtime. The CDI module produces `MailSender` and `MailBuilder` beans, but requires either a `MailConfig` bean or a `jakarta.mail.Session` bean to be available in the container.
+
+### Integrating with MicroProfile Config
+
+The `fluda-mail-config` module is an optional addon to the CDI module that provides property-based configuration. It reads `fluda.mail.*` properties from MicroProfile Config and produces a `MailConfig` bean, which the CDI module uses to create a `JakartaMailSender`.
+
+Add this dependency when you want to configure mail settings via properties instead of providing your own `Session` bean:
+
+```xml
+<dependency>
+    <groupId>io.github.fludakit</groupId>
+    <artifactId>fluda-mail-config</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
+
+This module depends on the CDI module and is intended for a Jakarta EE 11 runtime with MicroProfile Config support.
 
 All modules are published with the same version. Replace the snapshot version shown above with the release version used by your application.
 
@@ -126,9 +128,26 @@ new MailBuilder(sender)
 
 ### In a CDI environment
 
-In a Jakarta EE/CDI environment, add the `fluda-mail-cdi` and `fluda-mail-config` dependencies. The CDI module automatically produces a `MailSender` and `MailBuilder` bean.
+In a Jakarta EE/CDI environment, the `fluda-mail-cdi` module automatically produces a `MailSender` and `MailBuilder` bean. However, the `MailSender` requires either a `MailConfig` bean or a `jakarta.mail.Session` bean to be available in the CDI container.
 
-Configure your SMTP settings in `META-INF/microprofile-config.properties`:
+#### Using `fluda-mail-config` for property-based configuration
+
+The `fluda-mail-config` module provides a `MailConfig` bean that is configurable via MicroProfile Config properties. Add both dependencies:
+
+```xml
+<dependency>
+    <groupId>io.github.fludakit</groupId>
+    <artifactId>fluda-mail-cdi</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+<dependency>
+    <groupId>io.github.fludakit</groupId>
+    <artifactId>fluda-mail-config</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
+
+Then configure your SMTP settings in `META-INF/microprofile-config.properties`:
 
 ```properties
 fluda.mail.host=smtp.example.com
@@ -140,7 +159,11 @@ fluda.mail.password=your-password
 fluda.mail.from=noreply@example.com
 ```
 
-Then inject `MailSender` or `MailBuilder` directly:
+The `config` module reads these properties and produces a `MailConfig` bean, which the `cdi` module uses to create a `JakartaMailSender`.
+
+#### Injecting and using the mail beans
+
+Once configured, inject `MailSender` or `MailBuilder` directly:
 
 ```java
 import io.github.fludakit.mail.MailBuilder;
@@ -169,7 +192,11 @@ public class NotificationService {
 
 The `MailBuilder` is produced as `@Dependent`, so each injection point receives a fresh instance. The `MailSender` is `@ApplicationScoped` and backed by `JakartaMailSender` using the configuration from MicroProfile Config.
 
-## Configuration properties
+#### Alternative: providing your own `Session` bean
+
+If you prefer to use a container-managed JavaMail session (via JNDI) instead of property-based configuration, you can produce your own `Session` bean. See the [Jakarta EE environment](#in-a-jakarta-ee-environment) section for details.
+
+#### Configuration properties
 
 The following properties are supported by the `config` module:
 
