@@ -1,12 +1,87 @@
-# Quickstart
+# Getting Started
 
-Setting up resource-local transactions requires three pieces:
+This guide covers adding FluDa Transaction Support to your project and setting up resource-local transactions in a CDI environment.
+
+## Requirements
+
+- JDK 21 or later.
+- A CDI container (Weld SE for Java SE, Weld Servlet for Servlet containers, or a full Jakarta EE server).
+- A JDBC `DataSource` (typically a connection pool like HikariCP).
+
+## Adding dependencies
+
+### For Java SE or Servlet environments
+
+Add the three tx modules:
+
+```xml
+<dependency>
+    <groupId>io.github.fludakit</groupId>
+    <artifactId>fluda-tx-core</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+<dependency>
+    <groupId>io.github.fludakit</groupId>
+    <artifactId>fluda-tx-cdi</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+<dependency>
+    <groupId>io.github.fludakit</groupId>
+    <artifactId>fluda-tx-jdbc</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
+
+You also need the JDBC Client modules:
+
+```xml
+<dependency>
+    <groupId>io.github.fludakit</groupId>
+    <artifactId>fluda-jdbc-client-core</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+<dependency>
+    <groupId>io.github.fludakit</groupId>
+    <artifactId>fluda-jdbc-client-cdi</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
+
+The tx modules declare the CDI API and `jakarta.transaction-api` as `provided`: supply a CDI container (Weld SE, or a Servlet container with Weld) plus `jakarta.transaction-api` for the `@Transactional` annotation.
+
+### For Jakarta EE environments
+
+On a full Jakarta EE server, JTA is built in, so `jakarta.transaction.Transactional` is handled by the container — **no `fluda-tx` dependency is needed**. Just use the JDBC Client modules and let the container manage transactions.
+
+### Using the BOM
+
+If you use the FluDa BOM, the JDBC Client module versions are managed automatically:
+
+```xml
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>io.github.fludakit</groupId>
+            <artifactId>fluda-bom</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+```
+
+The tx modules are not yet included in the BOM — specify their version explicitly.
+
+## Setting up transactions
+
+Resource-local transactions require three pieces:
 
 1. A **raw connection pool** (e.g. HikariCP)
 2. A **`TransactionAwareDataSource`** wrapping the pool — this is the `DataSource` your code injects
 3. A **`PlatformTransactionManager`** implementation built from the same raw pool
 
-## Wire the DataSource and transaction manager
+### Wiring the DataSource and transaction manager
 
 ```java
 import com.zaxxer.hikari.HikariConfig;
@@ -50,7 +125,7 @@ public class DatabaseConfig {
 !!! important
     The `DataSourceTransactionManager` and the `TransactionAwareDataSourceProxy` must share the **same raw pool** — the pool instance is the key that binds the transaction's `Connection` to the thread.
 
-## Use `@Transactional`
+## Using `@Transactional`
 
 Annotate a CDI bean method with `jakarta.transaction.Transactional`. Inject the transaction-aware `DataSource` (or `JdbcClient`) and use it as usual:
 
@@ -77,7 +152,7 @@ public class OrderService {
 
 The CDI interceptor auto-registered by `fluda-tx-cdi` drives the transaction around the method: it opens a `Connection`, disables auto-commit, and commits on success or rolls back on failure. Inside the method the proxy returns that bound `Connection` and suppresses `close()`, so try-with-resources blocks do not end the transaction prematurely.
 
-## Propagation
+## Transaction propagation
 
 Control propagation with `Transactional.TxType` (`REQUIRED` by default):
 
@@ -103,3 +178,7 @@ public void doWork() throws CheckedBusinessException {
 public void doWork() {
 }
 ```
+
+## Next steps
+
+See the [JDBC implementation](jdbc.md) page for DataSource-based transactions and the [JPA implementation](jpa.md) page for EntityManager-based transactions.

@@ -76,21 +76,18 @@ nav:
     - Introduction: documentation/introduction.md
     - JDBC Client:
       - Introduction: documentation/jdbc-client/index.md
-      - Installation: documentation/jdbc-client/install.md
-      - Quickstart: documentation/jdbc-client/quickstart.md
+      - Getting Started: documentation/jdbc-client/getting-started.md
       - Dive deeper:
         - Querying and Result mapping: documentation/jdbc-client/querying.md
         - Updates and generated keys: documentation/jdbc-client/updates.md
       - Configuration: documentation/jdbc-client/configuration.md
     - SQL Init:
       - Introduction: documentation/sql-init/index.md
-      - Installation: documentation/sql-init/install.md
-      - Quickstart: documentation/sql-init/quickstart.md
+      - Getting Started: documentation/sql-init/getting-started.md
       - Configuration: documentation/sql-init/configuration.md
     - Transaction:
       - Introduction: documentation/tx/index.md
-      - Installation: documentation/tx/install.md
-      - Quickstart: documentation/tx/quickstart.md
+      - Getting Started: documentation/tx/getting-started.md
       - JDBC Implementation: documentation/tx/jdbc.md
       - JPA Implementation: documentation/tx/jpa.md
     - Mail:
