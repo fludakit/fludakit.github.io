@@ -38,7 +38,7 @@ For a CDI-managed `MailSender` and `MailBuilder`, add the CDI artifact:
 </dependency>
 ```
 
-This artifact depends on the core module and is intended for a Jakarta EE 11 runtime. The CDI module produces `MailSender` and `MailBuilder` beans, but requires either a `MailConfig` bean or a `jakarta.mail.Session` bean to be available in the container.
+This artifact depends on the core module and is intended for a CDI environment. The CDI module produces `MailSender` and `MailBuilder` beans, but requires either a `MailConfig` bean or a `jakarta.mail.Session` bean to be available in the container.
 
 ### Integrating with MicroProfile Config
 
@@ -54,7 +54,7 @@ Add this dependency when you want to configure mail settings via properties inst
 </dependency>
 ```
 
-This module depends on the CDI module and is intended for a Jakarta EE 11 runtime with MicroProfile Config support.
+This module depends on the CDI module and is intended for a CDI environment with MicroProfile Config support.
 
 All modules are published with the same version. Replace the snapshot version shown above with the release version used by your application.
 
