@@ -2,46 +2,6 @@
 
 This page covers advanced configuration options for FluDa SQL Init, including custom version strategies and custom resource resolvers.
 
-## Script locations
-
-Locations use a protocol prefix:
-
-| Prefix          | Example                                    | Description                                    |
-|-----------------|--------------------------------------------|------------------------------------------------|
-| `classpath:`    | `classpath:db/migration`                   | Scans the classpath (directories and JARs).    |
-| `filesystem:`   | `filesystem:/opt/app/migrations`           | Scans the operating system file system.        |
-| `file:`         | `file:/opt/app/migrations`                 | Alias for `filesystem:`.                       |
-| *(none)*        | `db/migration`                             | Defaults to `classpath:`.                      |
-
-Ant-style patterns are supported: `classpath:db/**/*.sql`.
-
-When multiple locations are configured, scripts are merged by filename — the first location wins on name collisions.
-
-## Statement separator
-
-The default separator is `;`. Scripts can override it inline with the `DELIMITER` directive, which is how MySQL and MariaDB scripts wrap stored-procedure bodies:
-
-```sql
-DELIMITER //
-CREATE PROCEDURE reset_counts()
-BEGIN
-    UPDATE counters SET value = 0;
-END//
-DELIMITER ;
-```
-
-## Database type
-
-When `dbType` is `null` (the default), the migrator auto-detects the database from the JDBC connection metadata. Set it explicitly when auto-detection is ambiguous or when running against an unsupported database with compatible SQL:
-
-| Value        | Aliases                                  |
-|--------------|------------------------------------------|
-| `h2`         |                                          |
-| `postgresql` | `pg`, `postgres`                         |
-| `mysql`      | `mariadb`                                |
-| `mssql`      | `sqlserver`, `sql_server`                |
-| `oracle`     |                                          |
-
 ## Custom version strategy
 
 The version strategy controls how migration versions are parsed from filenames and how they are ordered. The default is `IntegerVersionStrategy` which expects simple numeric versions (`V1`, `V2`, `V3`).
@@ -85,9 +45,24 @@ public class DateVersionStrategy implements VersionStrategy {
 }
 ```
 
-## Custom resource resolvers
+## Resource resolvers
 
-The built-in resolvers handle `classpath:`, `file:`, and `filesystem:` locations. To load migrations from other sources (e.g. AWS S3, HTTP, a database), implement `ResourceResolver` and register it with a `ResourceResolverRegistry`:
+Script locations use a protocol prefix that maps to a `ResourceResolver`:
+
+| Prefix          | Example                                    | Description                                    |
+|-----------------|--------------------------------------------|------------------------------------------------|
+| `classpath:`    | `classpath:db/migration`                   | Scans the classpath (directories and JARs).    |
+| `filesystem:`   | `filesystem:/opt/app/migrations`           | Scans the operating system file system.        |
+| `file:`         | `file:/opt/app/migrations`                 | Alias for `filesystem:`.                       |
+| *(none)*        | `db/migration`                             | Defaults to `classpath:`.                      |
+
+Ant-style patterns are supported: `classpath:db/**/*.sql`.
+
+When multiple locations are configured, scripts are merged by filename — the first location wins on name collisions.
+
+### Custom resource resolvers
+
+To load migrations from other sources (e.g. AWS S3, HTTP, a database), implement `ResourceResolver` and register it with a `ResourceResolverRegistry`:
 
 ```java
 ResourceResolverRegistry registry = new ResourceResolverRegistry();

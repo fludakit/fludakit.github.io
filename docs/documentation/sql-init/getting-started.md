@@ -76,6 +76,31 @@ jdbcclient.init.db-type=postgresql
 
 For programmatic configuration in Java SE, use the `SqlInitConfig` builder as shown in the [custom configuration](#custom-configuration) section below.
 
+#### Statement separator
+
+The default separator is `;`. Scripts can override it inline with the `DELIMITER` directive, which is how MySQL and MariaDB scripts wrap stored-procedure bodies:
+
+```sql
+DELIMITER //
+CREATE PROCEDURE reset_counts()
+BEGIN
+    UPDATE counters SET value = 0;
+END//
+DELIMITER ;
+```
+
+#### Database type
+
+When `db-type` is empty (the default), the migrator auto-detects the database from the JDBC connection metadata. Set it explicitly when auto-detection is ambiguous or when running against an unsupported database with compatible SQL:
+
+| Value        | Aliases                                  |
+|--------------|------------------------------------------|
+| `h2`         |                                          |
+| `postgresql` | `pg`, `postgres`                         |
+| `mysql`      | `mariadb`                                |
+| `mssql`      | `sqlserver`, `sql_server`                |
+| `oracle`     |                                          |
+
 See [advanced topics](advanced.md) for custom version strategies and resource resolvers.
 
 ## Creating migration scripts
