@@ -4,7 +4,7 @@ FluDa (**Flu**ent **Da**ta Toolkit for Jakarta EE/CDI) is a lightweight, modular
 
 ## Core Pillars
 
-FluDa is organized into three standalone modules:
+FluDa is organized into four standalone modules:
 
 ### JDBC Client
 
@@ -15,7 +15,7 @@ A lightweight, type-safe, fluent query engine built directly over JDBC. The core
 - Generated key support
 - CDI integration for dependency injection
 
-[Get started with JDBC Client →](jdbc-client/index.md)
+[Get started with JDBC Client →](jdbc-client/getting-started.md)
 
 ### SQL Initialization
 
@@ -25,7 +25,7 @@ Automates database schema management and data population on application startup.
 - Data population from SQL files
 - CDI integration for automatic execution
 
-[Get started with SQL Init →](sql-init/index.md)
+[Get started with SQL Init →](sql-init/getting-started.md)
 
 ### Transaction Support
 
@@ -36,4 +36,16 @@ Container-agnostic declarative and programmatic transaction boundaries backed di
 - Transaction propagation control
 - Transaction-phase callbacks and events
 
-[Get started with Transaction Support →](tx/index.md)
+[Get started with Transaction Support →](tx/getting-started.md)
+
+### Mail
+
+A simple mail abstraction with built-in Jakarta Mail (SMTP) support and pluggable providers for third-party services like SendGrid.
+
+- `MailSender` interface with `JakartaMailSender` implementation
+- Fluent `MailBuilder` for composing messages
+- Template support with FreeMarker and simple placeholder processing
+- CDI integration with MicroProfile Config properties
+- Pluggable providers — implement `MailSender` for any email service
+
+[Get started with Mail →](mail/getting-started.md)
