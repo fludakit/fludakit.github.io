@@ -84,7 +84,7 @@ nav:
     - SQL Init:
       - Introduction: documentation/sql-init/index.md
       - Getting Started: documentation/sql-init/getting-started.md
-      - Configuration: documentation/sql-init/configuration.md
+      - Advanced Topics: documentation/sql-init/advanced.md
     - Transaction:
       - Introduction: documentation/tx/index.md
       - Getting Started: documentation/tx/getting-started.md

@@ -56,6 +56,28 @@ This module depends on the CDI module and is intended for a CDI environment with
 
 All modules are published with the same version. Replace the snapshot version shown above with the release version used by your application.
 
+#### Configuration properties
+
+When using the `config` module, the following properties can be set in `META-INF/microprofile-config.properties`:
+
+| Property                           | Default                      | Description                                                                    |
+|------------------------------------|------------------------------|--------------------------------------------------------------------------------|
+| `jdbcclient.init.script-locations` | `classpath:db/migration`     | Comma-separated list of script locations.                                      |
+| `jdbcclient.init.separator`        | `;`                          | The statement separator.                                                       |
+| `jdbcclient.init.db-type`          | *(empty — auto-detect)*      | The database type name. Empty means auto-detect from the JDBC connection.      |
+
+Example `microprofile-config.properties`:
+
+```properties
+jdbcclient.init.script-locations=classpath:db/migration,classpath:db/extra
+jdbcclient.init.separator=;
+jdbcclient.init.db-type=postgresql
+```
+
+For programmatic configuration in Java SE, use the `SqlInitConfig` builder as shown in the [custom configuration](#custom-configuration) section below.
+
+See [advanced topics](advanced.md) for custom version strategies and resource resolvers.
+
 ## Creating migration scripts
 
 Place versioned SQL scripts in `src/main/resources/db/migration/`. Each file must follow the naming convention `V<version>__<description>.sql`:
@@ -117,8 +139,6 @@ SqlInitConfig config = SqlInitConfig.builder()
 new DbMigrator(dataSource, config).migrate();
 ```
 
-See [configuration](configuration.md) for all options.
-
 ## Automatic startup in CDI
 
 Add `fluda-sql-init-cdi` and ensure a `DataSource` bean is available. The `SqlInitBootstrapper` observes the `Startup` event and runs migrations automatically — no code required.
@@ -160,4 +180,4 @@ When no `@SqlInit`-qualified `DataSource` exists, the default unqualified bean i
 
 ## Next steps
 
-See [configuration](configuration.md) for the available configuration properties and advanced options.
+See [advanced topics](advanced.md) for custom version strategies, custom resource resolvers, and other advanced configuration options.

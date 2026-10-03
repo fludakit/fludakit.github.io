@@ -1,28 +1,8 @@
-# SQL Init Configuration
+# Advanced Topics
 
-Configuration controls where migration scripts are loaded from, the statement separator, and the
-database type used for the history table DDL.
+This page covers advanced configuration options for FluDa SQL Init, including custom version strategies and custom resource resolvers.
 
-## Programmatic configuration
-
-The `core` module provides an immutable `SqlInitConfig` with a builder:
-
-```java
-SqlInitConfig config = SqlInitConfig.builder()
-        .scriptLocations(List.of("classpath:db/migration"))
-        .separator(";")
-        .dbType("h2")
-        .build();
-```
-
-| Property           | Default                      | Description                                                                                   |
-|--------------------|------------------------------|-----------------------------------------------------------------------------------------------|
-| `scriptLocations`  | `classpath:db/migration`     | One or more resource locations to scan for `V<version>__<description>.sql` files.             |
-| `separator`        | `;`                          | The statement separator passed to the SQL script parser.                                      |
-| `dbType`           | `null` (auto-detect)         | The database type for the `db_migrations` DDL. When `null`, detected from the JDBC metadata.  |
-| `versionStrategy`  | `IntegerVersionStrategy`     | The strategy for parsing and ordering migration versions.                                     |
-
-### Script locations
+## Script locations
 
 Locations use a protocol prefix:
 
@@ -35,13 +15,11 @@ Locations use a protocol prefix:
 
 Ant-style patterns are supported: `classpath:db/**/*.sql`.
 
-When multiple locations are configured, scripts are merged by filename — the first location wins on
-name collisions.
+When multiple locations are configured, scripts are merged by filename — the first location wins on name collisions.
 
-### Statement separator
+## Statement separator
 
-The default separator is `;`. Scripts can override it inline with the `DELIMITER` directive, which is
-how MySQL and MariaDB scripts wrap stored-procedure bodies:
+The default separator is `;`. Scripts can override it inline with the `DELIMITER` directive, which is how MySQL and MariaDB scripts wrap stored-procedure bodies:
 
 ```sql
 DELIMITER //
@@ -52,11 +30,9 @@ END//
 DELIMITER ;
 ```
 
-### Database type
+## Database type
 
-When `dbType` is `null` (the default), the migrator auto-detects the database from the JDBC connection
-metadata. Set it explicitly when auto-detection is ambiguous or when running against an unsupported
-database with compatible SQL:
+When `dbType` is `null` (the default), the migrator auto-detects the database from the JDBC connection metadata. Set it explicitly when auto-detection is ambiguous or when running against an unsupported database with compatible SQL:
 
 | Value        | Aliases                                  |
 |--------------|------------------------------------------|
@@ -66,26 +42,7 @@ database with compatible SQL:
 | `mssql`      | `sqlserver`, `sql_server`                |
 | `oracle`     |                                          |
 
-## Declarative configuration in CDI
-
-In a Jakarta EE / CDI environment, the optional `fluda-sql-init-config` module populates `SqlInitConfig`
-from MicroProfile Config properties.
-
-| Property                           | Default                      | Description                                                                    |
-|------------------------------------|------------------------------|--------------------------------------------------------------------------------|
-| `jdbcclient.init.script-locations` | `classpath:db/migration`     | Comma-separated list of script locations.                                      |
-| `jdbcclient.init.separator`        | `;`                          | The statement separator.                                                       |
-| `jdbcclient.init.db-type`          | *(empty — auto-detect)*      | The database type name. Empty means auto-detect from the JDBC connection.      |
-
-Example `microprofile-config.properties`:
-
-```properties
-jdbcclient.init.script-locations=classpath:db/migration,classpath:db/extra
-jdbcclient.init.separator=;
-jdbcclient.init.db-type=postgresql
-```
-
-## Version strategy
+## Custom version strategy
 
 The version strategy controls how migration versions are parsed from filenames and how they are ordered. The default is `IntegerVersionStrategy` which expects simple numeric versions (`V1`, `V2`, `V3`).
 
@@ -106,7 +63,7 @@ SqlInitConfig config = SqlInitConfig.builder()
         .build();
 ```
 
-### Custom version strategy
+### Implementing a custom strategy
 
 Implement `VersionStrategy` for specialized versioning schemes. For example, date-based versions (`V20240101`, `V20241231`):
 
