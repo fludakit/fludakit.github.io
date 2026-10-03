@@ -1296,10 +1296,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#integrating-with-microprofile-config" class="md-nav__link">
+  <a href="#integrating-with-cdi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Integrating with MicroProfile Config
+        Integrating with CDI
       
     </span>
   </a>
@@ -1307,10 +1307,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#integrating-with-cdi" class="md-nav__link">
+  <a href="#integrating-with-microprofile-config" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Integrating with CDI
+        Integrating with MicroProfile Config
       
     </span>
   </a>
@@ -1369,17 +1369,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-properties" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration properties
-      
-    </span>
-  </a>
   
 </li>
       
@@ -1818,10 +1807,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#integrating-with-microprofile-config" class="md-nav__link">
+  <a href="#integrating-with-cdi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Integrating with MicroProfile Config
+        Integrating with CDI
       
     </span>
   </a>
@@ -1829,10 +1818,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#integrating-with-cdi" class="md-nav__link">
+  <a href="#integrating-with-microprofile-config" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Integrating with CDI
+        Integrating with MicroProfile Config
       
     </span>
   </a>
@@ -1891,17 +1880,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-properties" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration properties
-      
-    </span>
-  </a>
   
 </li>
       
@@ -1994,24 +1972,25 @@
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">&lt;/dependency&gt;</span>
 </span></code></pre></div>
 <p>The core module provides <code>JakartaMailSender</code> for SMTP. You must supply a <code>jakarta.mail.Session</code> configured for your mail server.</p>
-<h3 id="integrating-with-microprofile-config">Integrating with MicroProfile Config<a class="headerlink" href="#integrating-with-microprofile-config" title="Permanent link">&para;</a></h3>
-<p>To configure the library from MicroProfile Config properties, add the optional configuration module:</p>
+<h3 id="integrating-with-cdi">Integrating with CDI<a class="headerlink" href="#integrating-with-cdi" title="Permanent link">&para;</a></h3>
+<p>For a CDI-managed <code>MailSender</code> and <code>MailBuilder</code>, add the CDI artifact:</p>
 <div class="language-xml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;dependency&gt;</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.github.fludakit<span class="nt">&lt;/groupId&gt;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>fluda-mail-config<span class="nt">&lt;/artifactId&gt;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>fluda-mail-cdi<span class="nt">&lt;/artifactId&gt;</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nt">&lt;/dependency&gt;</span>
 </span></code></pre></div>
-<p>This module reads <code>fluda.mail.*</code> properties and produces a <code>MailConfig</code> bean.</p>
-<h3 id="integrating-with-cdi">Integrating with CDI<a class="headerlink" href="#integrating-with-cdi" title="Permanent link">&para;</a></h3>
-<p>For a CDI-managed <code>MailSender</code> and <code>MailBuilder</code>, add the CDI artifact:</p>
+<p>This artifact depends on the core module and is intended for a Jakarta EE 11 runtime. The CDI module produces <code>MailSender</code> and <code>MailBuilder</code> beans, but requires either a <code>MailConfig</code> bean or a <code>jakarta.mail.Session</code> bean to be available in the container.</p>
+<h3 id="integrating-with-microprofile-config">Integrating with MicroProfile Config<a class="headerlink" href="#integrating-with-microprofile-config" title="Permanent link">&para;</a></h3>
+<p>The <code>fluda-mail-config</code> module is an optional addon to the CDI module that provides property-based configuration. It reads <code>fluda.mail.*</code> properties from MicroProfile Config and produces a <code>MailConfig</code> bean, which the CDI module uses to create a <code>JakartaMailSender</code>.</p>
+<p>Add this dependency when you want to configure mail settings via properties instead of providing your own <code>Session</code> bean:</p>
 <div class="language-xml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;dependency&gt;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.github.fludakit<span class="nt">&lt;/groupId&gt;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>fluda-mail-cdi<span class="nt">&lt;/artifactId&gt;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>fluda-mail-config<span class="nt">&lt;/artifactId&gt;</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nt">&lt;/dependency&gt;</span>
 </span></code></pre></div>
-<p>This artifact depends on the core module and is intended for a Jakarta EE 11 runtime.</p>
+<p>This module depends on the CDI module and is intended for a Jakarta EE 11 runtime with MicroProfile Config support.</p>
 <p>All modules are published with the same version. Replace the snapshot version shown above with the release version used by your application.</p>
 <h2 id="sending-your-first-email">Sending your first email<a class="headerlink" href="#sending-your-first-email" title="Permanent link">&para;</a></h2>
 <h3 id="in-a-java-se-application">In a Java SE application<a class="headerlink" href="#in-a-java-se-application" title="Permanent link">&para;</a></h3>
@@ -2070,42 +2049,59 @@
 </span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="p">.</span><span class="na">send</span><span class="p">();</span>
 </span></code></pre></div>
 <h3 id="in-a-cdi-environment">In a CDI environment<a class="headerlink" href="#in-a-cdi-environment" title="Permanent link">&para;</a></h3>
-<p>In a Jakarta EE/CDI environment, add the <code>fluda-mail-cdi</code> and <code>fluda-mail-config</code> dependencies. The CDI module automatically produces a <code>MailSender</code> and <code>MailBuilder</code> bean.</p>
-<p>Configure your SMTP settings in <code>META-INF/microprofile-config.properties</code>:</p>
-<div class="language-properties highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="na">fluda.mail.host</span><span class="o">=</span><span class="s">smtp.example.com</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="na">fluda.mail.port</span><span class="o">=</span><span class="s">587</span>
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="na">fluda.mail.auth-enabled</span><span class="o">=</span><span class="s">true</span>
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="na">fluda.mail.starttls</span><span class="o">=</span><span class="s">true</span>
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="na">fluda.mail.username</span><span class="o">=</span><span class="s">your-username</span>
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="na">fluda.mail.password</span><span class="o">=</span><span class="s">your-password</span>
-</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="na">fluda.mail.from</span><span class="o">=</span><span class="s">noreply@example.com</span>
+<p>In a Jakarta EE/CDI environment, the <code>fluda-mail-cdi</code> module automatically produces a <code>MailSender</code> and <code>MailBuilder</code> bean. However, the <code>MailSender</code> requires either a <code>MailConfig</code> bean or a <code>jakarta.mail.Session</code> bean to be available in the CDI container.</p>
+<h4 id="using-fluda-mail-config-for-property-based-configuration">Using <code>fluda-mail-config</code> for property-based configuration<a class="headerlink" href="#using-fluda-mail-config-for-property-based-configuration" title="Permanent link">&para;</a></h4>
+<p>The <code>fluda-mail-config</code> module provides a <code>MailConfig</code> bean that is configurable via MicroProfile Config properties. Add both dependencies:</p>
+<div class="language-xml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">&lt;dependency&gt;</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.github.fludakit<span class="nt">&lt;/groupId&gt;</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>fluda-mail-cdi<span class="nt">&lt;/artifactId&gt;</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nt">&lt;/dependency&gt;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nt">&lt;dependency&gt;</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.github.fludakit<span class="nt">&lt;/groupId&gt;</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>fluda-mail-config<span class="nt">&lt;/artifactId&gt;</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="nt">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nt">&lt;/dependency&gt;</span>
 </span></code></pre></div>
-<p>Then inject <code>MailSender</code> or <code>MailBuilder</code> directly:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.github.fludakit.mail.MailBuilder</span><span class="p">;</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.github.fludakit.mail.MailSender</span><span class="p">;</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.inject.Inject</span><span class="p">;</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nd">@ApplicationScoped</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">NotificationService</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="nd">@Inject</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="n">MailSender</span><span class="w"> </span><span class="n">sender</span><span class="p">;</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="nd">@Inject</span>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="n">MailBuilder</span><span class="w"> </span><span class="n">mailBuilder</span><span class="p">;</span>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sendNotification</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="kd">to</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">subject</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">body</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">        </span><span class="n">mailBuilder</span>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">            </span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="s">"noreply@example.com"</span><span class="p">)</span>
-</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">            </span><span class="p">.</span><span class="na">to</span><span class="p">(</span><span class="kd">to</span><span class="p">)</span>
-</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">            </span><span class="p">.</span><span class="na">subject</span><span class="p">(</span><span class="n">subject</span><span class="p">)</span>
-</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">            </span><span class="p">.</span><span class="na">htmlBody</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
-</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">            </span><span class="p">.</span><span class="na">send</span><span class="p">();</span>
-</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="p">}</span>
+<p>Then configure your SMTP settings in <code>META-INF/microprofile-config.properties</code>:</p>
+<div class="language-properties highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="na">fluda.mail.host</span><span class="o">=</span><span class="s">smtp.example.com</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="na">fluda.mail.port</span><span class="o">=</span><span class="s">587</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="na">fluda.mail.auth-enabled</span><span class="o">=</span><span class="s">true</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="na">fluda.mail.starttls</span><span class="o">=</span><span class="s">true</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="na">fluda.mail.username</span><span class="o">=</span><span class="s">your-username</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="na">fluda.mail.password</span><span class="o">=</span><span class="s">your-password</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="na">fluda.mail.from</span><span class="o">=</span><span class="s">noreply@example.com</span>
+</span></code></pre></div>
+<p>The <code>config</code> module reads these properties and produces a <code>MailConfig</code> bean, which the <code>cdi</code> module uses to create a <code>JakartaMailSender</code>.</p>
+<h4 id="injecting-and-using-the-mail-beans">Injecting and using the mail beans<a class="headerlink" href="#injecting-and-using-the-mail-beans" title="Permanent link">&para;</a></h4>
+<p>Once configured, inject <code>MailSender</code> or <code>MailBuilder</code> directly:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.github.fludakit.mail.MailBuilder</span><span class="p">;</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.github.fludakit.mail.MailSender</span><span class="p">;</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.inject.Inject</span><span class="p">;</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nd">@ApplicationScoped</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">NotificationService</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span><span class="nd">@Inject</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="n">MailSender</span><span class="w"> </span><span class="n">sender</span><span class="p">;</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">    </span><span class="nd">@Inject</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="n">MailBuilder</span><span class="w"> </span><span class="n">mailBuilder</span><span class="p">;</span>
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">sendNotification</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="kd">to</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">subject</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">body</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">        </span><span class="n">mailBuilder</span>
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">            </span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="s">"noreply@example.com"</span><span class="p">)</span>
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="w">            </span><span class="p">.</span><span class="na">to</span><span class="p">(</span><span class="kd">to</span><span class="p">)</span>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="w">            </span><span class="p">.</span><span class="na">subject</span><span class="p">(</span><span class="n">subject</span><span class="p">)</span>
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="w">            </span><span class="p">.</span><span class="na">htmlBody</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a><span class="w">            </span><span class="p">.</span><span class="na">send</span><span class="p">();</span>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>The <code>MailBuilder</code> is produced as <code>@Dependent</code>, so each injection point receives a fresh instance. The <code>MailSender</code> is <code>@ApplicationScoped</code> and backed by <code>JakartaMailSender</code> using the configuration from MicroProfile Config.</p>
-<h2 id="configuration-properties">Configuration properties<a class="headerlink" href="#configuration-properties" title="Permanent link">&para;</a></h2>
+<h4 id="alternative-providing-your-own-session-bean">Alternative: providing your own <code>Session</code> bean<a class="headerlink" href="#alternative-providing-your-own-session-bean" title="Permanent link">&para;</a></h4>
+<p>If you prefer to use a container-managed JavaMail session (via JNDI) instead of property-based configuration, you can produce your own <code>Session</code> bean. See the <a href="#in-a-jakarta-ee-environment">Jakarta EE environment</a> section for details.</p>
+<h4 id="configuration-properties">Configuration properties<a class="headerlink" href="#configuration-properties" title="Permanent link">&para;</a></h4>
 <p>The following properties are supported by the <code>config</code> module:</p>
 <table>
 <thead>
@@ -2162,54 +2158,54 @@
 <p>Jakarta EE application servers (GlassFish, WildFly, Payara, etc.) provide built-in JavaMail session management via JNDI. Instead of configuring SMTP properties in <code>microprofile-config.properties</code>, you can use the container-managed mail session.</p>
 <h3 id="using-the-default-mail-session">Using the default mail session<a class="headerlink" href="#using-the-default-mail-session" title="Permanent link">&para;</a></h3>
 <p>Most Jakarta EE servers provide a default mail session at <code>java:comp/DefaultMail</code>. You can inject it directly and expose it as a CDI bean:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.annotation.Resource</span><span class="p">;</span>
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.enterprise.context.ApplicationScoped</span><span class="p">;</span>
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.enterprise.inject.Produces</span><span class="p">;</span>
-</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.mail.Session</span><span class="p">;</span>
-</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>
-</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nd">@ApplicationScoped</span>
-</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MailSessionProducer</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>
-</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">    </span><span class="nd">@Resource</span><span class="p">(</span><span class="n">lookup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"java:comp/DefaultMail"</span><span class="p">)</span>
-</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Session</span><span class="w"> </span><span class="n">defaultSession</span><span class="p">;</span>
-</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>
-</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="nd">@Produces</span>
-</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="nd">@ApplicationScoped</span>
-</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Session</span><span class="w"> </span><span class="nf">mailSession</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">defaultSession</span><span class="p">;</span>
-</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a><span class="p">}</span>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.annotation.Resource</span><span class="p">;</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.enterprise.context.ApplicationScoped</span><span class="p">;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.enterprise.inject.Produces</span><span class="p">;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.mail.Session</span><span class="p">;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="nd">@ApplicationScoped</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MailSessionProducer</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="nd">@Resource</span><span class="p">(</span><span class="n">lookup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"java:comp/DefaultMail"</span><span class="p">)</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Session</span><span class="w"> </span><span class="n">defaultSession</span><span class="p">;</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="nd">@Produces</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="nd">@ApplicationScoped</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Session</span><span class="w"> </span><span class="nf">mailSession</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">defaultSession</span><span class="p">;</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>When a <code>Session</code> bean is available in the CDI container, the <code>MailSenderProducer</code> in <code>fluda-mail-cdi</code> automatically uses it instead of creating a session from <code>MailConfig</code> properties.</p>
 <h3 id="defining-a-custom-mail-session">Defining a custom mail session<a class="headerlink" href="#defining-a-custom-mail-session" title="Permanent link">&para;</a></h3>
 <p>You can also define a custom mail session using <code>@MailDefinition</code> (Jakarta EE 11+):</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.mail.MailDefinition</span><span class="p">;</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.annotation.Resource</span><span class="p">;</span>
-</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.enterprise.context.ApplicationScoped</span><span class="p">;</span>
-</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.enterprise.inject.Produces</span><span class="p">;</span>
-</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.mail.Session</span><span class="p">;</span>
-</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
-</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nd">@ApplicationScoped</span>
-</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="nd">@MailDefinition</span><span class="p">(</span>
-</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="n">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"smtp.example.com"</span><span class="p">,</span>
-</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">587</span><span class="p">,</span>
-</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"noreply@example.com"</span><span class="p">,</span>
-</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">    </span><span class="n">enableStartTls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">    </span><span class="n">auth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">    </span><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"your-username"</span><span class="p">,</span>
-</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">    </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"your-password"</span>
-</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="p">)</span>
-</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MailSessionProducer</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>
-</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">    </span><span class="nd">@Resource</span><span class="p">(</span><span class="n">lookup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"java:comp/DefaultMail"</span><span class="p">)</span>
-</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Session</span><span class="w"> </span><span class="n">mailSession</span><span class="p">;</span>
-</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>
-</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">    </span><span class="nd">@Produces</span>
-</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">    </span><span class="nd">@ApplicationScoped</span>
-</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Session</span><span class="w"> </span><span class="nf">session</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">mailSession</span><span class="p">;</span>
-</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="p">}</span>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.mail.MailDefinition</span><span class="p">;</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.annotation.Resource</span><span class="p">;</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.enterprise.context.ApplicationScoped</span><span class="p">;</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.enterprise.inject.Produces</span><span class="p">;</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.mail.Session</span><span class="p">;</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="nd">@ApplicationScoped</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="nd">@MailDefinition</span><span class="p">(</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">    </span><span class="n">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"smtp.example.com"</span><span class="p">,</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">587</span><span class="p">,</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"noreply@example.com"</span><span class="p">,</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="n">enableStartTls</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">    </span><span class="n">auth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="n">username</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"your-username"</span><span class="p">,</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"your-password"</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="p">)</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">MailSessionProducer</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a><span class="w">    </span><span class="nd">@Resource</span><span class="p">(</span><span class="n">lookup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"java:comp/DefaultMail"</span><span class="p">)</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a><span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Session</span><span class="w"> </span><span class="n">mailSession</span><span class="p">;</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a><span class="w">    </span><span class="nd">@Produces</span>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="w">    </span><span class="nd">@ApplicationScoped</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Session</span><span class="w"> </span><span class="nf">session</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25" href="#__codelineno-10-25"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">mailSession</span><span class="p">;</span>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26" href="#__codelineno-10-26"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27" href="#__codelineno-10-27"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>The <code>@MailDefinition</code> annotation configures the mail session at the class level, and the container creates the corresponding JNDI resource. You then inject it via <code>@Resource</code> and expose it as a CDI bean.</p>
 <h3 id="how-it-works">How it works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h3>
@@ -2243,7 +2239,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 3, 2026 12:20:45 UTC">October 3, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 3, 2026 12:32:51 UTC">October 3, 2026</span>
   </span>
 
     
