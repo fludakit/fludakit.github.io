@@ -2,86 +2,98 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://fludakit.github.io/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/blog/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/blog/2026/09/30/introducing-fluda-fluent-data-toolkit-for-jakarta-ee/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/documentation/introduction/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/documentation/jdbc-client/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/documentation/jdbc-client/configuration/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/documentation/jdbc-client/install/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/documentation/jdbc-client/querying/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/documentation/jdbc-client/quickstart/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/documentation/jdbc-client/updates/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
+    </url>
+    <url>
+         <loc>https://fludakit.github.io/documentation/mail/</loc>
+         <lastmod>2026-10-03</lastmod>
+    </url>
+    <url>
+         <loc>https://fludakit.github.io/documentation/mail/advanced/</loc>
+         <lastmod>2026-10-03</lastmod>
+    </url>
+    <url>
+         <loc>https://fludakit.github.io/documentation/mail/getting-started/</loc>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/documentation/sql-init/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/documentation/sql-init/configuration/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/documentation/sql-init/install/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/documentation/sql-init/quickstart/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/documentation/tx/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/documentation/tx/install/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/documentation/tx/jdbc/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/documentation/tx/jpa/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/documentation/tx/quickstart/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/blog/archive/2026/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
     <url>
          <loc>https://fludakit.github.io/blog/category/announcement/</loc>
-         <lastmod>2026-10-01</lastmod>
+         <lastmod>2026-10-03</lastmod>
     </url>
 </urlset>
