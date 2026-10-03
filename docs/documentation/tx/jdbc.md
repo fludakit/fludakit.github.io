@@ -80,39 +80,6 @@ public class DatabaseConfig {
 
 Declare the JNDI DataSource in `META-INF/context.xml` (Tomcat) or the equivalent for your container.
 
-## Jakarta EE (container-managed JTA)
-
-On a full Jakarta EE server, JTA is built in — **the `fluda-tx` modules are not needed**. The container handles `@Transactional` via its own JTA interceptor.
-
-```java
-import jakarta.annotation.Resource;
-import jakarta.transaction.Transactional;
-
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-
-@Stateless
-public class OrderService {
-
-    @Resource(lookup = "java:comp/DefaultDataSource")
-    private DataSource dataSource;
-
-    @Transactional
-    public void createOrder(int id, String info) throws Exception {
-        try (Connection conn = dataSource.getConnection();
-             PreparedStatement ps = conn.prepareStatement(
-                     "INSERT INTO orders (id, info) VALUES (?, ?)")) {
-            ps.setInt(1, id);
-            ps.setString(2, info);
-            ps.executeUpdate();
-        }
-    }
-}
-```
-
-For programmatic control inject `jakarta.transaction.UserTransaction`; for per-transaction state use `@TransactionScoped`.
-
 ## Transaction-phase callbacks
 
 Register a `TransactionSynchronization` with `TransactionSynchronizationManager` to run code at a transaction phase. Registration must happen inside an active transaction.
