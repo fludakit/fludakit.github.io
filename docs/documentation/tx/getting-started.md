@@ -53,26 +53,6 @@ The tx modules declare the CDI API and `jakarta.transaction-api` as `provided`: 
 
 On a full Jakarta EE server, JTA is built in, so `jakarta.transaction.Transactional` is handled by the container — **no `fluda-tx` dependency is needed**. Just use the JDBC Client modules and let the container manage transactions.
 
-### Using the BOM
-
-If you use the FluDa BOM, the JDBC Client module versions are managed automatically:
-
-```xml
-<dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>io.github.fludakit</groupId>
-            <artifactId>fluda-bom</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
-    </dependencies>
-</dependencyManagement>
-```
-
-The tx modules are not yet included in the BOM — specify their version explicitly.
-
 ## Setting up transactions
 
 Resource-local transactions require three pieces:
