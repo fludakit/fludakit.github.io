@@ -9,6 +9,25 @@ The `DataSourceTransactionManager` obtains a `Connection` from the raw pool, dis
 - **Inside a transaction** — returns the bound `Connection` and suppresses `close()` so the transaction is not ended prematurely.
 - **Outside a transaction** — delegates directly to the raw pool.
 
+## Using with JDBC Client
+
+The transaction support integrates seamlessly with FluDa JDBC Client. If you want to use the fluent `JdbcClient` API together with transaction management, add the JDBC Client modules:
+
+```xml
+<dependency>
+    <groupId>io.github.fludakit</groupId>
+    <artifactId>fluda-jdbc-client-core</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+<dependency>
+    <groupId>io.github.fludakit</groupId>
+    <artifactId>fluda-jdbc-client-cdi</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
+
+The `TransactionAwareDataSourceProxy` works transparently with `JdbcClient` — when you inject a `JdbcClient` in a `@Transactional` method, it automatically uses the transaction-bound connection.
+
 ## Java SE (Weld SE)
 
 Bootstrap Weld SE as usual. The CDI extension in `fluda-tx-cdi` auto-registers the `@Transactional` interceptor.

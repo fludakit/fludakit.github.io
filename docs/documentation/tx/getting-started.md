@@ -32,21 +32,6 @@ Add the three tx modules:
 </dependency>
 ```
 
-You also need the JDBC Client modules:
-
-```xml
-<dependency>
-    <groupId>io.github.fludakit</groupId>
-    <artifactId>fluda-jdbc-client-core</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-<dependency>
-    <groupId>io.github.fludakit</groupId>
-    <artifactId>fluda-jdbc-client-cdi</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-</dependency>
-```
-
 The tx modules declare the CDI API and `jakarta.transaction-api` as `provided`: supply a CDI container (Weld SE, or a Servlet container with Weld) plus `jakarta.transaction-api` for the `@Transactional` annotation.
 
 ### For Jakarta EE environments
