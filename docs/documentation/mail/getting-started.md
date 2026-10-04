@@ -211,6 +211,8 @@ The following properties are supported by the `config` module:
 | `fluda.mail.protocol`       | Mail protocol (`smtp` or `pop3`)     | `smtp`      |
 | `fluda.mail.from`           | Default from address                 | (empty)     |
 
+Any additional Jakarta Mail settings can be supplied through the `extraProperties` map on `MailConfig`, which is merged into the `java.util.Properties` passed to `Session.getInstance(...)`. Use it for provider-specific keys that are not covered by the properties above.
+
 ## In a Jakarta EE environment
 
 Jakarta EE application servers (GlassFish, WildFly, Payara, etc.) provide built-in JavaMail session management via JNDI. Instead of configuring SMTP properties in `microprofile-config.properties`, you can use the container-managed mail session.

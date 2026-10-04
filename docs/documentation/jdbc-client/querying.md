@@ -116,4 +116,4 @@ public class UuidToStringConverter implements Converter<UUID, String> {
 Converters are consulted when the JDBC value is not already assignable to the requested target type.
 
 For executing inserts, updates, and batch statements, see [updates](updates.md). For configuration options,
-see [configuration](configuration.md).
+see [getting started](getting-started.md).

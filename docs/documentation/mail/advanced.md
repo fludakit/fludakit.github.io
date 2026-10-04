@@ -202,7 +202,14 @@ new MailBuilder(sender, templateProcessor)
     .send();
 ```
 
-The builder looks for `templates/welcome.subject` (or `welcome_fr.subject` for the French locale) and `templates/welcome.body` (or `welcome_fr.body`), rendering them with the provided context map.
+Calling `.template("welcome", ...)` renders two templates — `welcome.subject` and `welcome.body` — using the supplied context map. Both processors load files from the classpath under `templates/`, try a locale-specific file first (suffix `_fr` for `Locale.FRENCH`), and fall back to the un-suffixed file:
+
+| Processor | Subject file | Body file |
+|---|---|---|
+| `SimpleTemplateProcessor` (default) | `templates/welcome.subject_fr.txt` → `templates/welcome.subject.txt` | `templates/welcome.body_fr.html` → `templates/welcome.body.html` |
+| `FreeMarkerTemplateProcessor` | `templates/welcome.subject_fr.ftl` → `templates/welcome.subject.ftl` | `templates/welcome.body_fr.ftl` → `templates/welcome.body.ftl` |
+
+`SimpleTemplateProcessor` substitutes `:name` placeholders (e.g. `:name` is replaced by the `name` entry in the context map). `FreeMarkerTemplateProcessor` uses standard FreeMarker syntax (e.g. `${name}`).
 
 ### Custom `TemplateProcessor`: Quarkus Qute integration
 

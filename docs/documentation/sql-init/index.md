@@ -34,10 +34,9 @@ The history table DDL is provided for the following databases:
 | Oracle     | `Oracle`                                           |
 
 The database type is auto-detected from the connection metadata. It can also be set explicitly through
-[`SqlInitConfig`](configuration.md) or the `jdbcclient.init.db-type` configuration property.
+[`SqlInitConfig`](getting-started.md) or the `jdbcclient.init.db-type` configuration property.
 
 ## Reading order
 
-- [Installation](install.md) — add the right dependency.
-- [Quickstart](quickstart.md) — run your first migration.
-- [Configuration](configuration.md) — script locations, separator, and database type.
+- [Getting Started](getting-started.md) — add the right dependency, run your first migration, and review configuration (script locations, separator, and database type).
+- [Advanced Topics](advanced.md) — custom version strategies and resource resolvers.

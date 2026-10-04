@@ -42,7 +42,7 @@ try (WeldContainer container = new Weld().initialize()) {
 }
 ```
 
-Make sure `beans.xml` is present in `META-INF/` and the `DatabaseConfig` producer from the [quickstart](quickstart.md) is on the classpath.
+Make sure `beans.xml` is present in `META-INF/` and the `DatabaseConfig` producer from the [getting started guide](getting-started.md) is on the classpath.
 
 ## Servlet container (Tomcat + Weld)
 

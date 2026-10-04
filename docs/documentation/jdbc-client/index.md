@@ -16,7 +16,5 @@ reference for validating Jakarta EE/CDI applications in real runtimes.
 
 Follow this reading order:
 
-- Start with [installation](install.md) to select the appropriate dependency.
-- Continue with [quickstart](quickstart.md) for the fastest path to using the client.
+- Start with [getting started](getting-started.md) to add the dependency, run your first query, and review configuration options such as placeholders, timeouts, and defaults.
 - Explore [querying and result mapping](querying.md) and [updates](updates.md) for detailed behavior.
-- Review [configuration](configuration.md) for placeholders, timeouts, and defaults.
