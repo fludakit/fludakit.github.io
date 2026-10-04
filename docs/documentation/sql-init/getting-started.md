@@ -60,18 +60,20 @@ All modules are published with the same version. Replace the snapshot version sh
 
 When using the `config` module, the following properties can be set in `META-INF/microprofile-config.properties`:
 
-| Property                           | Default                      | Description                                                                    |
-|------------------------------------|------------------------------|--------------------------------------------------------------------------------|
-| `jdbcclient.init.script-locations` | `classpath:db/migration`     | Comma-separated list of script locations.                                      |
-| `jdbcclient.init.separator`        | `;`                          | The statement separator.                                                       |
-| `jdbcclient.init.db-type`          | *(empty — auto-detect)*      | The database type name. Empty means auto-detect from the JDBC connection.      |
+| Property                          | Default                  | Description                                                                                |
+|-----------------------------------|--------------------------|--------------------------------------------------------------------------------------------|
+| `fluda.sqlinit.script-locations`  | `classpath:db/migration` | Comma-separated list of script locations.                                                   |
+| `fluda.sqlinit.separator`         | `;`                      | The statement separator.                                                                    |
+| `fluda.sqlinit.db-type`           | *(empty — auto-detect)*  | The database type name. Empty means auto-detect from the JDBC connection.                   |
+| `fluda.sqlinit.version-strategy`  | `integer`                | How migration versions are parsed and ordered. See [Version strategy](#version-strategy).   |
 
 Example `microprofile-config.properties`:
 
 ```properties
-jdbcclient.init.script-locations=classpath:db/migration,classpath:db/extra
-jdbcclient.init.separator=;
-jdbcclient.init.db-type=postgresql
+fluda.sqlinit.script-locations=classpath:db/migration,classpath:db/extra
+fluda.sqlinit.separator=;
+fluda.sqlinit.db-type=postgresql
+fluda.sqlinit.version-strategy=integer
 ```
 
 For programmatic configuration in Java SE, use the `SqlInitConfig` builder as shown in the [custom configuration](#custom-configuration) section below.
@@ -101,7 +103,23 @@ When `db-type` is empty (the default), the migrator auto-detects the database fr
 | `mssql`      | `sqlserver`, `sql_server`                |
 | `oracle`     |                                          |
 
-See [advanced topics](advanced.md) for custom version strategies and resource resolvers.
+#### Version strategy
+
+The `fluda.sqlinit.version-strategy` property controls how migration versions are parsed and ordered. The built-in values are matched case-insensitively:
+
+| Value                    | Strategy                   | Version format                                                                       |
+|--------------------------|----------------------------|--------------------------------------------------------------------------------------|
+| `int`, `integer` *(default)* | `IntegerVersionStrategy` | `V1`, `V2`, `V3` — compared as integers.                                              |
+| `dotted`                 | `DottedVersionStrategy`    | `V1.0`, `V1.2.3` — split on dots and compared component by component; missing components count as zero (`1` = `1.0` = `1.0.0`). |
+| `semantic`, `semver`     | `SemanticVersionStrategy`  | `V1.2.3`, `V1.0.0-alpha` — `major.minor.patch[-prerelease]`; release versions rank above prereleases. |
+
+For a custom strategy, set the property to the fully qualified class name of a `VersionStrategy` implementation. The class is loaded with `Class.forName(...)` and must provide a public no-argument constructor:
+
+```properties
+fluda.sqlinit.version-strategy=com.example.MyVersionStrategy
+```
+
+See [advanced topics](advanced.md) for writing a custom version strategy and resource resolvers.
 
 ## Creating migration scripts
 

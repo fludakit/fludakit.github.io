@@ -10,7 +10,7 @@ have been applied in a `db_migrations` history table, and runs pending scripts i
 | Module   | Artifact                 | Description                                                                                   |
 |----------|--------------------------|-----------------------------------------------------------------------------------------------|
 | `core`   | `fluda-sql-init-core`    | Plain SQL script parser and migration runner. Depends only on `javax.sql.DataSource`.         |
-| `config` | `fluda-sql-init-config`  | MicroProfile Config integration — populates `SqlInitConfig` from `jdbcclient.init.*` properties. |
+| `config` | `fluda-sql-init-config`  | MicroProfile Config integration — populates `SqlInitConfig` from `fluda.sqlinit.*` properties. |
 | `cdi`    | `fluda-sql-init-cdi`     | CDI bean that observes the `@Startup` event and applies pending migrations automatically.     |
 
 ## How it works
@@ -34,7 +34,7 @@ The history table DDL is provided for the following databases:
 | Oracle     | `Oracle`                                           |
 
 The database type is auto-detected from the connection metadata. It can also be set explicitly through
-[`SqlInitConfig`](getting-started.md) or the `jdbcclient.init.db-type` configuration property.
+[`SqlInitConfig`](getting-started.md) or the `fluda.sqlinit.db-type` configuration property.
 
 ## Reading order
 
