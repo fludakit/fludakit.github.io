@@ -33,34 +33,49 @@ FluDa provides a developer-friendly, fluent programming model for data access th
 <div class="grid cards" markdown>
 
 -   :material-database:{ .lg .middle } **JDBC Client**
+    { .card-header }
 
     A lightweight, type-safe, fluent query engine built directly over JDBC.
+    { .card-body }
 
     → [Getting Started](documentation/jdbc-client/getting-started.md){ .card-link } [:octicons-mark-github-16: jdbc-client](https://github.com/fludakit/jdbc-client){ .card-github }
+    { .card-footer }
 
 -   :material-sync:{ .lg .middle } **SQL Initialization**
+    { .card-header }
 
     Automates database schema management and data population on application startup.
+    { .card-body }
 
     → [Getting Started](documentation/sql-init/getting-started.md){ .card-link } [:octicons-mark-github-16: sql-init](https://github.com/fludakit/sql-init){ .card-github }
+    { .card-footer }
 
 -   :material-transit-connection-variant:{ .lg .middle } **Transaction Support**
+    { .card-header }
 
     Container-agnostic declarative and programmatic transaction boundaries.
+    { .card-body }
 
     → [Getting Started](documentation/tx/getting-started.md){ .card-link } [:octicons-mark-github-16: tx](https://github.com/fludakit/tx){ .card-github }
+    { .card-footer }
 
 -   :material-email-outline:{ .lg .middle } **Mail**
+    { .card-header }
 
     Simple mail abstraction with Jakarta Mail and pluggable providers.
+    { .card-body }
 
     → [Getting Started](documentation/mail/getting-started.md){ .card-link } [:octicons-mark-github-16: mail](https://github.com/fludakit/mail){ .card-github }
+    { .card-footer }
 
 -   :material-database-cog:{ .lg .middle } **Data**
+    { .card-header }
 
     A Jakarta Data implementation — `@Repository` interfaces with query-by-method-name, `@Find`, and `@Query`, generated at compile time and executed through `JdbcClient`.
+    { .card-body }
 
     → [Getting Started](https://github.com/fludakit/data#readme){ .card-link } [:octicons-mark-github-16: data](https://github.com/fludakit/data){ .card-github }
+    { .card-footer }
 
 </div>
 
