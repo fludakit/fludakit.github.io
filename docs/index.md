@@ -58,27 +58,6 @@ FluDa provides a developer-friendly, fluent programming model for data access th
 
 </div>
 
-## Quick example
-
-```java
-import io.github.fludakit.jdbc.JdbcClient;
-
-// Create a client from any DataSource
-JdbcClient client = new JdbcClient(dataSource);
-
-// Fluent queries with named parameters
-List<Engineer> engineers = client.sql("SELECT id, name FROM engineers WHERE department = :dept")
-        .param("dept", "Engineering")
-        .query(Engineer.class)
-        .list();
-
-// Updates with generated keys
-int rows = client.sql("INSERT INTO engineers (name, department) VALUES (:name, :dept)")
-        .param("name", "Ada Lovelace")
-        .param("dept", "Engineering")
-        .update();
-```
-
 ## Why FluDa?
 
 <div class="grid cards" markdown>
@@ -103,21 +82,44 @@ int rows = client.sql("INSERT INTO engineers (name, department) VALUES (:name, :
 
 ## Modules
 
-| Pillar | Artifacts | Description |
-|--------|-----------|-------------|
-| **JDBC Client** | `core`, `config`, `cdi` | Fluent query engine over JDBC |
-| **SQL Init** | `core`, `config`, `cdi` | Automated schema migration on startup |
-| **Transaction Support** | `core`, `cdi`, `jdbc`, `jpa` | Declarative & programmatic transactions |
-| **Mail** | `core`, `config`, `cdi` | Mail abstraction with Jakarta Mail and pluggable providers |
+| Pillar | Artifacts | Latest Version | Description |
+|--------|-----------|----------------|-------------|
+| **JDBC Client** | `core`, `config`, `cdi` | `1.0.0-Beta1` | Fluent query engine over JDBC |
+| **SQL Init** | `core`, `config`, `cdi` | `1.0.0-SNAPSHOT` (*In development*) | Automated schema migration on startup |
+| **Transaction Support** | `core`, `cdi`, `jdbc`, `jpa` | `1.0.0-SNAPSHOT` (*In development*) | Declarative & programmatic transactions |
+| **Mail** | `core`, `config`, `cdi` | `1.0.0-SNAPSHOT` (*In development*) | Mail abstraction with Jakarta Mail and pluggable providers |
 
-## Installation
+## Quick example
+
+Add the dependency to your project:
 
 ```xml
 <dependency>
     <groupId>io.github.fludakit</groupId>
     <artifactId>fluda-jdbc-client-core</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0-Beta1</version>
 </dependency>
+```
+
+Then create a client from any `DataSource` and run fluent queries:
+
+```java
+import io.github.fludakit.jdbc.JdbcClient;
+
+// Create a client from any DataSource
+JdbcClient client = new JdbcClient(dataSource);
+
+// Fluent queries with named parameters
+List<Engineer> engineers = client.sql("SELECT id, name FROM engineers WHERE department = :dept")
+        .param("dept", "Engineering")
+        .query(Engineer.class)
+        .list();
+
+// Updates with generated keys
+int rows = client.sql("INSERT INTO engineers (name, department) VALUES (:name, :dept)")
+        .param("name", "Ada Lovelace")
+        .param("dept", "Engineering")
+        .update();
 ```
 
 See the [getting started guide](documentation/jdbc-client/getting-started.md) for all options.
