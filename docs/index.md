@@ -130,3 +130,7 @@ int rows = client.sql("INSERT INTO engineers (name, department) VALUES (:name, :
 ```
 
 See the [getting started guide](documentation/jdbc-client/getting-started.md) for all options.
+
+## Examples
+
+Explore the [example applications](https://github.com/fludakit/examples) for all modules' usages.
