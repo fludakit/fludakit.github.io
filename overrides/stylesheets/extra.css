@@ -72,6 +72,20 @@
   opacity: 1;
 }
 
+/* Pin the footer links to the bottom of each card so the "Getting Started"
+   and repository links line up across a row, regardless of description
+   length. Scoped to cards that actually have a footer (.card-link) so the
+   footerless "Why FluDa?" cards keep their natural layout. */
+.grid.cards > ul > li:has(.card-link) {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid.cards > ul > li > p:has(.card-link) {
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
 /* Brand accent for primary buttons */
 .md-button--primary {
   background-color: var(--md-primary-fg-color);
