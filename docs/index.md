@@ -38,12 +38,6 @@ FluDa provides a developer-friendly, fluent programming model for data access th
 
     → [Getting Started](documentation/jdbc-client/getting-started.md){ .card-link } [:octicons-mark-github-16: jdbc-client](https://github.com/fludakit/jdbc-client){ .card-github }
 
--   :material-database-cog:{ .lg .middle } **Data**
-
-    A Jakarta Data implementation — `@Repository` interfaces with query-by-method-name, `@Find`, and `@Query`, generated at compile time and executed through `JdbcClient`.
-
-    → [Getting Started](https://github.com/fludakit/data#readme){ .card-link } [:octicons-mark-github-16: data](https://github.com/fludakit/data){ .card-github }
-
 -   :material-sync:{ .lg .middle } **SQL Initialization**
 
     Automates database schema management and data population on application startup.
@@ -61,6 +55,12 @@ FluDa provides a developer-friendly, fluent programming model for data access th
     Simple mail abstraction with Jakarta Mail and pluggable providers.
 
     → [Getting Started](documentation/mail/getting-started.md){ .card-link } [:octicons-mark-github-16: mail](https://github.com/fludakit/mail){ .card-github }
+
+-   :material-database-cog:{ .lg .middle } **Data**
+
+    A Jakarta Data implementation — `@Repository` interfaces with query-by-method-name, `@Find`, and `@Query`, generated at compile time and executed through `JdbcClient`.
+
+    → [Getting Started](https://github.com/fludakit/data#readme){ .card-link } [:octicons-mark-github-16: data](https://github.com/fludakit/data){ .card-github }
 
 </div>
 
@@ -91,10 +91,10 @@ FluDa provides a developer-friendly, fluent programming model for data access th
 | Pillar | Artifacts | Latest Version | Description |
 |--------|-----------|----------------|-------------|
 | **JDBC Client** | `core`, `config`, `cdi` | `1.0.0-Beta1` | Fluent query engine over JDBC |
-| **Data** | `core`, `qbn`, `processor` | `1.0.0-SNAPSHOT` (*In development*) | Jakarta Data repositories generated at compile time |
 | **SQL Init** | `core`, `config`, `cdi` | `1.0.0-SNAPSHOT` (*In development*) | Automated schema migration on startup |
 | **Transaction Support** | `core`, `cdi`, `jdbc`, `jpa` | `1.0.0-SNAPSHOT` (*In development*) | Declarative & programmatic transactions |
 | **Mail** | `core`, `config`, `cdi` | `1.0.0-SNAPSHOT` (*In development*) | Mail abstraction with Jakarta Mail and pluggable providers |
+| **Data** | `core`, `qbn`, `processor` | `1.0.0-SNAPSHOT` (*In development*) | Jakarta Data repositories generated at compile time |
 
 ## Quick example
 
