@@ -28,7 +28,7 @@ A lightweight, modular data-access suite designed for standard Jakarta EE and CD
 
 ## What is FluDa?
 
-FluDa provides a developer-friendly, fluent programming model for data access that mirrors modern APIs like Spring's `JdbcClient` — without the bulk of a full framework. It is organized into four standalone pillars:
+FluDa provides a developer-friendly, fluent programming model for data access that mirrors modern APIs like Spring's `JdbcClient` — without the bulk of a full framework. It is organized into five standalone pillars:
 
 <div class="grid cards" markdown>
 
@@ -37,6 +37,12 @@ FluDa provides a developer-friendly, fluent programming model for data access th
     A lightweight, type-safe, fluent query engine built directly over JDBC.
 
     → [Getting Started](documentation/jdbc-client/getting-started.md){ .card-link } [:octicons-mark-github-16: jdbc-client](https://github.com/fludakit/jdbc-client){ .card-github }
+
+-   :material-database-cog:{ .lg .middle } **Data**
+
+    A Jakarta Data implementation — `@Repository` interfaces with query-by-method-name, `@Find`, and `@Query`, generated at compile time and executed through `JdbcClient`.
+
+    → [Getting Started](https://github.com/fludakit/data#readme){ .card-link } [:octicons-mark-github-16: data](https://github.com/fludakit/data){ .card-github }
 
 -   :material-sync:{ .lg .middle } **SQL Initialization**
 
@@ -64,19 +70,19 @@ FluDa provides a developer-friendly, fluent programming model for data access th
 
 -   :material-feather:{ .lg .middle } **Lightweight**
 
-    Zero framework dependencies for the core module. Just JDBC and a `DataSource`.
+    Zero framework dependencies at the core — just JDBC and a `DataSource`. No Spring, no heavyweight runtime.
 
 -   :material-puzzle:{ .lg .middle } **Modular**
 
-    Use only what you need — core, config, CDI, or any combination.
+    Use only what you need — core, config, CDI, or any combination — across every pillar.
 
 -   :material-server:{ .lg .middle } **Jakarta EE Native**
 
-    Built for standard Jakarta EE and CDI. Works with GlassFish, WildFly, and any compatible server.
+    Built on standard Jakarta EE, CDI, Jakarta Data, and MicroProfile Config. Works with GlassFish, WildFly, and any compatible server.
 
 -   :material-language-java:{ .lg .middle } **Type-Safe**
 
-    Fluent API with compile-time safety. POJO mapping, custom row mappers, and converter registry.
+    Compile-time safety end to end — fluent queries, POJO mapping and converters, and annotation-generated Jakarta Data repositories.
 
 </div>
 
@@ -85,6 +91,7 @@ FluDa provides a developer-friendly, fluent programming model for data access th
 | Pillar | Artifacts | Latest Version | Description |
 |--------|-----------|----------------|-------------|
 | **JDBC Client** | `core`, `config`, `cdi` | `1.0.0-Beta1` | Fluent query engine over JDBC |
+| **Data** | `core`, `qbn`, `processor` | `1.0.0-SNAPSHOT` (*In development*) | Jakarta Data repositories generated at compile time |
 | **SQL Init** | `core`, `config`, `cdi` | `1.0.0-SNAPSHOT` (*In development*) | Automated schema migration on startup |
 | **Transaction Support** | `core`, `cdi`, `jdbc`, `jpa` | `1.0.0-SNAPSHOT` (*In development*) | Declarative & programmatic transactions |
 | **Mail** | `core`, `config`, `cdi` | `1.0.0-SNAPSHOT` (*In development*) | Mail abstraction with Jakarta Mail and pluggable providers |
