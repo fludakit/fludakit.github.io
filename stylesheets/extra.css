@@ -72,6 +72,34 @@
   opacity: 1;
 }
 
+/* Card layout: header / body / footer.
+   A card that has a footer becomes a flex column filling its grid cell
+   (grid items already stretch to the tallest card in the row). The body
+   grows to absorb the free space, so every footer rests on the same bottom
+   line across the row regardless of how long the description is. Scoped
+   with :has(.card-footer) and the .md-typeset prefix so it overrides
+   Material's display:block on the li, while the footerless "Why FluDa?"
+   cards keep their natural layout. */
+.md-typeset .grid.cards > ul > li:has(.card-footer) {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.md-typeset .card-header {
+  flex: 0 0 auto;
+}
+
+.md-typeset .card-body {
+  flex: 1 1 auto;
+}
+
+.md-typeset .card-footer {
+  flex: 0 0 auto;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
 /* Brand accent for primary buttons */
 .md-button--primary {
   background-color: var(--md-primary-fg-color);
