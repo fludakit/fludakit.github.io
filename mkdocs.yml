@@ -94,6 +94,10 @@ nav:
       - Introduction: documentation/mail/index.md
       - Getting Started: documentation/mail/getting-started.md
       - Advanced Topics: documentation/mail/advanced.md
+    - Data:
+      - Introduction: documentation/data/index.md
+      - Getting Started: documentation/data/getting-started.md
+      - Advanced Topics: documentation/data/advanced.md
   - Blog:
     - blog/index.md
 

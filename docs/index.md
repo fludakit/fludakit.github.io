@@ -74,7 +74,7 @@ FluDa provides a developer-friendly, fluent programming model for data access th
     A Jakarta Data implementation — `@Repository` interfaces with query-by-method-name, `@Find`, and `@Query`, generated at compile time and executed through `JdbcClient`.
     { .card-body }
 
-    → [Getting Started](https://github.com/fludakit/data#readme){ .card-link } [:octicons-mark-github-16: data](https://github.com/fludakit/data){ .card-github }
+    → [Getting Started](documentation/data/getting-started.md){ .card-link } [:octicons-mark-github-16: data](https://github.com/fludakit/data){ .card-github }
     { .card-footer }
 
 </div>
