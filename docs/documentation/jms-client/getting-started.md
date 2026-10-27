@@ -204,7 +204,7 @@ public class OrderService {
     Queue orders;
 
     public void place(Order order) {
-        client.destination(orders).send(order.text());
+        client.destination(orders).send(order);
     }
 }
 ```
