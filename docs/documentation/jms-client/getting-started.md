@@ -226,6 +226,22 @@ When none exists, production fails fast with an `IllegalStateException` naming t
 
 An optional `JmsConfig` bean — produced by the config module from `fluda.jms.*` — is applied to whichever spec is used. For a factory it contributes the credentials, the acknowledge mode and the default destination; for an injected `JMSContext` only the default destination is applicable, and configuring credentials or a non-default acknowledge mode makes production fail loudly instead of silently ignoring them.
 
+Optional `MessageConverter` and `DestinationResolver` beans are applied the same way, after the config: define one and every client the module produces uses it instead of the defaults, for example a `JsonbMessageConverter`:
+
+```java
+@ApplicationScoped
+public class JmsBeans {
+
+    @Produces
+    @ApplicationScoped
+    MessageConverter messageConverter() {
+        return new JsonbMessageConverter();
+    }
+}
+```
+
+Keep one default-qualified bean per SPI — with more than one candidate the container reports the ambiguity, so qualify the extras. The beans replace the defaults application-wide; for a per-client choice use the builder in plain Java SE instead.
+
 ## Configuration
 
 Client-wide properties:
@@ -234,7 +250,7 @@ Client-wide properties:
 |---|---|---|
 | `fluda.jms.username` | – | broker username for factory-based clients; unset or blank means anonymous access |
 | `fluda.jms.password` | – | broker password for factory-based clients; unset or blank means no password |
-| `fluda.jms.acknowledge-mode` | `auto-acknowledge` | `auto-acknowledge`, `client-acknowledge` or `dups-ok-acknowledge` |
+| `fluda.jms.acknowledge-mode` | `auto` | `auto`, `client` or `dups-ok` |
 | `fluda.jms.default-destination` | – | destination **name**, resolved through the `DestinationResolver` when `client.destination()` is called |
 
 Provider sections — a section is active once its URL is set, and needs that provider's client on the classpath:
@@ -246,7 +262,7 @@ Provider sections — a section is active once its URL is set, and needs that pr
 | `fluda.jms.qpid.remote-url` | Qpid JMS URL, e.g. `amqp://localhost:5672` |
 | `fluda.jms.qpid.username` / `.password` | fall back to `fluda.jms.username` / `.password` |
 
-The acknowledge mode is matched case-insensitively, and `_` is accepted for `-`, so a copied `Session.AUTO_ACKNOWLEDGE` constant name also works. `session-transacted` is rejected deliberately: the fluent client never commits, so a transacted context would roll back on close — wrap an injected `JMSContext` in a transaction instead.
+`acknowledge-mode` uses the same short values as Spring Boot's `spring.jms.template.session.acknowledge-mode`: `auto` (`Session.AUTO_ACKNOWLEDGE`, the default), `client` (`Session.CLIENT_ACKNOWLEDGE`) and `dups-ok` (`Session.DUPS_OK_ACKNOWLEDGE`). Values are matched case-insensitively and `_` is accepted for `-`, so `CLIENT` and `DUPS_OK` both work. `transacted` is rejected deliberately, exactly as Spring Boot keeps it a separate flag: the fluent client never commits, so a transacted context would roll back on close — wrap an injected `JMSContext` in a transaction instead.
 
 `client-id` and a connection-factory JNDI lookup are not mapped in v1: the client has no client-id support, and the provider sections configure a factory directly.
 
@@ -271,7 +287,7 @@ JmsClient client = JmsClient.builder(connectionFactory)
 
 The converter publishes the payload class in the `_type` message property, so a consumer that is not told the type can still rebuild it; a typed `receive(Order.class)` prefers the requested type. JSON-B is an optional dependency: the class loads without it, and only constructing the converter without a provider fails, with a `JmsClientException` naming the missing piece.
 
-A payload type the converter does not know makes `send` fail with the `CONVERSION` code. Implement `MessageConverter` and pass it to `messageConverter(...)` for anything else.
+A payload type the converter does not know makes `send` fail with the `CONVERSION` code. Implement `MessageConverter` and pass it to `messageConverter(...)` for anything else — under CDI a single `MessageConverter` bean is picked up automatically, as described in [How the CDI module resolves resources](#how-the-cdi-module-resolves-resources).
 
 ## Destinations
 
@@ -282,7 +298,7 @@ client.destination("orders").send(order);          // queue "orders"
 client.destination("topic:events").send(event);    // topic "events"
 ```
 
-Pass a `Destination` you already hold — an injected `Queue`, a provider object — to `destination(Destination)` to bypass resolution entirely, and supply your own `DestinationResolver` (for example a JNDI lookup) with `destinationResolver(...)` when names must follow server conventions.
+Pass a `Destination` you already hold — an injected `Queue`, a provider object — to `destination(Destination)` to bypass resolution entirely, and supply your own `DestinationResolver` (for example a JNDI lookup) with `destinationResolver(...)` when names must follow server conventions. Under CDI a single `DestinationResolver` bean is applied to every produced client, so the same rule covers `fluda.jms.default-destination` and any name passed to `client.destination(name)`.
 
 ## Errors
 
