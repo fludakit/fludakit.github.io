@@ -2348,6 +2348,18 @@
 </ol>
 <p>When none exists, production fails fast with an <code>IllegalStateException</code> naming the three options, rather than handing out a client that only fails on the first send.</p>
 <p>An optional <code>JmsConfig</code> bean — produced by the config module from <code>fluda.jms.*</code> — is applied to whichever spec is used. For a factory it contributes the credentials, the acknowledge mode and the default destination; for an injected <code>JMSContext</code> only the default destination is applicable, and configuring credentials or a non-default acknowledge mode makes production fail loudly instead of silently ignoring them.</p>
+<p>Optional <code>MessageConverter</code> and <code>DestinationResolver</code> beans are applied the same way, after the config: define one and every client the module produces uses it instead of the defaults, for example a <code>JsonbMessageConverter</code>:</p>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nd">@ApplicationScoped</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">JmsBeans</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="nd">@Produces</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="nd">@ApplicationScoped</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">MessageConverter</span><span class="w"> </span><span class="nf">messageConverter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">JsonbMessageConverter</span><span class="p">();</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Keep one default-qualified bean per SPI — with more than one candidate the container reports the ambiguity, so qualify the extras. The beans replace the defaults application-wide; for a per-client choice use the builder in plain Java SE instead.</p>
 <h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
 <p>Client-wide properties:</p>
 <table>
@@ -2371,8 +2383,8 @@
 </tr>
 <tr>
 <td><code>fluda.jms.acknowledge-mode</code></td>
-<td><code>auto-acknowledge</code></td>
-<td><code>auto-acknowledge</code>, <code>client-acknowledge</code> or <code>dups-ok-acknowledge</code></td>
+<td><code>auto</code></td>
+<td><code>auto</code>, <code>client</code> or <code>dups-ok</code></td>
 </tr>
 <tr>
 <td><code>fluda.jms.default-destination</code></td>
@@ -2408,7 +2420,7 @@
 </tr>
 </tbody>
 </table>
-<p>The acknowledge mode is matched case-insensitively, and <code>_</code> is accepted for <code>-</code>, so a copied <code>Session.AUTO_ACKNOWLEDGE</code> constant name also works. <code>session-transacted</code> is rejected deliberately: the fluent client never commits, so a transacted context would roll back on close — wrap an injected <code>JMSContext</code> in a transaction instead.</p>
+<p><code>acknowledge-mode</code> uses the same short values as Spring Boot's <code>spring.jms.template.session.acknowledge-mode</code>: <code>auto</code> (<code>Session.AUTO_ACKNOWLEDGE</code>, the default), <code>client</code> (<code>Session.CLIENT_ACKNOWLEDGE</code>) and <code>dups-ok</code> (<code>Session.DUPS_OK_ACKNOWLEDGE</code>). Values are matched case-insensitively and <code>_</code> is accepted for <code>-</code>, so <code>CLIENT</code> and <code>DUPS_OK</code> both work. <code>transacted</code> is rejected deliberately, exactly as Spring Boot keeps it a separate flag: the fluent client never commits, so a transacted context would roll back on close — wrap an injected <code>JMSContext</code> in a transaction instead.</p>
 <p><code>client-id</code> and a connection-factory JNDI lookup are not mapped in v1: the client has no client-id support, and the provider sections configure a factory directly.</p>
 <h2 id="message-converters">Message converters<a class="headerlink" href="#message-converters" title="Permanent link">&para;</a></h2>
 <p>The default converter covers the usual payload types:</p>
@@ -2439,18 +2451,18 @@
 </tbody>
 </table>
 <p>For JSON payloads, opt into the JSON-B converter, which sends the payload as the body of a <code>TextMessage</code>:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">JmsClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JmsClient</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="n">connectionFactory</span><span class="p">)</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">        </span><span class="p">.</span><span class="na">messageConverter</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">JsonbMessageConverter</span><span class="p">())</span>
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">JmsClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JmsClient</span><span class="p">.</span><span class="na">builder</span><span class="p">(</span><span class="n">connectionFactory</span><span class="p">)</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">        </span><span class="p">.</span><span class="na">messageConverter</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">JsonbMessageConverter</span><span class="p">())</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </span></code></pre></div>
 <p>The converter publishes the payload class in the <code>_type</code> message property, so a consumer that is not told the type can still rebuild it; a typed <code>receive(Order.class)</code> prefers the requested type. JSON-B is an optional dependency: the class loads without it, and only constructing the converter without a provider fails, with a <code>JmsClientException</code> naming the missing piece.</p>
-<p>A payload type the converter does not know makes <code>send</code> fail with the <code>CONVERSION</code> code. Implement <code>MessageConverter</code> and pass it to <code>messageConverter(...)</code> for anything else.</p>
+<p>A payload type the converter does not know makes <code>send</code> fail with the <code>CONVERSION</code> code. Implement <code>MessageConverter</code> and pass it to <code>messageConverter(...)</code> for anything else — under CDI a single <code>MessageConverter</code> bean is picked up automatically, as described in <a href="#how-the-cdi-module-resolves-resources">How the CDI module resolves resources</a>.</p>
 <h2 id="destinations">Destinations<a class="headerlink" href="#destinations" title="Permanent link">&para;</a></h2>
 <p><code>client.destination("orders")</code> resolves a name through the client's <code>DestinationResolver</code>. <code>SimpleDestinationResolver</code> creates a queue per name, treats a <code>topic:</code> prefix as a topic, and caches each resolution so repeated lookups return the same destination:</p>
-<div class="language-java highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">client</span><span class="p">.</span><span class="na">destination</span><span class="p">(</span><span class="s">"orders"</span><span class="p">).</span><span class="na">send</span><span class="p">(</span><span class="n">order</span><span class="p">);</span><span class="w">          </span><span class="c1">// queue "orders"</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">client</span><span class="p">.</span><span class="na">destination</span><span class="p">(</span><span class="s">"topic:events"</span><span class="p">).</span><span class="na">send</span><span class="p">(</span><span class="n">event</span><span class="p">);</span><span class="w">    </span><span class="c1">// topic "events"</span>
+<div class="language-java highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">client</span><span class="p">.</span><span class="na">destination</span><span class="p">(</span><span class="s">"orders"</span><span class="p">).</span><span class="na">send</span><span class="p">(</span><span class="n">order</span><span class="p">);</span><span class="w">          </span><span class="c1">// queue "orders"</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">client</span><span class="p">.</span><span class="na">destination</span><span class="p">(</span><span class="s">"topic:events"</span><span class="p">).</span><span class="na">send</span><span class="p">(</span><span class="n">event</span><span class="p">);</span><span class="w">    </span><span class="c1">// topic "events"</span>
 </span></code></pre></div>
-<p>Pass a <code>Destination</code> you already hold — an injected <code>Queue</code>, a provider object — to <code>destination(Destination)</code> to bypass resolution entirely, and supply your own <code>DestinationResolver</code> (for example a JNDI lookup) with <code>destinationResolver(...)</code> when names must follow server conventions.</p>
+<p>Pass a <code>Destination</code> you already hold — an injected <code>Queue</code>, a provider object — to <code>destination(Destination)</code> to bypass resolution entirely, and supply your own <code>DestinationResolver</code> (for example a JNDI lookup) with <code>destinationResolver(...)</code> when names must follow server conventions. Under CDI a single <code>DestinationResolver</code> bean is applied to every produced client, so the same rule covers <code>fluda.jms.default-destination</code> and any name passed to <code>client.destination(name)</code>.</p>
 <h2 id="errors">Errors<a class="headerlink" href="#errors" title="Permanent link">&para;</a></h2>
 <p>Every failure surfaces as <code>JmsClientException</code>, with a <code>Code</code> telling the stages apart:</p>
 <table>
@@ -2512,7 +2524,7 @@
 </tbody>
 </table>
 <p>The examples share a broker from the repository's <code>docker-compose.yml</code>:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>artemis
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>artemis
 </span></code></pre></div>
 
 
@@ -2536,7 +2548,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 27, 2026 05:35:37 UTC">October 27, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 27, 2026 06:07:08 UTC">October 27, 2026</span>
   </span>
 
     
