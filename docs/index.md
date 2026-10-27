@@ -28,7 +28,7 @@ A lightweight, modular data-access suite designed for standard Jakarta EE and CD
 
 ## What is FluDa?
 
-FluDa provides a developer-friendly, fluent programming model for data access that mirrors modern APIs like Spring's `JdbcClient` — without the bulk of a full framework. It is organized into five standalone pillars:
+FluDa provides a developer-friendly, fluent programming model for data access that mirrors modern APIs like Spring's `JdbcClient` — without the bulk of a full framework. It is organized into six standalone pillars:
 
 <div class="grid cards" markdown>
 
@@ -77,6 +77,15 @@ FluDa provides a developer-friendly, fluent programming model for data access th
     → [Getting Started](documentation/data/getting-started.md){ .card-link } [:octicons-mark-github-16: data](https://github.com/fludakit/data){ .card-github }
     { .card-footer }
 
+-   :material-message-text-outline:{ .lg .middle } **JMS Client**
+    { .card-header }
+
+    A fluent Jakarta Messaging client with CDI wiring, payload converters and cached connections.
+    { .card-body }
+
+    → [Getting Started](documentation/jms-client/getting-started.md){ .card-link } [:octicons-mark-github-16: jms-client](https://github.com/fludakit/jms-client){ .card-github }
+    { .card-footer }
+
 </div>
 
 ## Why FluDa?
@@ -110,6 +119,7 @@ FluDa provides a developer-friendly, fluent programming model for data access th
 | **Transaction Support** | `core`, `cdi`, `jdbc`, `jpa` | `1.0.0-SNAPSHOT` (*In development*) | Declarative & programmatic transactions |
 | **Mail** | `core`, `config`, `cdi` | `1.0.0-SNAPSHOT` (*In development*) | Mail abstraction with Jakarta Mail and pluggable providers |
 | **Data** | `core`, `qbn`, `processor` | `1.0.0-SNAPSHOT` (*In development*) | Jakarta Data repositories generated at compile time |
+| **JMS Client** | `core`, `config`, `cdi` | `1.0.0-SNAPSHOT` (*In development*) | Fluent Jakarta Messaging client with CDI wiring |
 
 ## Quick example
 

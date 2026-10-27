@@ -2,7 +2,7 @@
 
 FluDa (**Flu**ent **Da**ta Toolkit for Jakarta EE/CDI) is a lightweight, modular data-access suite designed for standard Jakarta EE and CDI environments. It provides a developer-friendly, fluent programming model that mirrors modern data APIs like Spring's `JdbcClient` — without requiring Spring or introducing bulky dependencies.
 
-FluDa is organized into four standalone modules:
+FluDa is organized into five standalone modules:
 
 ## JDBC Client
 
@@ -47,3 +47,14 @@ A simple mail abstraction with built-in Jakarta Mail (SMTP) support and pluggabl
 - Pluggable providers — implement `MailSender` for any email service
 
 [Get started with Mail →](mail/getting-started.md)
+
+## JMS Client
+
+A fluent Jakarta Messaging client in the style of Spring's `JmsClient`, with CDI wiring and MicroProfile Config for Java SE and Jakarta EE.
+
+- `JmsClient` with fluent send, receive, receive-selected and browse operations
+- `MessageConverter` SPI — `SimpleMessageConverter` by default, optional JSON-B
+- `CachingConnectionFactory` reuses one `JMSContext` per thread
+- CDI producers that resolve a `JMSContext`, a `ConnectionFactory` or a configured Artemis/Qpid section
+
+[Get started with JMS Client →](jms-client/getting-started.md)

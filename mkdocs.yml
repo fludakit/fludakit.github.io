@@ -98,6 +98,9 @@ nav:
       - Introduction: documentation/data/index.md
       - Getting Started: documentation/data/getting-started.md
       - Advanced Topics: documentation/data/advanced.md
+    - JMS Client:
+      - Introduction: documentation/jms-client/index.md
+      - Getting Started: documentation/jms-client/getting-started.md
   - Blog:
     - blog/index.md
 
