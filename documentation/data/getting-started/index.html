@@ -2011,7 +2011,7 @@
 <ul>
 <li>JDK 21 or later.</li>
 <li>The Jakarta Data API (<code>jakarta.data:jakarta.data-api</code>).</li>
-<li>The FluDa <a href="../../jdbc-client/getting-started/">JDBC Client</a> — generated implementations execute SQL through <code>JdbcClient</code>. In a CDI environment add <code>fluda-jdbc-client-cdi</code> and provide a <code>DataSource</code>.</li>
+<li>The FluDa <a href="../../jdbc-client/getting-started/">JDBC Client</a> — generated implementations execute SQL through <code>JdbcClient</code>. In a CDI environment add <code>fluda-jdbc-cdi</code> and provide a <code>DataSource</code>.</li>
 <li>A CDI-compatible runtime to inject the generated repository beans (the processor also runs in plain builds; the generated <code>…Impl</code> is a CDI bean).</li>
 <li>H2 or PostgreSQL. H2 is the default dialect; select PostgreSQL with <code>-Afluda.dialect=postgresql</code>.</li>
 </ul>
@@ -2035,7 +2035,7 @@
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="cm">&lt;!-- Executes the generated SQL; produces JdbcClient in CDI --&gt;</span>
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="nt">&lt;dependency&gt;</span>
 </span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">        </span><span class="nt">&lt;groupId&gt;</span>io.github.fludakit<span class="nt">&lt;/groupId&gt;</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">        </span><span class="nt">&lt;artifactId&gt;</span>fluda-jdbc-client-cdi<span class="nt">&lt;/artifactId&gt;</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">        </span><span class="nt">&lt;artifactId&gt;</span>fluda-jdbc-cdi<span class="nt">&lt;/artifactId&gt;</span>
 </span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="nt">&lt;version&gt;</span>1.0.0-Beta1<span class="nt">&lt;/version&gt;</span>
 </span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="nt">&lt;/dependency&gt;</span>
 </span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="nt">&lt;/dependencies&gt;</span>
@@ -2303,7 +2303,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 11, 2026 10:51:51 UTC">October 11, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 28, 2026 05:42:51 UTC">October 28, 2026</span>
   </span>
 
     
