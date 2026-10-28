@@ -16,12 +16,12 @@ The transaction support integrates seamlessly with FluDa JDBC Client. If you wan
 ```xml
 <dependency>
     <groupId>io.github.fludakit</groupId>
-    <artifactId>fluda-jdbc-client-core</artifactId>
+    <artifactId>fluda-jdbc-core</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </dependency>
 <dependency>
     <groupId>io.github.fludakit</groupId>
-    <artifactId>fluda-jdbc-client-cdi</artifactId>
+    <artifactId>fluda-jdbc-cdi</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </dependency>
 ```

@@ -31,7 +31,7 @@ The JDBC Client is available now. Check out the [getting started guide](../../do
 ```xml
 <dependency>
     <groupId>io.github.fludakit</groupId>
-    <artifactId>fluda-jdbc-client-core</artifactId>
+    <artifactId>fluda-jdbc-core</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </dependency>
 ```

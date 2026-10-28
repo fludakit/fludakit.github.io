@@ -6,7 +6,7 @@ This guide covers adding FluDa Data to your project, mapping an entity, declarin
 
 - JDK 21 or later.
 - The Jakarta Data API (`jakarta.data:jakarta.data-api`).
-- The FluDa [JDBC Client](../jdbc-client/getting-started.md) — generated implementations execute SQL through `JdbcClient`. In a CDI environment add `fluda-jdbc-client-cdi` and provide a `DataSource`.
+- The FluDa [JDBC Client](../jdbc-client/getting-started.md) — generated implementations execute SQL through `JdbcClient`. In a CDI environment add `fluda-jdbc-cdi` and provide a `DataSource`.
 - A CDI-compatible runtime to inject the generated repository beans (the processor also runs in plain builds; the generated `…Impl` is a CDI bean).
 - H2 or PostgreSQL. H2 is the default dialect; select PostgreSQL with `-Afluda.dialect=postgresql`.
 
@@ -33,7 +33,7 @@ Add the runtime API as a normal dependency, and the processor (plus the optional
     <!-- Executes the generated SQL; produces JdbcClient in CDI -->
     <dependency>
         <groupId>io.github.fludakit</groupId>
-        <artifactId>fluda-jdbc-client-cdi</artifactId>
+        <artifactId>fluda-jdbc-cdi</artifactId>
         <version>1.0.0-Beta1</version>
     </dependency>
 </dependencies>

@@ -128,7 +128,7 @@ Add the dependency to your project:
 ```xml
 <dependency>
     <groupId>io.github.fludakit</groupId>
-    <artifactId>fluda-jdbc-client-core</artifactId>
+    <artifactId>fluda-jdbc-core</artifactId>
     <version>1.0.0-Beta1</version>
 </dependency>
 ```

@@ -19,7 +19,7 @@ Use the following dependency when only the core fluent `JdbcClient` API is requi
 ```xml
 <dependency>
     <groupId>io.github.fludakit</groupId>
-    <artifactId>fluda-jdbc-client-core</artifactId>
+    <artifactId>fluda-jdbc-core</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </dependency>
 ```
@@ -33,7 +33,7 @@ For a CDI-managed `JdbcClient`, add the CDI artifact:
 ```xml
 <dependency>
     <groupId>io.github.fludakit</groupId>
-    <artifactId>fluda-jdbc-client-cdi</artifactId>
+    <artifactId>fluda-jdbc-cdi</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </dependency>
 ```
@@ -42,14 +42,14 @@ This artifact depends on the core module and is intended for a CDI environment.
 
 ### Integrating with MicroProfile Config
 
-The `fluda-jdbc-client-config` module is an optional addon to the CDI module that provides property-based configuration. It reads configuration properties from MicroProfile Config and produces a `JdbcConfig` bean, which the CDI module uses to configure the `JdbcClient`.
+The `fluda-jdbc-config` module is an optional addon to the CDI module that provides property-based configuration. It reads configuration properties from MicroProfile Config and produces a `JdbcConfig` bean, which the CDI module uses to configure the `JdbcClient`.
 
 Add this dependency when you want to configure the client via properties:
 
 ```xml
 <dependency>
     <groupId>io.github.fludakit</groupId>
-    <artifactId>fluda-jdbc-client-config</artifactId>
+    <artifactId>fluda-jdbc-config</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </dependency>
 ```
@@ -95,7 +95,7 @@ SELECT id FROM engineers WHERE id = $1 AND active = $2
 
 ### In a Java SE application
 
-After adding `fluda-jdbc-client-core` to your project, create a `JdbcClient` directly from a `DataSource`:
+After adding `fluda-jdbc-core` to your project, create a `JdbcClient` directly from a `DataSource`:
 
 ```java
 import io.github.fludakit.jdbc.JdbcClient;
@@ -120,7 +120,7 @@ JdbcClient client = JdbcClient.builder(dataSource)
 
 ### In a CDI environment
 
-In a Jakarta EE/CDI environment, add `fluda-jdbc-client-cdi` and expose a `DataSource` as a CDI bean:
+In a Jakarta EE/CDI environment, add `fluda-jdbc-cdi` and expose a `DataSource` as a CDI bean:
 
 ```java
 import javax.sql.DataSource;
