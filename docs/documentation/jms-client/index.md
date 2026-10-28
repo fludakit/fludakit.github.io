@@ -6,9 +6,9 @@ The project is organized into three published modules:
 
 | Module   | Artifact                  | Description                                                                                                                     |
 |----------|---------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| `core`   | `fluda-jms-client-core`   | The fluent `JmsClient` API, the `MessageConverter` and `DestinationResolver` SPIs, `CachingConnectionFactory`, and the `JmsConfig` value type. Depends only on the JDK and the Jakarta Messaging API. |
-| `config` | `fluda-jms-client-config` | Maps `fluda.jms.*` MicroProfile Config properties to a `JmsConfig` bean, and builds Artemis or Qpid JMS connection factories from the provider sections. |
-| `cdi`    | `fluda-jms-client-cdi`    | Produces the `CachingConnectionFactory` and `JmsClient` beans, resolving the underlying `JMSContext`, `ConnectionFactory` or configured provider section, and applying any optional `JmsConfig`, `MessageConverter` and `DestinationResolver` beans. |
+| `core`   | `fluda-jms-core`   | The fluent `JmsClient` API, the `MessageConverter` and `DestinationResolver` SPIs, `CachingConnectionFactory`, and the `JmsConfig` value type. Depends only on the JDK and the Jakarta Messaging API. |
+| `config` | `fluda-jms-config` | Maps `fluda.jms.*` MicroProfile Config properties to a `JmsConfig` bean, and builds Artemis or Qpid JMS connection factories from the provider sections. |
+| `cdi`    | `fluda-jms-cdi`    | Produces the `CachingConnectionFactory` and `JmsClient` beans, resolving the underlying `JMSContext`, `ConnectionFactory` or configured provider section, and applying any optional `JmsConfig`, `MessageConverter` and `DestinationResolver` beans. |
 
 ## Key concepts
 

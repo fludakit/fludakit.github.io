@@ -20,7 +20,7 @@ Use the core module when you only need the fluent API and provide the connection
 ```xml
 <dependency>
     <groupId>io.github.fludakit</groupId>
-    <artifactId>fluda-jms-client-core</artifactId>
+    <artifactId>fluda-jms-core</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </dependency>
 ```
@@ -32,12 +32,12 @@ Add the CDI module to have `JmsClient` produced for injection, and the config mo
 ```xml
 <dependency>
     <groupId>io.github.fludakit</groupId>
-    <artifactId>fluda-jms-client-cdi</artifactId>
+    <artifactId>fluda-jms-cdi</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </dependency>
 <dependency>
     <groupId>io.github.fludakit</groupId>
-    <artifactId>fluda-jms-client-config</artifactId>
+    <artifactId>fluda-jms-config</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 </dependency>
 ```
@@ -130,7 +130,7 @@ Each receive creates a consumer, receives and closes it, so the client stays usa
 
 ## CDI in Java SE
 
-With `fluda-jms-client-cdi` and `fluda-jms-client-config` on the classpath, the connection factory, its caching decorator and the client are all produced. Describe the broker in `META-INF/microprofile-config.properties`:
+With `fluda-jms-cdi` and `fluda-jms-config` on the classpath, the connection factory, its caching decorator and the client are all produced. Describe the broker in `META-INF/microprofile-config.properties`:
 
 ```properties
 fluda.jms.artemis.broker-url=tcp://localhost:61616
@@ -259,7 +259,7 @@ Provider sections — a section is active once its URL is set, and needs that pr
 |---|---|
 | `fluda.jms.artemis.broker-url` | Artemis core URL, e.g. `tcp://localhost:61616` |
 | `fluda.jms.artemis.username` / `.password` | fall back to `fluda.jms.username` / `.password` |
-| `fluda.jms.qpid.remote-url` | Qpid JMS URL, e.g. `amqp://localhost:5672` |
+| `fluda.jms.qpid.remote-uri` | Qpid JMS URI, e.g. `amqp://localhost:5672` |
 | `fluda.jms.qpid.username` / `.password` | fall back to `fluda.jms.username` / `.password` |
 
 `acknowledge-mode` uses the same short values as Spring Boot's `spring.jms.template.session.acknowledge-mode`: `auto` (`Session.AUTO_ACKNOWLEDGE`, the default), `client` (`Session.CLIENT_ACKNOWLEDGE`) and `dups-ok` (`Session.DUPS_OK_ACKNOWLEDGE`). Values are matched case-insensitively and `_` is accepted for `-`, so `CLIENT` and `DUPS_OK` both work. `transacted` is rejected deliberately, exactly as Spring Boot keeps it a separate flag: the fluent client never commits, so a transacted context would roll back on close — wrap an injected `JMSContext` in a transaction instead.
