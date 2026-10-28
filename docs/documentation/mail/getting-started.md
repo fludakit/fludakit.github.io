@@ -245,28 +245,32 @@ When a `Session` bean is available in the CDI container, the `MailSenderProducer
 
 ### Defining a custom mail session
 
-You can also define a custom mail session using `@MailDefinition` (Jakarta EE 11+):
+You can also define a custom mail session using `@MailSessionDefinition`:
 
 ```java
-import jakarta.mail.MailDefinition;
+import jakarta.mail.MailSessionDefinition;
 import jakarta.annotation.Resource;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Produces;
 import jakarta.mail.Session;
 
 @ApplicationScoped
-@MailDefinition(
+@MailSessionDefinition(
+    name = "java:comp/mail/mySession",
     host = "smtp.example.com",
     port = 587,
     from = "noreply@example.com",
-    enableStartTls = true,
-    auth = true,
-    username = "your-username",
-    password = "your-password"
+    transportProtocol = "smtp",
+    user = "your-username",
+    password = "your-password",
+    properties = {
+        "mail.smtp.starttls.enable=true",
+        "mail.smtp.auth=true"
+    }
 )
 public class MailSessionProducer {
 
-    @Resource(lookup = "java:comp/DefaultMail")
+    @Resource(lookup = "java:comp/mail/mySession")
     private Session mailSession;
 
     @Produces
@@ -277,7 +281,7 @@ public class MailSessionProducer {
 }
 ```
 
-The `@MailDefinition` annotation configures the mail session at the class level, and the container creates the corresponding JNDI resource. You then inject it via `@Resource` and expose it as a CDI bean.
+The `@MailSessionDefinition` annotation configures the mail session at the class level, and the container creates the corresponding JNDI resource. You then inject it via `@Resource` and expose it as a CDI bean.
 
 ### How it works
 
