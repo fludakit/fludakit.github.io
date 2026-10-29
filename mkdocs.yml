@@ -94,7 +94,8 @@ nav:
     - Mail:
       - Introduction: documentation/mail/index.md
       - Getting Started: documentation/mail/getting-started.md
-      - Advanced Topics: documentation/mail/advanced.md
+      - Mail Sender: documentation/mail/mail-sender.md
+      - Template Resolver: documentation/mail/template-resolver.md
     - Data:
       - Introduction: documentation/data/index.md
       - Getting Started: documentation/data/getting-started.md
