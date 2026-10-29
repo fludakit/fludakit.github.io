@@ -1604,10 +1604,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#client-wide-properties" class="md-nav__link">
+  <a href="#general-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Client-wide properties
+        General properties
       
     </span>
   </a>
@@ -1615,10 +1615,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#provider-sections" class="md-nav__link">
+  <a href="#artemis-specific-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Provider sections
+        Artemis-specific properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qpid-specific-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qpid-specific properties
       
     </span>
   </a>
@@ -2193,10 +2204,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#client-wide-properties" class="md-nav__link">
+  <a href="#general-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Client-wide properties
+        General properties
       
     </span>
   </a>
@@ -2204,10 +2215,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#provider-sections" class="md-nav__link">
+  <a href="#artemis-specific-properties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Provider sections
+        Artemis-specific properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qpid-specific-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Qpid-specific properties
       
     </span>
   </a>
@@ -2381,7 +2403,7 @@
 </span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
 </span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="na">fluda.jms.default-destination</span><span class="o">=</span><span class="s">orders</span>
 </span></code></pre></div>
-<h3 id="client-wide-properties">Client-wide properties<a class="headerlink" href="#client-wide-properties" title="Permanent link">&para;</a></h3>
+<h3 id="general-properties">General properties<a class="headerlink" href="#general-properties" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -2413,8 +2435,8 @@
 </tr>
 </tbody>
 </table>
-<h3 id="provider-sections">Provider sections<a class="headerlink" href="#provider-sections" title="Permanent link">&para;</a></h3>
-<p>A section is active once its URL is set, and needs that provider's client on the classpath:</p>
+<h3 id="artemis-specific-properties">Artemis-specific properties<a class="headerlink" href="#artemis-specific-properties" title="Permanent link">&para;</a></h3>
+<p>A section is active once its URL is set, and needs <code>fluda-jms-artemis</code> on the classpath:</p>
 <table>
 <thead>
 <tr>
@@ -2431,6 +2453,18 @@
 <td><code>fluda.jms.artemis.username</code> / <code>.password</code></td>
 <td>fall back to <code>fluda.jms.username</code> / <code>.password</code></td>
 </tr>
+</tbody>
+</table>
+<h3 id="qpid-specific-properties">Qpid-specific properties<a class="headerlink" href="#qpid-specific-properties" title="Permanent link">&para;</a></h3>
+<p>A section is active once its URL is set, and needs <code>fluda-jms-qpid</code> on the classpath:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td><code>fluda.jms.qpid.remote-uri</code></td>
 <td>Qpid JMS URI, e.g. <code>amqp://localhost:5672</code></td>
@@ -2570,7 +2604,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 29, 2026 10:22:46 UTC">October 29, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 29, 2026 10:27:03 UTC">October 29, 2026</span>
   </span>
 
     
