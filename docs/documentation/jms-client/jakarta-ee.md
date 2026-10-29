@@ -64,21 +64,7 @@ When none exists, production fails fast with an `IllegalStateException` naming t
 
 An optional `JmsConfig` bean — produced by the config module from `fluda.jms.*` — is applied to whichever spec is used. For a factory it contributes the credentials, the acknowledge mode and the default destination; for an injected `JMSContext` only the default destination is applicable, and configuring credentials or a non-default acknowledge mode makes production fail loudly instead of silently ignoring them.
 
-Optional `MessageConverter` and `DestinationResolver` beans are applied the same way, after the config: define one and every client the module produces uses it instead of the defaults, for example a `JsonbMessageConverter`:
-
-```java
-@ApplicationScoped
-public class JmsBeans {
-
-    @Produces
-    @ApplicationScoped
-    MessageConverter messageConverter() {
-        return new JsonbMessageConverter();
-    }
-}
-```
-
-Keep one default-qualified bean per SPI — with more than one candidate the container reports the ambiguity, so qualify the extras. The beans replace the defaults application-wide; for a per-client choice use the builder in plain Java SE instead.
+Optional `MessageConverter` and `DestinationResolver` beans are applied the same way, after the config: define one and every client the module produces uses it instead of the defaults. See [Message Converter](message-converter.md#cdi-integration) and [Destination Resolver](destination-resolver.md#cdi-integration) for details.
 
 ## Example
 

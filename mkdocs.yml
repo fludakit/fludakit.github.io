@@ -104,6 +104,8 @@ nav:
       - Introduction: documentation/jms-client/index.md
       - Getting Started: documentation/jms-client/getting-started.md
       - Jakarta EE: documentation/jms-client/jakarta-ee.md
+      - Message Converter: documentation/jms-client/message-converter.md
+      - Destination Resolver: documentation/jms-client/destination-resolver.md
   - Blog:
     - blog/index.md
 
