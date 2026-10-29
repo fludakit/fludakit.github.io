@@ -56,7 +56,15 @@ Use `org.apache.qpid:qpid-jms-client` (2.7.x) instead for AMQP 1.0. On a Jakarta
 
 ## Configuration
 
-Describe the broker in `META-INF/microprofile-config.properties`:
+Describe the broker in `META-INF/microprofile-config.properties`. The `config` module builds the connection factory from these properties — add the provider-specific module (`fluda-jms-artemis` or `fluda-jms-qpid`) to your dependencies:
+
+```xml
+<dependency>
+    <groupId>io.github.fludakit</groupId>
+    <artifactId>fluda-jms-artemis</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
 
 ### Apache Artemis
 
@@ -70,6 +78,16 @@ fluda.jms.default-destination=orders
 ```
 
 ### Apache Qpid JMS (AMQP 1.0)
+
+Use `fluda-jms-qpid` instead of `fluda-jms-artemis`:
+
+```xml
+<dependency>
+    <groupId>io.github.fludakit</groupId>
+    <artifactId>fluda-jms-qpid</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
 
 ```properties
 fluda.jms.qpid.remote-uri=amqp://localhost:5672
