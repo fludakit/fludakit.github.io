@@ -16,7 +16,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../advanced/">
+        <link rel="next" href="../version-strategy/">
       
       
         
@@ -712,6 +712,8 @@
       
         
       
+        
+      
     
     
     
@@ -990,14 +992,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/" class="md-nav__link">
+      <a href="../version-strategy/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Advanced Topics
+    Version Strategy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resource-resolver/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customizing Resource Resolver
   
 
     
@@ -2223,7 +2253,7 @@
 <p>For a custom strategy, set the property to the fully qualified class name of a <code>VersionStrategy</code> implementation. The class is loaded with <code>Class.forName(...)</code> and must provide a public no-argument constructor:</p>
 <div class="language-properties highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="na">fluda.sqlinit.version-strategy</span><span class="o">=</span><span class="s">com.example.MyVersionStrategy</span>
 </span></code></pre></div>
-<p>See <a href="../advanced/">advanced topics</a> for writing a custom version strategy and resource resolvers.</p>
+<p>See <a href="advanced.md">advanced topics</a> for writing a custom version strategy and resource resolvers.</p>
 <h2 id="creating-migration-scripts">Creating migration scripts<a class="headerlink" href="#creating-migration-scripts" title="Permanent link">&para;</a></h2>
 <p>Place versioned SQL scripts in <code>src/main/resources/db/migration/</code>. Each file must follow the naming convention <code>V&lt;version&gt;__&lt;description&gt;.sql</code>:</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>src/main/resources/
@@ -2298,7 +2328,7 @@
 </span></code></pre></div>
 <p>When no <code>@SqlInit</code>-qualified <code>DataSource</code> exists, the default unqualified bean is used.</p>
 <h2 id="next-steps">Next steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<p>See <a href="../advanced/">advanced topics</a> for custom version strategies, custom resource resolvers, and other advanced configuration options.</p>
+<p>See <a href="advanced.md">advanced topics</a> for custom version strategies, custom resource resolvers, and other advanced configuration options.</p>
 
 
 
@@ -2377,13 +2407,13 @@
         
         
           
-          <a href="../advanced/" class="md-footer__link md-footer__link--next" aria-label="Next: Advanced Topics">
+          <a href="../version-strategy/" class="md-footer__link md-footer__link--next" aria-label="Next: Version Strategy">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Advanced Topics
+                Version Strategy
               </div>
             </div>
             <div class="md-footer__button md-icon">

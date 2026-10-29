@@ -69,11 +69,15 @@
          <lastmod>2026-10-29</lastmod>
     </url>
     <url>
-         <loc>https://fludakit.github.io/documentation/sql-init/advanced/</loc>
+         <loc>https://fludakit.github.io/documentation/sql-init/getting-started/</loc>
          <lastmod>2026-10-29</lastmod>
     </url>
     <url>
-         <loc>https://fludakit.github.io/documentation/sql-init/getting-started/</loc>
+         <loc>https://fludakit.github.io/documentation/sql-init/resource-resolver/</loc>
+         <lastmod>2026-10-29</lastmod>
+    </url>
+    <url>
+         <loc>https://fludakit.github.io/documentation/sql-init/version-strategy/</loc>
          <lastmod>2026-10-29</lastmod>
     </url>
     <url>
