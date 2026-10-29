@@ -99,7 +99,9 @@ nav:
     - Data:
       - Introduction: documentation/data/index.md
       - Getting Started: documentation/data/getting-started.md
-      - Advanced Topics: documentation/data/advanced.md
+      - Applying DDD: documentation/data/ddd.md
+      - Optimistic Locking: documentation/data/version.md
+      - Domain Events: documentation/data/domain-events.md
     - JMS Client:
       - Introduction: documentation/jms-client/index.md
       - Getting Started: documentation/jms-client/getting-started.md
