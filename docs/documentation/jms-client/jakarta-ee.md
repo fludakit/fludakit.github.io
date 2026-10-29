@@ -52,19 +52,9 @@ On a server the deployment decides the address, the queue-or-topic kind and the 
 !!! warning "Do not produce a second `JMSContext` bean"
     The server already exposes the container-managed `JMSContext` as a bean. A producer of your own makes the `Instance<JMSContext>` lookup ambiguous and deployment fails with `WELD-001335: Ambiguous dependencies`.
 
-## How the CDI module resolves resources
+## CDI resource resolution
 
-`JmsClientProducer` uses the first of these that exists:
-
-1. **a `JMSContext` bean** — on Jakarta EE, the container-managed context. The client uses it as is and never closes it; credentials and session mode belong to the container.
-2. **a `ConnectionFactory` bean** — wrapped in the `CachingConnectionFactory` bean, so all clients on a thread share a context and a connection.
-3. **a configured provider section** (`fluda.jms.artemis.*` or `fluda.jms.qpid.*`) whose client is on the classpath — the config module builds the factory, wrapped the same way. Artemis is tried before Qpid when both are configured.
-
-When none exists, production fails fast with an `IllegalStateException` naming the three options, rather than handing out a client that only fails on the first send.
-
-An optional `JmsConfig` bean — produced by the config module from `fluda.jms.*` — is applied to whichever spec is used. For a factory it contributes the credentials, the acknowledge mode and the default destination; for an injected `JMSContext` only the default destination is applicable, and configuring credentials or a non-default acknowledge mode makes production fail loudly instead of silently ignoring them.
-
-Optional `MessageConverter` and `DestinationResolver` beans are applied the same way, after the config: define one and every client the module produces uses it instead of the defaults. See [Message Converter](message-converter.md#cdi-integration) and [Destination Resolver](destination-resolver.md#cdi-integration) for details.
+The CDI module resolves resources as described in [CDI Integration](getting-started.md#how-the-cdi-module-resolves-resources). On Jakarta EE, the first match is typically the container-managed `JMSContext` bean.
 
 ## Example
 

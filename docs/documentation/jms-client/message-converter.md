@@ -108,4 +108,4 @@ public class JmsBeans {
 }
 ```
 
-Keep one default-qualified bean per SPI — with more than one candidate the container reports the ambiguity, so qualify the extras. The bean replaces the default application-wide; for a per-client choice use the builder in plain Java SE instead.
+Keep one default-qualified bean per SPI — with more than one candidate, the container reports the ambiguity, so qualify the extras. The bean replaces the default application-wide; for a per-client choice use the builder in plain Java SE instead.

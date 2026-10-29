@@ -197,7 +197,7 @@ List<String> ids = client.destination("orders")
 
 Each receive creates a consumer, receives and closes it, so the client stays usable for further operations.
 
-## CDI in Java SE
+## CDI Integration
 
 With `fluda-jms-cdi` and `fluda-jms-config` on the classpath, the connection factory, its caching decorator and the client are all produced. After configuring the broker in `META-INF/microprofile-config.properties`, inject `JmsClient` and use it:
 
@@ -227,6 +227,20 @@ public class OrderService {
 ```
 
 The produced `JmsClient` is `@Dependent` on purpose: a client is not thread-safe, so it must not be shared by concurrent callers. Inject it into a request-scoped or dependent bean, or obtain a fresh instance per operation from `Instance<JmsClient>`. Injecting it into an `@ApplicationScoped` bean pins one client — and one cached context — for the application's lifetime.
+
+### How the CDI module resolves resources
+
+`JmsClientProducer` uses the first of these that exists:
+
+1. **a `JMSContext` bean** — on Jakarta EE, the container-managed context. The client uses it as-is and never closes it; credentials and session mode belong to the container.
+2. **a `ConnectionFactory` bean** — wrapped in the `CachingConnectionFactory` bean, so all clients on a thread share a context and a connection.
+3. **a configured provider section** (`fluda.jms.artemis.*` or `fluda.jms.qpid.*`) whose client is on the classpath — the config module builds the factory, wrapped the same way. Artemis is tried before Qpid when both are configured.
+
+When none exists, production fails fast with an `IllegalStateException` naming the three options, rather than handing out a client that only fails on the first send.
+
+An optional `JmsConfig` bean — produced by the config module from `fluda.jms.*` — is applied to whichever spec is used. For a factory, it contributes the credentials, the acknowledge mode and the default destination; for an injected `JMSContext` only the default destination is applicable, and configuring credentials or a non-default acknowledge mode makes production fail loudly instead of silently ignoring them.
+
+Optional `MessageConverter` and `DestinationResolver` beans are applied the same way, after the config: define one, and every client the module produces uses it instead of the defaults. See [Message Converter](message-converter.md#cdi-integration) and [Destination Resolver](destination-resolver.md#cdi-integration) for details.
 
 ## Examples
 
