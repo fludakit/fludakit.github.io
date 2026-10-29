@@ -84,7 +84,7 @@ nav:
       - Introduction: documentation/sql-init/index.md
       - Getting Started: documentation/sql-init/getting-started.md
       - Version Strategy: documentation/sql-init/version-strategy.md
-      - Customizing Resource Resolver: documentation/sql-init/resource-resolver.md
+      - Resource Resolver: documentation/sql-init/resource-resolver.md
     - Transaction:
       - Introduction: documentation/tx/index.md
       - Getting Started: documentation/tx/getting-started.md

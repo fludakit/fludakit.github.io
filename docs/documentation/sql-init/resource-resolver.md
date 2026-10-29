@@ -1,4 +1,4 @@
-# Customizing Resource Resolver
+# Resource Resolver
 
 Script locations use a protocol prefix that maps to a `ResourceResolver`:
 
