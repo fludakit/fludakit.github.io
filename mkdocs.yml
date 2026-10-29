@@ -103,6 +103,7 @@ nav:
     - JMS Client:
       - Introduction: documentation/jms-client/index.md
       - Getting Started: documentation/jms-client/getting-started.md
+      - Jakarta EE: documentation/jms-client/jakarta-ee.md
   - Blog:
     - blog/index.md
 
