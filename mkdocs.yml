@@ -77,9 +77,8 @@ nav:
     - JDBC Client:
       - Introduction: documentation/jdbc-client/index.md
       - Getting Started: documentation/jdbc-client/getting-started.md
-      - Dive deeper:
-        - Querying and Result mapping: documentation/jdbc-client/querying.md
-        - Updates and generated keys: documentation/jdbc-client/updates.md
+      - Querying and Result mapping: documentation/jdbc-client/querying.md
+      - Updates and generated keys: documentation/jdbc-client/updates.md
     - SQL Init:
       - Introduction: documentation/sql-init/index.md
       - Getting Started: documentation/sql-init/getting-started.md
