@@ -2,13 +2,15 @@
 
 FluDa JMS Client is a fluent, framework-agnostic client for [Jakarta Messaging](https://jakarta.ee/specifications/messaging/) (JMS 3.1). It mirrors the developer experience of Spring's `JmsClient` — `send`, `receive`, `browse`, payload conversion and destination resolution — without requiring Spring or any other framework. The `core` module depends only on the Jakarta Messaging API; the `cdi` and `config` modules add CDI wiring and MicroProfile Config for Java SE and Jakarta EE.
 
-The project is organized into three published modules:
+The project is organized into five published modules:
 
 | Module   | Artifact                  | Description                                                                                                                     |
 |----------|---------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | `core`   | `fluda-jms-core`   | The fluent `JmsClient` API, the `MessageConverter` and `DestinationResolver` SPIs, `CachingConnectionFactory`, and the `JmsConfig` value type. Depends only on the JDK and the Jakarta Messaging API. |
-| `config` | `fluda-jms-config` | Maps `fluda.jms.*` MicroProfile Config properties to a `JmsConfig` bean, and builds Artemis or Qpid JMS connection factories from the provider sections. |
-| `cdi`    | `fluda-jms-cdi`    | Produces the `CachingConnectionFactory` and `JmsClient` beans, resolving the underlying `JMSContext`, `ConnectionFactory` or configured provider section, and applying any optional `JmsConfig`, `MessageConverter` and `DestinationResolver` beans. |
+| `config` | `fluda-jms-config` | Maps `fluda.jms.*` MicroProfile Config properties to a `JmsConfig` bean, and builds Artemis or Qpid JMS connection factories from provider-specific sections. |
+| `cdi`    | `fluda-jms-cdi`    | Produces the `CachingConnectionFactory` and `JmsClient` beans, resolving the underlying `JMSContext`, `ConnectionFactory` or a configured provider section, and applying any optional `JmsConfig`, `MessageConverter` and `DestinationResolver` beans. |
+| `artemis` | `fluda-jms-artemis` | Builds an Artemis `ConnectionFactory` from `fluda.jms.artemis.*` properties. |
+| `qpid` | `fluda-jms-qpid` | Builds a Qpid JMS `ConnectionFactory` from `fluda.jms.qpid.*` properties. |
 
 ## Key concepts
 

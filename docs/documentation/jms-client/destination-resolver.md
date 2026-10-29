@@ -16,7 +16,7 @@ public interface DestinationResolver {
 
 ### SimpleDestinationResolver (default)
 
-Creates destinations on the broker through the `JMSContext`, caching each resolution so repeated lookups of the same name return the same destination:
+Creates destinations on the broker through the `JMSContext`, caching each resolution, so repeated lookups of the same name return the same destination:
 
 - Names prefixed with `topic:` resolve to a `Topic`
 - Everything else resolves to a `Queue`
@@ -50,7 +50,7 @@ Lookups are not cached: the JNDI provider is expected to cache looked-up objects
 
 ## Custom resolver
 
-Implement `DestinationResolver` for destination resolution strategies the built-ins do not cover — for example, an explicit registry or a cloud-based destination service:
+Implement `DestinationResolver` for destination resolution strategies that the built-ins do not cover — for example, an explicit registry or a cloud-based destination service:
 
 ```java
 public class RegistryDestinationResolver implements DestinationResolver {

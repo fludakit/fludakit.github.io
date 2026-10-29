@@ -34,7 +34,7 @@ Handles the common payload types:
 | `Map` | `MapMessage` |
 | `Serializable` | `ObjectMessage` |
 
-A payload type the converter does not know makes `send` fail with the `CONVERSION` code.
+A payload type that the converter does not know makes `send` fail with the `CONVERSION` code.
 
 ### JsonbMessageConverter (opt-in)
 
@@ -59,7 +59,7 @@ JSON-B is an optional dependency: the class loads without it, and only construct
 
 ## Custom converter
 
-Implement `MessageConverter` for payload types the built-ins do not cover:
+Implement `MessageConverter` for payload types that the built-ins do not cover:
 
 ```java
 public class AvroMessageConverter implements MessageConverter {
