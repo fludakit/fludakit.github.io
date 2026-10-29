@@ -19,7 +19,7 @@ hide:
 
 <p class="tagline"><span class="brand">Flu</span>ent <span class="brand">Da</span>ta Toolkit for <strong>Jakarta EE / CDI</strong></p>
 
-A lightweight, modular data-access suite designed for standard Jakarta EE and CDI environments. Type-safe, fluent JDBC queries — no Spring required.
+A lightweight, modular toolkit for data access, messaging, and application infrastructure — built on standard Jakarta EE and CDI.
 
 [Get Started](documentation/jdbc-client/getting-started.md){ .md-button .md-button--primary }
 [GitHub](https://github.com/fludakit){ .md-button }
