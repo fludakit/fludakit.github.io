@@ -16,7 +16,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../advanced/">
+        <link rel="next" href="../ddd/">
       
       
         
@@ -1252,6 +1252,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -1496,14 +1500,70 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/" class="md-nav__link">
+      <a href="../ddd/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Advanced Topics
+    Applying DDD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../version/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optimistic Locking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../domain-events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain Events
   
 
     
@@ -2248,7 +2308,7 @@
 </span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setStatus</span><span class="p">(</span><span class="n">Status</span><span class="w"> </span><span class="n">status</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="na">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">status</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
 </span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="p">}</span>
 </span></code></pre></div>
-<p>Fields map to snake-cased columns (<code>title</code> → <code>title</code>, a hypothetical <code>dueDate</code> → <code>due_date</code>) unless the type is a value object or association — see <a href="../advanced/">advanced topics</a>. Enum fields round-trip through the generated mapper by name.</p>
+<p>Fields map to snake-cased columns (<code>title</code> → <code>title</code>, a hypothetical <code>dueDate</code> → <code>due_date</code>) unless the type is a value object or association — see <a href="advanced.md">advanced topics</a>. Enum fields round-trip through the generated mapper by name.</p>
 <h2 id="declaring-a-repository">Declaring a repository<a class="headerlink" href="#declaring-a-repository" title="Permanent link">&para;</a></h2>
 <p>Extend one of the Jakarta Data repository supertypes with a concrete entity and identifier type. An empty interface already gives you the full set of built-in CRUD operations:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">jakarta.data.repository.CrudRepository</span><span class="p">;</span>
@@ -2428,7 +2488,7 @@
 <p><code>@Find</code>/<code>@Query</code> methods are accepted exactly as declared; a relation traversal must be written in <code>@By</code> (for example <code>@By("customer.name")</code>) rather than spelled into the name.</p>
 <h2 id="where-to-next">Where to next<a class="headerlink" href="#where-to-next" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Model aggregates, embed value objects and reference other aggregates in <a href="../advanced/">advanced topics</a>.</li>
+<li>Model aggregates, embed value objects and reference other aggregates in <a href="advanced.md">advanced topics</a>.</li>
 <li>Learn how the generated SQL is executed in the <a href="../../jdbc-client/">JDBC Client</a> documentation, and how to demarcate transactions in the <a href="../../tx/">Transaction</a> documentation.</li>
 </ul>
 
@@ -2509,13 +2569,13 @@
         
         
           
-          <a href="../advanced/" class="md-footer__link md-footer__link--next" aria-label="Next: Advanced Topics">
+          <a href="../ddd/" class="md-footer__link md-footer__link--next" aria-label="Next: Applying DDD">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Advanced Topics
+                Applying DDD
               </div>
             </div>
             <div class="md-footer__button md-icon">
