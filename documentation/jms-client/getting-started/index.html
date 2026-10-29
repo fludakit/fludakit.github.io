@@ -1692,13 +1692,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cdi-in-java-se" class="md-nav__link">
+  <a href="#cdi-integration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CDI in Java SE
+        CDI Integration
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="CDI Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-the-cdi-module-resolves-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the CDI module resolves resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2292,13 +2309,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cdi-in-java-se" class="md-nav__link">
+  <a href="#cdi-integration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        CDI in Java SE
+        CDI Integration
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="CDI Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-the-cdi-module-resolves-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How the CDI module resolves resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2529,7 +2563,7 @@
 </span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">        </span><span class="p">.</span><span class="na">browse</span><span class="p">(</span><span class="n">message</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">JmsMessages</span><span class="p">.</span><span class="na">stringProperty</span><span class="p">(</span><span class="n">message</span><span class="p">,</span><span class="w"> </span><span class="s">"orderId"</span><span class="p">));</span>
 </span></code></pre></div>
 <p>Each receive creates a consumer, receives and closes it, so the client stays usable for further operations.</p>
-<h2 id="cdi-in-java-se">CDI in Java SE<a class="headerlink" href="#cdi-in-java-se" title="Permanent link">&para;</a></h2>
+<h2 id="cdi-integration">CDI Integration<a class="headerlink" href="#cdi-integration" title="Permanent link">&para;</a></h2>
 <p>With <code>fluda-jms-cdi</code> and <code>fluda-jms-config</code> on the classpath, the connection factory, its caching decorator and the client are all produced. After configuring the broker in <code>META-INF/microprofile-config.properties</code>, inject <code>JmsClient</code> and use it:</p>
 <div class="language-java highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.github.fludakit.jms.JmsClient</span><span class="p">;</span>
 </span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.github.fludakit.jms.support.JmsMessages</span><span class="p">;</span>
@@ -2555,6 +2589,16 @@
 </span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>The produced <code>JmsClient</code> is <code>@Dependent</code> on purpose: a client is not thread-safe, so it must not be shared by concurrent callers. Inject it into a request-scoped or dependent bean, or obtain a fresh instance per operation from <code>Instance&lt;JmsClient&gt;</code>. Injecting it into an <code>@ApplicationScoped</code> bean pins one client — and one cached context — for the application's lifetime.</p>
+<h3 id="how-the-cdi-module-resolves-resources">How the CDI module resolves resources<a class="headerlink" href="#how-the-cdi-module-resolves-resources" title="Permanent link">&para;</a></h3>
+<p><code>JmsClientProducer</code> uses the first of these that exists:</p>
+<ol>
+<li><strong>a <code>JMSContext</code> bean</strong> — on Jakarta EE, the container-managed context. The client uses it as-is and never closes it; credentials and session mode belong to the container.</li>
+<li><strong>a <code>ConnectionFactory</code> bean</strong> — wrapped in the <code>CachingConnectionFactory</code> bean, so all clients on a thread share a context and a connection.</li>
+<li><strong>a configured provider section</strong> (<code>fluda.jms.artemis.*</code> or <code>fluda.jms.qpid.*</code>) whose client is on the classpath — the config module builds the factory, wrapped the same way. Artemis is tried before Qpid when both are configured.</li>
+</ol>
+<p>When none exists, production fails fast with an <code>IllegalStateException</code> naming the three options, rather than handing out a client that only fails on the first send.</p>
+<p>An optional <code>JmsConfig</code> bean — produced by the config module from <code>fluda.jms.*</code> — is applied to whichever spec is used. For a factory, it contributes the credentials, the acknowledge mode and the default destination; for an injected <code>JMSContext</code> only the default destination is applicable, and configuring credentials or a non-default acknowledge mode makes production fail loudly instead of silently ignoring them.</p>
+<p>Optional <code>MessageConverter</code> and <code>DestinationResolver</code> beans are applied the same way, after the config: define one, and every client the module produces uses it instead of the defaults. See <a href="../message-converter/#cdi-integration">Message Converter</a> and <a href="../destination-resolver/#cdi-integration">Destination Resolver</a> for details.</p>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
 <p>The <a href="https://github.com/fludakit/examples">fludakit/examples</a> repository contains runnable modules:</p>
 <table>
@@ -2604,7 +2648,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 29, 2026 10:27:03 UTC">October 29, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 29, 2026 10:32:20 UTC">October 29, 2026</span>
   </span>
 
     

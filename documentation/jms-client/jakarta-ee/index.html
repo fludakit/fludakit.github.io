@@ -1570,10 +1570,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-the-cdi-module-resolves-resources" class="md-nav__link">
+  <a href="#cdi-resource-resolution" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How the CDI module resolves resources
+        CDI resource resolution
       
     </span>
   </a>
@@ -1992,10 +1992,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-the-cdi-module-resolves-resources" class="md-nav__link">
+  <a href="#cdi-resource-resolution" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How the CDI module resolves resources
+        CDI resource resolution
       
     </span>
   </a>
@@ -2076,16 +2076,8 @@
 <p class="admonition-title">Do not produce a second <code>JMSContext</code> bean</p>
 <p>The server already exposes the container-managed <code>JMSContext</code> as a bean. A producer of your own makes the <code>Instance&lt;JMSContext&gt;</code> lookup ambiguous and deployment fails with <code>WELD-001335: Ambiguous dependencies</code>.</p>
 </div>
-<h2 id="how-the-cdi-module-resolves-resources">How the CDI module resolves resources<a class="headerlink" href="#how-the-cdi-module-resolves-resources" title="Permanent link">&para;</a></h2>
-<p><code>JmsClientProducer</code> uses the first of these that exists:</p>
-<ol>
-<li><strong>a <code>JMSContext</code> bean</strong> — on Jakarta EE, the container-managed context. The client uses it as is and never closes it; credentials and session mode belong to the container.</li>
-<li><strong>a <code>ConnectionFactory</code> bean</strong> — wrapped in the <code>CachingConnectionFactory</code> bean, so all clients on a thread share a context and a connection.</li>
-<li><strong>a configured provider section</strong> (<code>fluda.jms.artemis.*</code> or <code>fluda.jms.qpid.*</code>) whose client is on the classpath — the config module builds the factory, wrapped the same way. Artemis is tried before Qpid when both are configured.</li>
-</ol>
-<p>When none exists, production fails fast with an <code>IllegalStateException</code> naming the three options, rather than handing out a client that only fails on the first send.</p>
-<p>An optional <code>JmsConfig</code> bean — produced by the config module from <code>fluda.jms.*</code> — is applied to whichever spec is used. For a factory it contributes the credentials, the acknowledge mode and the default destination; for an injected <code>JMSContext</code> only the default destination is applicable, and configuring credentials or a non-default acknowledge mode makes production fail loudly instead of silently ignoring them.</p>
-<p>Optional <code>MessageConverter</code> and <code>DestinationResolver</code> beans are applied the same way, after the config: define one and every client the module produces uses it instead of the defaults. See <a href="../message-converter/#cdi-integration">Message Converter</a> and <a href="../destination-resolver/#cdi-integration">Destination Resolver</a> for details.</p>
+<h2 id="cdi-resource-resolution">CDI resource resolution<a class="headerlink" href="#cdi-resource-resolution" title="Permanent link">&para;</a></h2>
+<p>The CDI module resolves resources as described in <a href="../getting-started/#how-the-cdi-module-resolves-resources">CDI Integration</a>. On Jakarta EE, the first match is typically the container-managed <code>JMSContext</code> bean.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <p>The <a href="https://github.com/fludakit/examples/tree/main/jms-client-jakartaee"><code>jms-client-jakartaee</code></a> example runs on GlassFish 8 and WildFly 42.</p>
 
@@ -2110,7 +2102,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 29, 2026 10:13:24 UTC">October 29, 2026</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 29, 2026 10:32:20 UTC">October 29, 2026</span>
   </span>
 
     
