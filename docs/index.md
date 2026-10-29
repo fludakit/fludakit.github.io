@@ -94,19 +94,15 @@ FluDa provides a developer-friendly, fluent programming model for data access th
 
 -   :material-feather:{ .lg .middle } **Lightweight**
 
-    Zero framework dependencies at the core — just JDBC and a `DataSource`. No Spring, no heavyweight runtime.
+    Zero framework dependencies — built on standard CDI and Jakarta EE. No Spring, no heavyweight runtime.
 
 -   :material-puzzle:{ .lg .middle } **Modular**
 
     Use only what you need — core, config, CDI, or any combination — across every pillar.
 
--   :material-server:{ .lg .middle } **Jakarta EE Native**
+-   :material-server:{ .lg .middle } **Jakarta EE/CDI Friendly**
 
     Built on standard Jakarta EE, CDI, Jakarta Data, and MicroProfile Config. Works with GlassFish, WildFly, and any compatible server.
-
--   :material-language-java:{ .lg .middle } **Type-Safe**
-
-    Compile-time safety end to end — fluent queries, POJO mapping and converters, and annotation-generated Jakarta Data repositories.
 
 </div>
 
