@@ -97,7 +97,7 @@ fluda.jms.qpid.password=artemis
 fluda.jms.default-destination=orders
 ```
 
-### Client-wide properties
+### General properties
 
 | Property | Default | Meaning |
 |---|---|---|
@@ -106,14 +106,21 @@ fluda.jms.default-destination=orders
 | `fluda.jms.acknowledge-mode` | `auto` | `auto`, `client` or `dups-ok` |
 | `fluda.jms.default-destination` | – | destination **name**, resolved through the `DestinationResolver` when `client.destination()` is called |
 
-### Provider sections
+### Artemis-specific properties
 
-A section is active once its URL is set, and needs that provider's client on the classpath:
+A section is active once its URL is set, and needs `fluda-jms-artemis` on the classpath:
 
 | Property | Meaning |
 |---|---|
 | `fluda.jms.artemis.broker-url` | Artemis core URL, e.g. `tcp://localhost:61616` |
 | `fluda.jms.artemis.username` / `.password` | fall back to `fluda.jms.username` / `.password` |
+
+### Qpid-specific properties
+
+A section is active once its URL is set, and needs `fluda-jms-qpid` on the classpath:
+
+| Property | Meaning |
+|---|---|
 | `fluda.jms.qpid.remote-uri` | Qpid JMS URI, e.g. `amqp://localhost:5672` |
 | `fluda.jms.qpid.username` / `.password` | fall back to `fluda.jms.username` / `.password` |
 
