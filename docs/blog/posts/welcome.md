@@ -42,10 +42,14 @@ JdbcClient is a lightweight alternative that keeps the focus on JDBC:
 Make sure you have Java 21+ and Maven 3.9+ installed, then create a new Maven project from IDE or Maven archetype.
 
 ```bash 
-mvn archetype:generate -DgroupId=com.example -DartifactId=jdbc-client-demo -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+mvn archetype:generate \
+-DgroupId=com.example \
+-DartifactId=jdbc-client-demo \
+-DarchetypeArtifactId=maven-archetype-quickstart \
+-DinteractiveMode=false
 ```
 
-Add the core artifact and a JDBC driver, such as H2, to your `pom.xml`:
+Open your `pom.xml`, and add the core artifact and a JDBC driver, such as H2:
 
 ```xml
 <dependency>
@@ -69,6 +73,14 @@ To create a `JdbcClient`, provide a `DataSource` and pass it to the constructor:
 
 ```java
 import io.github.fludakit.jdbc.JdbcClient;
+...
+var ds = Utils.newDataSource(); // an in-memory H2 DataSource in the example
+JdbcClient client = new JdbcClient(ds);
+```
+
+Then use this jdbc client to execute SQL statements. The following example shows how to insert a row and retrieve the generated key, then query all rows and map them to a record:
+
+```java
 import io.github.fludakit.jdbc.support.GeneratedKeyHolder;
 import io.github.fludakit.jdbc.support.KeyHolder;
 
@@ -76,9 +88,6 @@ import java.util.List;
 
 public record Engineer(Long id, String name) {
 }
-
-var ds = Utils.newDataSource(); // an in-memory H2 DataSource in the example
-JdbcClient client = new JdbcClient(ds);
 
 // Insert and retrieve the generated id.
 KeyHolder holder = new GeneratedKeyHolder();
@@ -95,9 +104,7 @@ List<Engineer> all = client
         .list();
 ```
 
-This example is adapted from [`VanillaExample`](https://github.com/fludakit/examples/blob/main/vanilla/src/main/java/com/example/VanillaExample.java) in the examples repository.
-
-Use the same client for reads, updates, and deletes:
+Similar to the previous example, use the same client for reads, updates, and deletes:
 
 ```java
 Engineer ada = client.sql("SELECT id, name FROM engineers WHERE id = :id")
@@ -117,6 +124,8 @@ client.sql("DELETE FROM engineers WHERE id = :id")
 
 That is the whole model: a `JdbcClient` instance, a fluent specification, and standard JDBC under the covers.
 
+This example is adapted from [`VanillaExample`](https://github.com/fludakit/examples/blob/main/vanilla/src/main/java/com/example/VanillaExample.java) in the Fludakit examples repository.
+
 To customize client-wide defaults, create the client with the builder:
 
 ```java
@@ -129,7 +138,7 @@ JdbcClient client = JdbcClient.builder(dataSource)
 
 ## Using JdbcClient with CDI
 
-Add the `fluda-jdbc-cdi` module:
+Add the `fluda-jdbc-cdi` module to your `pom.xml`:
 
 ```xml
 <dependency>
@@ -161,7 +170,7 @@ public class EngineerService {
 }
 ```
 
-The [`javase` example](https://github.com/fludakit/examples/tree/main/javase) uses this pattern and starts CDI with Weld SE. Its [`DataSourceProducer`](https://github.com/fludakit/examples/blob/main/javase/src/main/java/com/example/DataSourceProducer.java) creates a HikariCP pool and exposes it to CDI:
+Its [`DataSourceProducer`](https://github.com/fludakit/examples/blob/main/javase/src/main/java/com/example/DataSourceProducer.java) creates a HikariCP pool and exposes it to CDI:
 
 ```java
 @ApplicationScoped
@@ -188,9 +197,11 @@ public class DataSourceProducer {
 
 The service code stays the same whether the `DataSource` comes from a local pool, a servlet container, or a Jakarta EE server.
 
+The [`javase` example](https://github.com/fludakit/examples/tree/main/javase) uses this pattern and starts CDI with Weld SE. 
+
 ## Providing a DataSource in Tomcat
 
-The [`servlet` example](https://github.com/fludakit/examples/tree/main/servlet) runs on Tomcat 11 with Weld Servlet. The container owns the connection pool, so the example declares it in `META-INF/context.xml` and exposes it through JNDI:
+The Tomcat container context manages the connection pools globally. Add a `META-INF/context.xml`, declare a `javax.sql.DataSource` resource, which can be accessed via JNDI:
 
 ```xml
 <Context>
@@ -224,6 +235,8 @@ public class DataSourceProducer {
 ```
 
 After that, the rest of the application is ordinary JdbcClient code. See the example's `EngineerService` and `EngineerServlet` for a compact CRUD flow.
+
+The [`servlet` example](https://github.com/fludakit/examples/tree/main/servlet) runs on Tomcat 11 with Weld Servlet.
 
 ## Providing a DataSource in Jakarta EE
 
