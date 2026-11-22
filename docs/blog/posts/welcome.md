@@ -1,5 +1,7 @@
 ---
 date: 2026-11-19
+authors:
+  - hantsy
 categories:
   - Announcement
   - Getting Started
