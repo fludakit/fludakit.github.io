@@ -1,27 +1,32 @@
 # Transaction Support
 
-FluDa Transaction Support provides container-agnostic declarative and programmatic transaction boundaries backed directly by a standard `DataSource` or JPA.
+Container-agnostic declarative and programmatic transaction boundaries backed directly by a standard `DataSource` or JPA.
 
-## How it works
+| | |
+|---|---|
+| **Documentation** | [fludakit.github.io/tx](https://fludakit.github.io/tx/) |
+| **Source** | [github.com/fludakit/tx](https://github.com/fludakit/tx) |
+| **Artifacts** | `fluda-tx-core`, `fluda-tx-cdi`, `fluda-tx-jdbc`, `fluda-tx-jpa` |
 
-Depending on the runtime, applications can participate in database transactions in two ways:
+The reference documentation for this module lives in the module repository and is published with GitHub Pages.
 
-- **Java SE or a Servlet container** — use the `fluda-tx` modules for *resource-local* transactions. A CDI interceptor honors `jakarta.transaction.Transactional` over a plain JDBC `DataSource`, with no JTA required.
-- **A full Jakarta EE runtime** (WildFly, GlassFish, Payara, Open Liberty, ...) — the container ships a JTA implementation, so `jakarta.transaction.Transactional` works out of the box and the `fluda-tx` modules are unnecessary.
+## Quick example
 
-## Modules
+```java
+import io.github.fludakit.tx.PlatformTransactionManager;
+import io.github.fludakit.tx.jdbc.DataSourceTransactionManager;
+import io.github.fludakit.tx.jdbc.TransactionAwareDataSourceProxy;
 
-| Module | Description |
-|--------|-------------|
-| `fluda-tx-core` | Core SPI: `PlatformTransactionManager`, exceptions, and synchronization infrastructure. |
-| `fluda-tx-cdi` | CDI extension and `@Transactional` interceptor. |
-| `fluda-tx-jdbc` | Resource-local `DataSourceTransactionManager` and `TransactionAwareDataSourceProxy`. |
-| `fluda-tx-jpa` | JPA-based transaction manager with `EntityManager` integration. |
+import javax.sql.DataSource;
 
-## Key concepts
+DataSource pool = ...; // your raw pool
+TransactionAwareDataSourceProxy dataSource = new TransactionAwareDataSourceProxy(pool);
+PlatformTransactionManager transactionManager = new DataSourceTransactionManager(pool);
+```
 
-- **`PlatformTransactionManager`** — the SPI that abstracts transaction begin/commit/rollback. The `fluda-tx-jdbc` module provides a `DataSourceTransactionManager` for resource-local JDBC transactions.
-- **`TransactionAwareDataSourceProxy`** — wraps a raw `DataSource` so that `getConnection()` returns the transaction-bound connection inside an active transaction, and `close()` is suppressed.
-- **CDI interceptor** — auto-registered by `fluda-tx-cdi`, drives the transaction lifecycle around `@Transactional` methods.
+## Sections
 
-See the [getting started](getting-started.md) guide to add dependencies and set up a minimal example, the [JDBC implementation](jdbc.md) page for DataSource-based transactions, the [JPA implementation](jpa.md) page for EntityManager-based transactions, and [advanced topics](advanced.md) for multiple DataSources and mixing JPA with JDBC.
+- [Getting Started](https://fludakit.github.io/tx/getting-started) — add dependencies and set up resource-local transactions in a CDI environment.
+- [JDBC Implementation](https://fludakit.github.io/tx/jdbc) — resource-local transactions over a plain `DataSource`.
+- [JPA Implementation](https://fludakit.github.io/tx/jpa) — transactions driven by an `EntityManager`.
+- [Mixing JDBC and JPA](https://fludakit.github.io/tx/advanced) — multiple data sources and sharing one transaction between JPA and JDBC.

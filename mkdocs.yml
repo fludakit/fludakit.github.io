@@ -69,44 +69,41 @@ plugins:
   - git-revision-date-localized:
       enable_creation_date: true
       enable_git_follow: false
+  - redirects:
+      redirect_maps:
+        'documentation/jdbc-client/getting-started.md': 'https://fludakit.github.io/jdbc-client/getting-started/'
+        'documentation/jdbc-client/querying.md': 'https://fludakit.github.io/jdbc-client/querying/'
+        'documentation/jdbc-client/updates.md': 'https://fludakit.github.io/jdbc-client/updates/'
+        'documentation/sql-init/getting-started.md': 'https://fludakit.github.io/sql-init/getting-started/'
+        'documentation/sql-init/version-strategy.md': 'https://fludakit.github.io/sql-init/version-strategy/'
+        'documentation/sql-init/resource-resolver.md': 'https://fludakit.github.io/sql-init/resource-resolver/'
+        'documentation/tx/getting-started.md': 'https://fludakit.github.io/tx/getting-started/'
+        'documentation/tx/jdbc.md': 'https://fludakit.github.io/tx/jdbc/'
+        'documentation/tx/jpa.md': 'https://fludakit.github.io/tx/jpa/'
+        'documentation/tx/advanced.md': 'https://fludakit.github.io/tx/advanced/'
+        'documentation/mail/getting-started.md': 'https://fludakit.github.io/mail/getting-started/'
+        'documentation/mail/mail-sender.md': 'https://fludakit.github.io/mail/mail-sender/'
+        'documentation/mail/template-resolver.md': 'https://fludakit.github.io/mail/template-resolver/'
+        'documentation/data/getting-started.md': 'https://fludakit.github.io/data/getting-started/'
+        'documentation/data/ddd.md': 'https://fludakit.github.io/data/ddd/'
+        'documentation/data/version.md': 'https://fludakit.github.io/data/version/'
+        'documentation/data/domain-events.md': 'https://fludakit.github.io/data/domain-events/'
+        'documentation/jms-client/getting-started.md': 'https://fludakit.github.io/jms-client/getting-started/'
+        'documentation/jms-client/jakarta-ee.md': 'https://fludakit.github.io/jms-client/jakarta-ee/'
+        'documentation/jms-client/message-converter.md': 'https://fludakit.github.io/jms-client/message-converter/'
+        'documentation/jms-client/destination-resolver.md': 'https://fludakit.github.io/jms-client/destination-resolver/'
 
 nav:
   - Home: index.md
   - Documentation:
     - Introduction: documentation/introduction.md
-    - JDBC Client:
-      - Introduction: documentation/jdbc-client/index.md
-      - Getting Started: documentation/jdbc-client/getting-started.md
-      - Querying and Result mapping: documentation/jdbc-client/querying.md
-      - Updates and generated keys: documentation/jdbc-client/updates.md
-    - SQL Init:
-      - Introduction: documentation/sql-init/index.md
-      - Getting Started: documentation/sql-init/getting-started.md
-      - Version Strategy: documentation/sql-init/version-strategy.md
-      - Resource Resolver: documentation/sql-init/resource-resolver.md
-    - Transaction:
-      - Introduction: documentation/tx/index.md
-      - Getting Started: documentation/tx/getting-started.md
-      - JDBC Implementation: documentation/tx/jdbc.md
-      - JPA Implementation: documentation/tx/jpa.md
-      - Mixing JDBC and JPA: documentation/tx/advanced.md
-    - Mail:
-      - Introduction: documentation/mail/index.md
-      - Getting Started: documentation/mail/getting-started.md
-      - Mail Sender: documentation/mail/mail-sender.md
-      - Template Resolver: documentation/mail/template-resolver.md
-    - Data:
-      - Introduction: documentation/data/index.md
-      - Getting Started: documentation/data/getting-started.md
-      - Applying DDD: documentation/data/ddd.md
-      - Optimistic Locking: documentation/data/version.md
-      - Domain Events: documentation/data/domain-events.md
-    - JMS Client:
-      - Introduction: documentation/jms-client/index.md
-      - Getting Started: documentation/jms-client/getting-started.md
-      - Jakarta EE: documentation/jms-client/jakarta-ee.md
-      - Message Converter: documentation/jms-client/message-converter.md
-      - Destination Resolver: documentation/jms-client/destination-resolver.md
+    - JDBC Client: documentation/jdbc-client/index.md
+    - SQL Init: documentation/sql-init/index.md
+    - Transaction: documentation/tx/index.md
+    - Mail: documentation/mail/index.md
+    - Data: documentation/data/index.md
+    - JMS Client: documentation/jms-client/index.md
+    - Conditional Beans: documentation/conditional-beans/index.md
   - Blog:
     - blog/index.md
 

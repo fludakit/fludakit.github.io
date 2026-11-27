@@ -21,14 +21,14 @@ hide:
 
 A lightweight, modular toolkit for data access, messaging, and application infrastructure — built on standard Jakarta EE and CDI.
 
-[Get Started](documentation/jdbc-client/getting-started.md){ .md-button .md-button--primary }
+[Get Started](https://fludakit.github.io/jdbc-client/getting-started/){ .md-button .md-button--primary }
 [GitHub](https://github.com/fludakit){ .md-button }
 
 </div>
 
 ## What is FluDa?
 
-FluDa provides a developer-friendly, fluent programming model for data access that mirrors modern APIs like Spring's `JdbcClient` — without the bulk of a full framework. It is organized into six standalone pillars:
+FluDa provides a developer-friendly, fluent programming model for data access that mirrors modern APIs like Spring's `JdbcClient` — without the bulk of a full framework. It is organized into seven standalone pillars:
 
 <div class="grid cards" markdown>
 
@@ -38,7 +38,7 @@ FluDa provides a developer-friendly, fluent programming model for data access th
     A lightweight, type-safe, fluent query engine built directly over JDBC.
     { .card-body }
 
-    → [Getting Started](documentation/jdbc-client/getting-started.md){ .card-link } [:octicons-mark-github-16: jdbc-client](https://github.com/fludakit/jdbc-client){ .card-github }
+    → [Getting Started](https://fludakit.github.io/jdbc-client/getting-started/){ .card-link } [:octicons-mark-github-16: jdbc-client](https://github.com/fludakit/jdbc-client){ .card-github }
     { .card-footer }
 
 -   :material-sync:{ .lg .middle } **SQL Initialization**
@@ -47,7 +47,7 @@ FluDa provides a developer-friendly, fluent programming model for data access th
     Automates database schema management and data population on application startup.
     { .card-body }
 
-    → [Getting Started](documentation/sql-init/getting-started.md){ .card-link } [:octicons-mark-github-16: sql-init](https://github.com/fludakit/sql-init){ .card-github }
+    → [Getting Started](https://fludakit.github.io/sql-init/getting-started/){ .card-link } [:octicons-mark-github-16: sql-init](https://github.com/fludakit/sql-init){ .card-github }
     { .card-footer }
 
 -   :material-transit-connection-variant:{ .lg .middle } **Transaction Support**
@@ -56,7 +56,7 @@ FluDa provides a developer-friendly, fluent programming model for data access th
     Container-agnostic declarative and programmatic transaction boundaries.
     { .card-body }
 
-    → [Getting Started](documentation/tx/getting-started.md){ .card-link } [:octicons-mark-github-16: tx](https://github.com/fludakit/tx){ .card-github }
+    → [Getting Started](https://fludakit.github.io/tx/getting-started/){ .card-link } [:octicons-mark-github-16: tx](https://github.com/fludakit/tx){ .card-github }
     { .card-footer }
 
 -   :material-email-outline:{ .lg .middle } **Mail**
@@ -65,7 +65,7 @@ FluDa provides a developer-friendly, fluent programming model for data access th
     Simple mail abstraction with Jakarta Mail and pluggable providers.
     { .card-body }
 
-    → [Getting Started](documentation/mail/getting-started.md){ .card-link } [:octicons-mark-github-16: mail](https://github.com/fludakit/mail){ .card-github }
+    → [Getting Started](https://fludakit.github.io/mail/getting-started/){ .card-link } [:octicons-mark-github-16: mail](https://github.com/fludakit/mail){ .card-github }
     { .card-footer }
 
 -   :material-database-cog:{ .lg .middle } **Data**
@@ -74,7 +74,7 @@ FluDa provides a developer-friendly, fluent programming model for data access th
     A Jakarta Data implementation — `@Repository` interfaces with query-by-method-name, `@Find`, and `@Query`, generated at compile time and executed through `JdbcClient`.
     { .card-body }
 
-    → [Getting Started](documentation/data/getting-started.md){ .card-link } [:octicons-mark-github-16: data](https://github.com/fludakit/data){ .card-github }
+    → [Getting Started](https://fludakit.github.io/data/getting-started/){ .card-link } [:octicons-mark-github-16: data](https://github.com/fludakit/data){ .card-github }
     { .card-footer }
 
 -   :material-message-text-outline:{ .lg .middle } **JMS Client**
@@ -83,7 +83,16 @@ FluDa provides a developer-friendly, fluent programming model for data access th
     A fluent Jakarta Messaging client with CDI wiring, payload converters and cached connections.
     { .card-body }
 
-    → [Getting Started](documentation/jms-client/getting-started.md){ .card-link } [:octicons-mark-github-16: jms-client](https://github.com/fludakit/jms-client){ .card-github }
+    → [Getting Started](https://fludakit.github.io/jms-client/getting-started/){ .card-link } [:octicons-mark-github-16: jms-client](https://github.com/fludakit/jms-client){ .card-github }
+    { .card-footer }
+
+-   :material-source-branch:{ .lg .middle } **Conditional Beans**
+    { .card-header }
+
+    A portable CDI extension that enables a bean only when a condition matches the current deployment.
+    { .card-body }
+
+    → [Getting Started](https://fludakit.github.io/conditional-beans/getting-started/){ .card-link } [:octicons-mark-github-16: conditional-beans](https://github.com/fludakit/conditional-beans){ .card-github }
     { .card-footer }
 
 </div>
@@ -108,14 +117,15 @@ FluDa provides a developer-friendly, fluent programming model for data access th
 
 ## Modules
 
-| Pillar | Artifacts | Latest Version | Description |
-|--------|-----------|----------------|-------------|
-| **JDBC Client** | `core`, `config`, `cdi` | `1.0.0-Beta1` | Fluent query engine over JDBC |
-| **SQL Init** | `core`, `config`, `cdi` | `1.0.0-SNAPSHOT` (*In development*) | Automated schema migration on startup |
-| **Transaction Support** | `core`, `cdi`, `jdbc`, `jpa` | `1.0.0-SNAPSHOT` (*In development*) | Declarative & programmatic transactions |
-| **Mail** | `core`, `config`, `cdi` | `1.0.0-SNAPSHOT` (*In development*) | Mail abstraction with Jakarta Mail and pluggable providers |
-| **Data** | `core`, `qbn`, `processor` | `1.0.0-SNAPSHOT` (*In development*) | Jakarta Data repositories generated at compile time |
-| **JMS Client** | `core`, `config`, `cdi` | `1.0.0-SNAPSHOT` (*In development*) | Fluent Jakarta Messaging client with CDI wiring |
+| Pillar | Artifacts | Latest Version | Documentation | Description |
+|--------|-----------|----------------|---------------|-------------|
+| **JDBC Client** | `core`, `config`, `cdi` | `1.0.0-Beta1` | [jdbc-client](https://fludakit.github.io/jdbc-client/) | Fluent query engine over JDBC |
+| **SQL Init** | `core`, `config`, `cdi` | `1.0.0-SNAPSHOT` (*In development*) | [sql-init](https://fludakit.github.io/sql-init/) | Automated schema migration on startup |
+| **Transaction Support** | `core`, `cdi`, `jdbc`, `jpa` | `1.0.0-SNAPSHOT` (*In development*) | [tx](https://fludakit.github.io/tx/) | Declarative & programmatic transactions |
+| **Mail** | `core`, `config`, `cdi` | `1.0.0-SNAPSHOT` (*In development*) | [mail](https://fludakit.github.io/mail/) | Mail abstraction with Jakarta Mail and pluggable providers |
+| **Data** | `core`, `qbn`, `processor` | `1.0.0-SNAPSHOT` (*In development*) | [data](https://fludakit.github.io/data/) | Jakarta Data repositories generated at compile time |
+| **JMS Client** | `core`, `config`, `cdi` | `1.0.0-SNAPSHOT` (*In development*) | [jms-client](https://fludakit.github.io/jms-client/) | Fluent Jakarta Messaging client with CDI wiring |
+| **Conditional Beans** | `api`, `full`, `lite` | `1.0.0-SNAPSHOT` (*In development*) | [conditional-beans](https://fludakit.github.io/conditional-beans/) | Portable CDI extension that enables a bean only when a condition matches |
 
 ## Quick example
 
@@ -150,7 +160,7 @@ int rows = client.sql("INSERT INTO engineers (name, department) VALUES (:name, :
         .update();
 ```
 
-See the [getting started guide](documentation/jdbc-client/getting-started.md) for all options.
+See the [getting started guide](https://fludakit.github.io/jdbc-client/getting-started/) for all options.
 
 ## Examples
 

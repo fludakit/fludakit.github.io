@@ -1,20 +1,32 @@
-# FluDa: Fluent Data Toolkit for Jakarta EE/CDI
+# JDBC Client
 
-FluDa is a lightweight, framework-agnostic JDBC client for Jakarta EE and CDI applications. It provides the
-fluent developer experience of Spring's `JdbcClient` without introducing a Spring dependency.
+A lightweight, type-safe, fluent query engine built directly over JDBC for Jakarta EE / CDI applications.
 
-The project is organized into three core modules:
+| | |
+|---|---|
+| **Documentation** | [fludakit.github.io/jdbc-client](https://fludakit.github.io/jdbc-client/) |
+| **Source** | [github.com/fludakit/jdbc-client](https://github.com/fludakit/jdbc-client) |
+| **Artifacts** | `fluda-jdbc-core`, `fluda-jdbc-config`, `fluda-jdbc-cdi` |
 
-| Module   | Artifact                  | Description                                                                                                |
-|----------|---------------------------|------------------------------------------------------------------------------------------------------------|
-| `core`   | `fluda-jdbc-core`         | Contains the plain `JdbcClient` API and helper types. It depends only on the JDK's `javax.sql.DataSource`. |
-| `config` | `fluda-jdbc-config`       | Integrates with MicroProfile Config and exposes a configurable `JdbcConfig` bean.                          |
-| `cdi`    | `fluda-jdbc-cdi`          | Provides CDI producers for `JdbcClient` and the CDI-discovered `ConverterRegistry`.                        |
+The reference documentation for this module lives in the module repository and is published with GitHub Pages.
 
-The repository also includes Arquillian integration tests for GlassFish and WildFly. These examples provide a practical
-reference for validating Jakarta EE/CDI applications in real runtimes.
+## Quick example
 
-Follow this reading order:
+```java
+import io.github.fludakit.jdbc.JdbcClient;
+import javax.sql.DataSource;
 
-- Start with [getting started](getting-started.md) to add the dependency, run your first query, and review configuration options such as placeholders, timeouts, and defaults.
-- Explore [querying and result mapping](querying.md) and [updates](updates.md) for detailed behavior.
+DataSource dataSource = ...; // obtain a DataSource from your application or runtime
+JdbcClient client = new JdbcClient(dataSource);
+
+List<Engineer> engineers = client.sql("SELECT id, name FROM engineers WHERE department = :dept")
+        .param("dept", "Engineering")
+        .query(Engineer.class)
+        .list();
+```
+
+## Sections
+
+- [Getting Started](https://fludakit.github.io/jdbc-client/getting-started) — add the dependency, run your first query, and review configuration options such as placeholders, timeouts, and defaults.
+- [Querying and Result Mapping](https://fludakit.github.io/jdbc-client/querying) — named and positional parameters, POJO mapping, and custom row mappers.
+- [Updates and Generated Keys](https://fludakit.github.io/jdbc-client/updates) — inserts, updates, batches, and generated key retrieval.
