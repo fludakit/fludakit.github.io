@@ -1,23 +1,44 @@
-# FluDa Mail: Lightweight Mail Abstraction for Jakarta EE/CDI
+# Mail
 
-FluDa Mail provides a simple, framework-agnostic mail abstraction for Jakarta EE and CDI applications. It defines a clean `MailSender` interface with built-in Jakarta Mail (SMTP) support, and makes it straightforward to integrate third-party providers like SendGrid.
+A simple mail abstraction with built-in Jakarta Mail (SMTP) support and pluggable providers for third-party services.
 
-The project is organized into three core modules:
+| | |
+|---|---|
+| **Documentation** | [fludakit.github.io/mail](https://fludakit.github.io/mail/) |
+| **Source** | [github.com/fludakit/mail](https://github.com/fludakit/mail) |
+| **Artifacts** | `fluda-mail-core`, `fluda-mail-config`, `fluda-mail-cdi` |
 
-| Module   | Artifact              | Description                                                                                                   |
-|----------|-----------------------|---------------------------------------------------------------------------------------------------------------|
-| `core`   | `fluda-mail-core`     | Contains the `MailSender` API, `MailMessage`, `MailBuilder`, and the default `JakartaMailSender` implementation. Depends only on the JDK and Jakarta Mail API. |
-| `config` | `fluda-mail-config`   | Integrates with MicroProfile Config to read `fluda.mail.*` properties and expose a `MailConfig` bean.         |
-| `cdi`    | `fluda-mail-cdi`      | Provides CDI producers for `MailSender` and `MailBuilder`, wiring the core beans into a Jakarta EE environment. |
+The reference documentation for this module lives in the module repository and is published with GitHub Pages.
 
-## Key concepts
+## Quick example
 
-- **`MailSender`** — the core interface with a single `send(MailMessage)` method. The `core` module provides `JakartaMailSender` for SMTP; you can implement your own for third-party services.
-- **`MailMessage`** — a simple POJO holding `from`, `to`, `subject`, `htmlBody`, and `attachments`.
-- **`MailBuilder`** — a fluent builder that wraps a `MailSender` and optionally a `TemplateProcessor` for rendering email templates.
-- **`MailConfig`** — configuration POJO with SMTP/POP3 properties, produced from MicroProfile Config in the `config` module.
+```java
+import io.github.fludakit.mail.JakartaMailSender;
+import io.github.fludakit.mail.MailMessage;
+import io.github.fludakit.mail.MailSender;
 
-## Reading order
+import jakarta.mail.Session;
+import java.util.Properties;
 
-- Start with [getting started](getting-started.md) to add dependencies and send your first email.
-- Explore [advanced topics](advanced.md) for custom `MailSender` implementations and CDI integration patterns.
+Properties props = new Properties();
+props.put("mail.smtp.host", "smtp.example.com");
+props.put("mail.smtp.port", "587");
+props.put("mail.smtp.auth", "true");
+props.put("mail.smtp.starttls.enable", "true");
+
+Session session = Session.getInstance(props);
+MailSender sender = new JakartaMailSender(session);
+
+MailMessage message = new MailMessage();
+message.setFrom("sender@example.com");
+message.addTo("recipient@example.com");
+message.setSubject("Hello from FluDa Mail");
+message.setHtmlBody("<p>This is a test email sent with FluDa Mail.</p>");
+sender.send(message);
+```
+
+## Sections
+
+- [Getting Started](https://fludakit.github.io/mail/getting-started) — add dependencies and send your first email.
+- [Mail Sender](https://fludakit.github.io/mail/mail-sender) — the `MailSender` abstraction and the built-in Jakarta Mail implementation.
+- [Template Resolver](https://fludakit.github.io/mail/template-resolver) — rendering email templates with FreeMarker or simple placeholder processing.
